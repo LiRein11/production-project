@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // То, куда производится сборка (в данном проекте не важна, т.к. сборка идёт с помощью webpack)
+    "outDir": "./dist/",
+    // Подсвечивает все места где не указан тип, однако это не означает, что теперь нельзя использовать any. Это значит, что в подобных ситуациях разработчик должен явно писать any.
+    "noImplicitAny": true,
+    // Модульная система (common js, es6 и тд)
+    "module": "ESNext",
+    // В какую спецификацию будет компиляция: для поддержки большинства браузеров
+    "target": "es5",
+    // Для того, чтобы писать конструкции jsx
+    "jsx": "react-jsx",
+    // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
+    "allowJs": true,
+    // В 99% используется node
+    "moduleResolution": "node",
+    // Позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import (require() module.export) = common js
+    // import Moment from 'moment'
+    // console.log(Moment) (без флага esModuleInterop:true результат undefined, а с флагом [object Object])
+    "esModuleInterop": true,
+    // Если какая-либо библиотека не имеет default import, лоадеры вроде ts-loader или babel-loader автоматически создают их вместо такого импорта
+    // import * as React from 'react' можно писать такой: import React from 'react'
+    "allowSyntheticDefaultImports": true,
+    // Для абсолютного импорта
+    "baseUrl": "."
+  },
+  // Чтобы импорты нормально отрабатывали и сборка не падала
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
