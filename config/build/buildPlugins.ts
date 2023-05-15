@@ -7,11 +7,11 @@ export function buildPlugins({ paths }: BuildOptions): webpack.WebpackPluginInst
   return [
     new HtmlWebpackPlugin({
       template: paths.html,
-    }),
+    }), // Создаёт html файлик и прокидывает в него скрипты
     new webpack.ProgressPlugin(), // Для процентов сборки
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
+    }), // Выделение css-кода в отдельные файлы (чтобы не оставались в бандле)
   ];
 }

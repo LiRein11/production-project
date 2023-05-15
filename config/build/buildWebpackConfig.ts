@@ -21,7 +21,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     module: {
       rules: buildLoaders(options), // Конфигурация of loaders (обработка файлов, которые выходят за рамки js)
     },
-    resolve: buildResolves(), // Для импортов
+    resolve: buildResolves(options), // Для импортов
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
   };

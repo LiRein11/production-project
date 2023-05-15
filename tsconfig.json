@@ -22,7 +22,11 @@
     // import * as React from 'react' можно писать такой: import React from 'react'
     "allowSyntheticDefaultImports": true,
     // Для абсолютного импорта
-    "baseUrl": "."
+    "baseUrl": ".",
+    // Для того, чтобы не было глубоких импортов (../../../)
+    "paths": {
+      "*": ["./src/*"]
+    },
   },
   // Чтобы импорты нормально отрабатывали и сборка не падала
   "ts-node": {

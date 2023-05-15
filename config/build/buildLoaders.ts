@@ -28,7 +28,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       // Compiles Sass to CSS
       'sass-loader',
     ],
-  };
+  }; // Лоудеры нужны для обработки файлов определенного расширения.
 
   return [typescriptLoader, cssLoader];
 }

@@ -14,7 +14,7 @@ export function useTheme(): IUseThemeResult {
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
-  
+
   return {
     theme,
     toggleTheme,
