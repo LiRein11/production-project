@@ -33,5 +33,6 @@
         "compilerOptions": {
             "module": "CommonJS"
         }
-    }
+    },
+    // "include": ["./config/jest/jest-setup.ts"] // Чтобы подружить ts и testing-library/jest-dom
 }

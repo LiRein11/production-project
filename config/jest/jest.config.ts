@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -20,7 +22,17 @@ export default {
     moduleDirectories: ['node_modules'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
+    // transformIgnorePatterns: [
+    //     "\\\\node_modules\\\\",
+    //     "\\.pnp\\.[^\\\\]+$"
+    //   ],
+    modulePaths: ['<rootDir>src/'],
+    moduleNameMapper: {
+        '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'mockSvgFile.tsx'), // Мапер, который просто возвращает для svg компонент
+    },
     rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -160,10 +172,6 @@ export default {
     // transform: undefined,
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-    // transformIgnorePatterns: [
-    //   "\\\\node_modules\\\\",
-    //   "\\.pnp\\.[^\\\\]+$"
-    // ],
 
     // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
     // unmockedModulePathPatterns: undefined,
