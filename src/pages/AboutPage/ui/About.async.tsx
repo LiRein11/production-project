@@ -6,7 +6,7 @@ export const AboutAsync = lazy(
             setTimeout(
                 () =>
                     // @ts-ignore
-                    resolve(import('./About')),
+                    resolve(import('./AboutPage')),
                 1500,
             );
         }),

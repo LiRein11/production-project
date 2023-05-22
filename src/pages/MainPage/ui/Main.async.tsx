@@ -6,7 +6,7 @@ export const MainAsync = lazy(
             setTimeout(
                 () =>
                     // @ts-ignore
-                    resolve(import('./Main')),
+                    resolve(import('./MainPage')),
                 1500,
             );
         }),

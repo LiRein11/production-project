@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { ThemeSwither } from 'widgets/ThemeSwitcher';
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import cls from './Navbar.module.scss';
 
 export interface NavbarProps {
