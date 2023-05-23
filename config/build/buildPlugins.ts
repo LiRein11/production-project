@@ -6,7 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev, env }: BuildOptions): webpack.WebpackPluginInstance[] {
-    return [
+    const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
         }), // Создаёт html файлик и прокидывает в него скрипты
@@ -18,7 +18,12 @@ export function buildPlugins({ paths, isDev, env }: BuildOptions): webpack.Webpa
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }), // Для создания глобальных переменных
-        new webpack.HotModuleReplacementPlugin(), // Обновить приложение после изменения в коде и при этом не обновлять страницу
         new BundleAnalyzerPlugin({ analyzerMode: env.analyze ? 'server' : 'disabled' }), // Анализ бандла
     ];
+
+    if (isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin()); // Обновить приложение после изменения в коде и при этом не обновлять страницу)
+    }
+
+    return plugins;
 }
