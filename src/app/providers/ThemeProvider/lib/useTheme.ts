@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { ETheme, LOCAL_STORAGE_THEME_KEY, ThemeContext } from './ThemeContext';
 
 export interface IUseThemeResult {
-  toggleTheme: () => void;
-  theme: ETheme;
+    theme: ETheme;
+    toggleTheme: () => void;
 }
 
 export function useTheme(): IUseThemeResult {

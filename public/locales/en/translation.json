@@ -1,9 +1,10 @@
 {
-  "Главная страница": "MainPage",
-  "Язык": "English",
-  "Главная": "Main",
-  "О сайте": "About us",
-  "Короткий язык": "En",
-  "Page not found": "Page not found",
-  "toggle": "Toggle"
+    "Главная страница": "MainPage",
+    "Язык": "English",
+    "Главная": "Main",
+    "О сайте": "About us",
+    "Короткий язык": "En",
+    "Page not found": "Page not found",
+    "toggle": "Toggle",
+    "Login": "Login"
 }

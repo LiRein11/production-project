@@ -4,4 +4,4 @@ const mockSvgFile = function () {
     return <div />;
 };
 
-export default mockSvgFile;
+export default mockSvgFile; // Для того, чтобы из svg сделать React компонент.

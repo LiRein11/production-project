@@ -4,11 +4,16 @@
   padding: 6px 15px;
 }
 
-.clear {
+.clear,
+.clearPrimary {
   padding: 0;
   background: none;
   outline: none;
   border: none;
+}
+
+.clearPrimary {
+  color: var(--primary-color);
 }
 
 .outline {

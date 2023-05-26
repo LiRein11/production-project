@@ -26,6 +26,12 @@ Clear.args = {
     theme: ButtonTheme.CLEAR,
 };
 
+export const ClearPrimary = Template.bind({});
+ClearPrimary.args = {
+    children: 'Text',
+    theme: ButtonTheme.CLEAR_PRIMARY,
+};
+
 export const Outline = Template.bind({});
 Outline.args = {
     children: 'Text',
