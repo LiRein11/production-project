@@ -19,7 +19,6 @@ export default {
     //   ],
     modulePaths: ['<rootDir>src/'],
     moduleNameMapper: {
-        'entities/(.*)': '<rootDir>src/entities/$1',
         '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'mockSvgFile.tsx'), // Для файлов, которые заканчиваются на svg сгенерируется пустой компонент, просто div. Можно и svg отрисовать, но смысла мало.
     }, // Мапер, который делает из svg - React компонент

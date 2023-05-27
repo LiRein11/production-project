@@ -1,15 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { counterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import cls from './Counter.module.scss';
 
-export interface CounterProps {
-    className?: string;
-}
-
-export const Counter = ({ className }: CounterProps) => {
+export const Counter = () => {
     const value = useSelector(getCounterValue);
     const dispatch = useDispatch();
 
@@ -22,7 +16,7 @@ export const Counter = ({ className }: CounterProps) => {
     };
 
     return (
-        <div className={classNames(cls.Counter, {}, [className])}>
+        <div>
             <h1 data-testid="value-title">{value}</h1>
             <Button data-testid="increment" onClick={increment}>
                 inc
