@@ -4,7 +4,6 @@ import { ETheme, LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../lib/ThemeConte
 export interface ThemeProviderProps {
     initialTheme?: ETheme;
 }
-
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme) || ETheme.LIGHT;
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {

@@ -3,11 +3,6 @@ import { ETheme, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import cls from './ThemeSwitcher.module.scss';
-
-// export enum ThemeButton={
-
-// }
 
 export interface ThemeSwitcherProps {
     className?: string;
@@ -22,7 +17,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
             onClick={toggleTheme}
             className={classNames('', {}, [className])}
         >
-            {ETheme.DARK === theme ? <DarkIcon /> : <LightIcon />}
+            {theme === ETheme.LIGHT ? <LightIcon /> : <DarkIcon />}
         </Button>
     );
 };
