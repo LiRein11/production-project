@@ -6,5 +6,7 @@
     "Короткий язык": "Ru",
     "Page not found": "Страница не найдена",
     "toggle": "Переключить",
-    "Login": "Войти"
+    "Login": "Войти",
+    "Enter username": "Введите username",
+    "Enter password": "Введите пароль"
 }
