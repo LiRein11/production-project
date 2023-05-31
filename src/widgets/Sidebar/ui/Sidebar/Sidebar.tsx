@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, EButtonTheme } from 'shared/ui/Button/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -32,7 +32,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 data-testid="sidebar-btn"
                 onClick={onToggle}
                 className={cls.collapseBtn}
-                theme={ButtonTheme.BACKGROUND_INVERTED}
+                theme={EButtonTheme.BACKGROUND_INVERTED}
                 square
                 size={ButtonSize.L}
             >

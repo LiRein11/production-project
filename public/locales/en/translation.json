@@ -7,6 +7,9 @@
     "Page not found": "Page not found",
     "toggle": "Toggle",
     "Login": "Login",
-    "Enter username": "Enter username", 
-    "Enter password": "Enter password" 
+    "Enter username": "Enter username",
+    "Enter password": "Enter password",
+    "Authorization form": "Authorization form",
+    "Uncorrect username or password": "Uncorrect username or password",
+    "Logout": "Logout"
 }

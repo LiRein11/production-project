@@ -46,7 +46,7 @@ module.exports = {
     "no-underscore-dangle": "off",
     "react/jsx-no-comment-textnodes": "off",
     "implicit-arrow-linebreak": "off",
-    "max-len": ["error", { ignoreComments: true, code: 100 }],
+    "max-len": ["error", { ignoreComments: true, code: 120 }],
     "react/button-has-type": "off",
     "i18next/no-literal-string": [
       "off",
