@@ -33,16 +33,6 @@ export const Modal = (props: ModalProps) => {
         }
     }, [onClose]);
 
-    // const openHandler = useCallback(() => {
-    //     if (onOpen) {
-    //         setIsOpening(true);
-    //         timerRef.current = setTimeout(() => {
-    //             onOpen();
-    //             setIsOpening(false);
-    //         }, ANIMATION_DELAY);
-    //     }
-    // }, [onOpen]);
-
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
@@ -57,7 +47,7 @@ export const Modal = (props: ModalProps) => {
     }; // Чтобы не было закрытия модалки при нажатии на неё.
 
     useEffect(() => {
-        if (onOpen) {
+        if (isOpen) {
             setIsOpening(true);
             timerRef.current = setTimeout(() => {
                 // onOpen();

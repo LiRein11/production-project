@@ -12,11 +12,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <Button
-            theme={EButtonTheme.CLEAR}
-            onClick={toggleTheme}
-            className={classNames('', {}, [className])}
-        >
+        <Button theme={EButtonTheme.CLEAR} onClick={toggleTheme} className={classNames('', {}, [className])}>
             {theme === ETheme.LIGHT ? <LightIcon /> : <DarkIcon />}
         </Button>
     );

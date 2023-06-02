@@ -1,3 +1,3 @@
 import { StateSchema } from 'app/providers/redux';
 
-export const getLogin = (state: StateSchema) => state.loginForm;
+export const getLoginState = (state: StateSchema) => state?.loginForm;
