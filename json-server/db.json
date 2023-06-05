@@ -25,5 +25,14 @@
             "password": "123"
         }
     ],
-    "profile": { "name": "typicode" }
+    "profile": { 
+        "first": "Сергей",
+        "lastname": "Степанов",
+        "age": 23,
+        "currency": "RUB",
+        "country": "Russia",
+        "city": "Kurgan",
+        "username": "admin",
+        "avatar": "https://i.pinimg.com/originals/da/c0/85/dac085d470da7af521b620b6fa33d13e.png"
+    }
 }

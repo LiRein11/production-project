@@ -24,3 +24,5 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
 
     return store;
 } // С помощью функции чтобы можно было использовать потом для storybook или jest.
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

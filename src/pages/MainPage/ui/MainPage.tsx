@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const MainPage = () => {
+const MainPage = memo(() => {
     const { t } = useTranslation();
 
     const [value, setValue] = useState('');
@@ -17,6 +17,6 @@ const MainPage = () => {
             {/* <BugButton /> */}
         </>
     );
-};
+});
 
 export default MainPage;
