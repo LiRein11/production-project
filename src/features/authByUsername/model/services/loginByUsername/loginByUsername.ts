@@ -23,11 +23,11 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
             }
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-            thunkApi.dispatch(userActions.setAuthData(response.data));
+            thunkApi.dispatch(userActions.setAuthData(response.data)); // 2 вызов диспатча
 
-            return response.data;
+            return response.data; // 3 вызов диспатча
         } catch (e) {
             return thunkApi.rejectWithValue('error');
         }
     },
-);
+); // 1ый вызов диспатча (при вызове самого экшена)
