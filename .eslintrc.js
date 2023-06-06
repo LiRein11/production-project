@@ -63,13 +63,10 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
     "no-param-reassign": "off",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { "argsIgnorePattern": "^_" }
-    ]
+    "no-undef": "off",
   },
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
 };

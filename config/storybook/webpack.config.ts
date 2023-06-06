@@ -11,11 +11,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
-    config.resolve.modules.unshift(paths.src);
-    config.resolve.extensions.push('.ts', '.tsx');
+    config!.resolve!.modules!.unshift(paths.src);
+    config!.resolve!.extensions!.push('.ts', '.tsx');
 
     // eslint-disable-next-line
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    const rules = config.module!.rules! as RuleSetRule[];
+    config!.module!.rules = rules.map((rule) => {
         // Default rule for images /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
@@ -23,16 +24,17 @@ export default ({ config }: { config: webpack.Configuration }) => {
         return rule;
     }); // Находит правило, которое обрабатывает svg и затем если оно найдено, то для этого правила исключается обработка svg. В обратном случае если с svg никак не связано, то это правило возвращается. (фиксится ошибка с svg у storybook). У сторибука свой способ обработки svg, а так как в проекте подключен svgr лоудер(который превращает svg в React компонент), приходится убирать способ сторибука обрабатывать svg из массива.
 
-    config.module.rules.push({
+    config!.module!.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
     }); // А потом как раз добавляется свой способ обработки svg - svgr.
 
-    config.module.rules.push(buildCssLoader(true));
+    config!.module!.rules.push(buildCssLoader(true));
 
-    config.plugins.push(
+    config!.plugins!.push(
         new DefinePlugin({
-            __IS_DEV__: true,
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify(''),
         }),
     );
 

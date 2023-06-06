@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicReducerLoader } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -54,7 +54,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch, username, password]);
 
     return (
-        <DynamicModuleLoader reducers={{ loginForm: loginReducer }} removeAfterUnmount>
+        <DynamicReducerLoader reducers={{ loginForm: loginReducer }} removeAfterUnmount>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Authorization form')} />
                 {error && <Text text={t('Uncorrect username or password')} theme={ETextTheme.ERROR} />}
@@ -82,7 +82,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                     {t('Login')}
                 </Button>
             </div>
-        </DynamicModuleLoader>
+        </DynamicReducerLoader>
     );
 });
 

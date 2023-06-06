@@ -11,15 +11,15 @@ export function useTheme(): IUseThemeResult {
 
     const toggleTheme = () => {
         const newTheme = theme === ETheme.LIGHT ? ETheme.DARK : ETheme.LIGHT;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
         // document.body.className = newTheme;
     };
     useEffect(() => {
-        document.body.className = theme;
+        document.body.className = theme || '';
     }, [theme]);
     return {
-        theme,
+        theme: theme || ETheme.LIGHT,
         toggleTheme,
     };
 }

@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { LoginSchema } from '../types/loginSchema';
 import { loginActions, loginReducer } from './loginSlice';
 
@@ -30,7 +29,7 @@ describe('loginSlice.test', () => {
         expect(
             loginReducer(state as LoginSchema, loginActions.setClearError()),
         ).toEqual({
-            error: null,
+            error: null || '',
         });
     });
     test('test set clearInputs', () => {
@@ -39,10 +38,7 @@ describe('loginSlice.test', () => {
             password: '123',
         };
         expect(
-            loginReducer(
-                state as LoginSchema,
-                loginActions.setClearInputs(),
-            ),
+            loginReducer(state as LoginSchema, loginActions.setClearInputs()),
         ).toEqual({
             username: '',
             password: '',
