@@ -6,6 +6,7 @@ export enum EButtonTheme {
     CLEAR = 'clear',
     CLEAR_PRIMARY = 'clearPrimary',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
 }

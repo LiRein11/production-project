@@ -1,38 +1,38 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "json-server",
-            "userId": "1"
-        },
-        {
-            "id": "2",
-            "title": "json-server",
-            "userId": "2"
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "body": "some comment",
-            "postId": "1"
-        }
-    ],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": { 
-        "first": "Сергей",
-        "lastname": "Степанов",
-        "age": 23,
-        "currency": "RUB",
-        "country": "Russia",
-        "city": "Kurgan",
-        "username": "admin",
-        "avatar": "https://i.pinimg.com/originals/da/c0/85/dac085d470da7af521b620b6fa33d13e.png"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Сергей",
+    "lastname": "Степанов",
+    "age": 23,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Kurgan",
+    "username": "admin",
+    "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg"
+  }
 }
