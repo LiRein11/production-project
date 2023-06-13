@@ -4,7 +4,6 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
-import avatar from 'shared/ui/Avatar/storybook.jpg';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -30,7 +29,7 @@ Normal.decorators = [
                 country: ECountry.RUSSIA,
                 city: 'Kurgan',
                 username: 'admin',
-                avatar,
+                avatar: 'https://yt3.googleusercontent.com/ytc/AGIKgqNoQCWRSz0rcSjcI1qn8i2LcS4UOz5Z7ynyq6bnGyU=s900-c-k-c0x00ffffff-no-rj',
             },
             error: undefined,
         },
@@ -51,7 +50,7 @@ Dark.decorators = [
                 country: ECountry.RUSSIA,
                 city: 'Kurgan',
                 username: 'admin',
-                avatar,
+                avatar: 'https://yt3.googleusercontent.com/ytc/AGIKgqNoQCWRSz0rcSjcI1qn8i2LcS4UOz5Z7ynyq6bnGyU=s900-c-k-c0x00ffffff-no-rj',
             },
             error: undefined,
         },
