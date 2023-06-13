@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { ETheme } from 'app/providers/ThemeProvider';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
-import avatar from 'shared/assets/tests/storybook.jpg';
+// import avatar from 'shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -30,7 +30,7 @@ Primary.args = {
         country: ECountry.RUSSIA,
         city: 'Kurgan',
         username: 'admin',
-        avatar,
+        avatar: 'https://yt3.googleusercontent.com/ytc/AGIKgqNoQCWRSz0rcSjcI1qn8i2LcS4UOz5Z7ynyq6bnGyU=s900-c-k-c0x00ffffff-no-rj',
     },
     readonly: false,
 };
@@ -51,7 +51,7 @@ Dark.args = {
         country: ECountry.RUSSIA,
         city: 'Kurgan',
         username: 'admin',
-        avatar,
+        avatar: 'https://yt3.googleusercontent.com/ytc/AGIKgqNoQCWRSz0rcSjcI1qn8i2LcS4UOz5Z7ynyq6bnGyU=s900-c-k-c0x00ffffff-no-rj',
     },
     readonly: false,
 };
