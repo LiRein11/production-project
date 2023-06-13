@@ -12,5 +12,12 @@
     "Avatar": "Аватар",
     "Username": "Никнейм",
     "Currency": "Валюта",
-    "Country": "Страна"
+    "Country": "Страна",
+    "INCORRECT_FIRSTNAME": "Некорректное имя",
+    "INCORRECT_LASTNAME": "Некорректная фамилия",
+    "INCORRECT_USERNAME": "Некорректный никнейм",
+    "INCORRECT_CITY": "Некорректный город",
+    "INCORRECT_AGE": "Некорректный возраст",
+    "INCORRECT_SERVER_ERROR": "Произошла ошибка",
+    "INCORRECT_NO_DATA": "Произошла ошибка"
 }

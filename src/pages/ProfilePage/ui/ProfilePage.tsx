@@ -1,9 +1,11 @@
 import {
+    EValidateError,
     ProfileCard,
     fetchProfileData,
     getProfileError,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
     profileReducer,
 } from 'entities/Profile';
@@ -14,6 +16,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
+import { ETextTheme, Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -21,12 +25,25 @@ const reducers: ReducersList = {
 };
 
 const ProfilePage = memo(() => {
+    const { t } = useTranslation('profile');
+
     const dispatch = useAppDispatch();
 
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const formData = useSelector(getProfileForm);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsTranslate = {
+        [EValidateError.INCORRECT_FIRSTNAME]: t('INCORRECT_FIRSTNAME'),
+        [EValidateError.INCORRECT_LASTNAME]: t('INCORRECT_LASTNAME'),
+        [EValidateError.INCORRECT_USERNAME]: t('INCORRECT_USERNAME'),
+        [EValidateError.INCORRECT_CITY]: t('INCORRECT_CITY'),
+        [EValidateError.INCORRECT_AGE]: t('INCORRECT_AGE'),
+        [EValidateError.SERVER_ERROR]: t('INCORRECT_SERVER_ERROR'),
+        [EValidateError.NO_DATA]: t('INCORRECT_NO_DATA'),
+    };
 
     const onChangeFirstname = useCallback(
         (value?: string) => {
@@ -87,12 +104,18 @@ const ProfilePage = memo(() => {
     );
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
+            {validateErrors?.length &&
+                validateErrors.map((err) => (
+                    <Text theme={ETextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />
+                ))}
             <ProfileCard
                 data={formData}
                 isLoading={isLoading}
