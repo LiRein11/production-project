@@ -1,31 +1,32 @@
 import { getUserAuthData } from 'entities/User';
-import { Suspense, memo, useMemo } from 'react';
+import { Suspense, memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { AppRouterProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { LoaderPage } from 'widgets/LoaderPage';
+import { RequireAuth } from './RequireAuth';
 
 const AppRouter = () => {
-    const isAuth = useSelector(getUserAuthData);
-
-    const routes = useMemo(() => {
-        return Object.values(routeConfig).filter((route) => {
-            if (route.authOnly && !isAuth) {
-                return false;
-            }
-            return true;
-        });
-    }, [isAuth]);
+    const renderWithWrapper = useCallback((route: AppRouterProps) => {
+        const element = (
+            <Suspense fallback={<LoaderPage />}>
+                <div className="page-wrapper">{route.element}</div>
+            </Suspense>
+        );
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+            />
+        );
+    }, []);
 
     return (
-        <Suspense fallback={<LoaderPage />}>
-            <Routes>
-                {routes.map(({ element, path }) => (
-                    <Route key={path} element={<div className="page-wrapper">{element}</div>} path={path} />
-                ))}
-                // Object.values - Возвращает массив значений перечисляемых свойств объекта
-            </Routes>
-        </Suspense>
+        <Routes>
+            {Object.values(routeConfig).map(renderWithWrapper)}
+            // Object.values - Возвращает массив значений перечисляемых свойств объекта
+        </Routes>
     );
 };
 
