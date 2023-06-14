@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev, env, apiUrl, project }: BuildOptions): webpack.WebpackPluginInstance[] {
@@ -25,6 +26,7 @@ export function buildPlugins({ paths, isDev, env, apiUrl, project }: BuildOption
 
     if (isDev) {
         plugins.push(new webpack.HotModuleReplacementPlugin()); // Обновить приложение после изменения в коде и при этом не обновлять страницу)
+        plugins.push(new ReactRefreshWebpackPlugin());
     }
 
     return plugins;
