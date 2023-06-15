@@ -6,9 +6,7 @@ import { buildResolves } from './buildResolves';
 import { BuildOptions } from './types/config';
 import { buildDevServer } from './buildDevServer';
 
-export function buildWebpackConfig(
-    options: BuildOptions,
-): webpack.Configuration {
+export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     const { mode, paths, isDev } = options;
 
     return {
@@ -18,6 +16,7 @@ export function buildWebpackConfig(
             filename: '[name].[contenthash].js', // Для динамических названий
             path: paths.build,
             clean: true, // Чистка от старых файлов
+            publicPath: '/',
         }, // Настройки того, куда и как делается сборка
         plugins: buildPlugins(options),
         module: {
