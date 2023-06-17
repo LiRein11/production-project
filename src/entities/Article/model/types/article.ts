@@ -1,38 +1,38 @@
-export enum ArticleBlockType {
+export enum EArticleBlockType {
     TEXT = 'TEXT',
     IMAGE = 'IMAGE',
     CODE = 'CODE',
 }
 
-export enum ArticleType {
+export enum EArticleType {
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS',
 }
 
-interface ArticleBlockBase {
+export interface ArticleBlockBase {
     id: string;
-    type: ArticleBlockType;
+    type: EArticleBlockType;
 }
 
-interface ArticleTextBlock extends ArticleBlockBase {
-    type: ArticleBlockType.TEXT;
+export interface ArticleTextBlock extends ArticleBlockBase {
+    type: EArticleBlockType.TEXT;
     title?: string;
     paragraphs: string[];
 }
 
-interface ArticleImageBlock extends ArticleBlockBase {
-    type: ArticleBlockType.IMAGE;
+export interface ArticleImageBlock extends ArticleBlockBase {
+    type: EArticleBlockType.IMAGE;
     src: string;
     title: string;
 }
 
-interface ArticleCodeBlock extends ArticleBlockBase {
-    type: ArticleBlockType.CODE;
+export interface ArticleCodeBlock extends ArticleBlockBase {
+    type: EArticleBlockType.CODE;
     code: string;
 }
 
-export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock
+export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
 export interface Article {
     id: string;
@@ -41,7 +41,7 @@ export interface Article {
     img: string;
     views: number;
     createdAt: string;
-    type: ArticleType[];
+    type: EArticleType[];
     blocks: ArticleBlock[];
 }
 

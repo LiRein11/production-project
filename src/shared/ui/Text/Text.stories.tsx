@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
-import { ETextTheme, Text } from './Text';
+import { ETextSize, ETextTheme, Text } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -55,3 +55,10 @@ onlyTextDark.args = {
     text: 'Text Text Text Text Text Text Text',
 };
 onlyTextDark.decorators = [ThemeDecorator(ETheme.DARK)];
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title Title',
+    text: 'Text Text Text Text Text Text Text',
+    size: ETextSize.L,
+};

@@ -1,23 +1,12 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleDetails } from './ArticleDetails';
+import { StateSchema } from 'app/providers/redux';
+
+import { DeepPartial } from '@reduxjs/toolkit';
 import {
-    Article,
-    EArticleBlockType,
-    EArticleType,
-} from '../../model/types/article';
-
-export default {
-    title: 'entities/ArticleDetails',
-    component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleDetails>;
-
-const Template: ComponentStory<typeof ArticleDetails> = (args) => (
-    <ArticleDetails {...args} />
-);
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from './getArticleDetails';
+import { Article, EArticleBlockType, EArticleType } from '../types/article';
 
 const article: Article = {
     id: '1',
@@ -89,26 +78,46 @@ const article: Article = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-    StoreDecorator({
-        articleDetails: { data: article },
-    }),
-];
+describe('getArticleDetails.test', () => {
+    test('should return data', () => {
+        const state: DeepPartial<StateSchema> = {
+            articleDetails: {
+                data: article,
+            },
+        };
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(article);
+    });
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [
-    StoreDecorator({
-        articleDetails: { isLoading: true },
-    }),
-];
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined);
+    });
 
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [
-    StoreDecorator({
-        articleDetails: { error: 'error' },
-    }),
-];
+    test('should return isLoading', () => {
+        const state: DeepPartial<StateSchema> = {
+            articleDetails: {
+                isLoading: true,
+            },
+        };
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
+    });
+
+    test('should work with empty state isLoading', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(false);
+    });
+
+    test('should return error', () => {
+        const state: DeepPartial<StateSchema> = {
+            articleDetails: {
+                error: 'error',
+            },
+        };
+        expect(getArticleDetailsError(state as StateSchema)).toEqual('error');
+    });
+
+    test('should work with empty state error', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined);
+    });
+});

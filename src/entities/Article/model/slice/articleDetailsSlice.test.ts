@@ -1,23 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleDetails } from './ArticleDetails';
-import {
-    Article,
-    EArticleBlockType,
-    EArticleType,
-} from '../../model/types/article';
-
-export default {
-    title: 'entities/ArticleDetails',
-    component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleDetails>;
-
-const Template: ComponentStory<typeof ArticleDetails> = (args) => (
-    <ArticleDetails {...args} />
-);
+import { updateProfileData } from 'entities/Profile';
+import { Article, EArticleBlockType, EArticleType } from '../types/article';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
+import { articleDetailsReducer } from './articleDetailsSlice';
+import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 
 const article: Article = {
     id: '1',
@@ -89,26 +74,35 @@ const article: Article = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-    StoreDecorator({
-        articleDetails: { data: article },
-    }),
-];
+describe('articleDetailsSlice.test', () => {
+    test('test fetch article by id pending', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            isLoading: false,
+        };
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.pending,
+            ),
+        ).toEqual({
+            isLoading: true,
+            error: undefined,
+        });
+    });
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [
-    StoreDecorator({
-        articleDetails: { isLoading: true },
-    }),
-];
-
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [
-    StoreDecorator({
-        articleDetails: { error: 'error' },
-    }),
-];
+    test('test update profile service fulfilled', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            isLoading: true,
+        };
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.fulfilled(article, '', ''),
+            ),
+        ).toEqual({
+            isLoading: false,
+            error: undefined,
+            data: article,
+        });
+    });
+});

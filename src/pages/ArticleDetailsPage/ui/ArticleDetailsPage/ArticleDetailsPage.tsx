@@ -1,19 +1,7 @@
-import {
-    ArticleDetails,
-    articleDetailsReducer,
-    fetchArticleById,
-    getArticleData,
-    getArticleError,
-    getArticleIsLoading,
-} from 'entities/Article';
-import { FC, memo, useEffect } from 'react';
+import { ArticleDetails } from 'entities/Article';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicReducerLoader } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Loader } from 'shared/ui/Loader/Loader';
 
 interface ArticleDetailsPageProps {
     className?: string;
