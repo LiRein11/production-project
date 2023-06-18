@@ -1,4 +1,5 @@
 {
-  "ArticleNotFound": "Article not found",
-  "ErrorArticle": "An error occurred while loading the article"
+    "ArticleNotFound": "Article not found",
+    "ErrorArticle": "An error occurred while loading the article",
+    "Comments": "Comments"
 }
