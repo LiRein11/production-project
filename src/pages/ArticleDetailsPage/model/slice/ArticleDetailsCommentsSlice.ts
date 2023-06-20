@@ -35,6 +35,15 @@ const articleDetailsCommentsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         });
+        // builder.addCase(addCommentForArticle.pending, (state) => {
+        //     state.error = undefined;
+        // });
+        // builder.addCase(addCommentForArticle.fulfilled, (state) => {
+        //     state.error = undefined;
+        // });
+        // builder.addCase(addCommentForArticle.rejected, (state, action: PayloadAction<string | undefined>) => {
+        //     state.error = action.payload;
+        // });
     },
 });
 

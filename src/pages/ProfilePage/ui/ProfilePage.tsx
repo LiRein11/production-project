@@ -18,6 +18,8 @@ import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -34,6 +36,7 @@ const ProfilePage = memo(() => {
     const readonly = useSelector(getProfileReadonly);
     const formData = useSelector(getProfileForm);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorsTranslate = {
         [EValidateError.INCORRECT_FIRSTNAME]: t('INCORRECT_FIRSTNAME'),
@@ -103,11 +106,11 @@ const ProfilePage = memo(() => {
         [dispatch],
     );
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
