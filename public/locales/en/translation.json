@@ -3,8 +3,8 @@
     "Язык": "English",
     "Главная": "Main",
     "О сайте": "About us",
-    "Profile Page": "Profile Page",
-    "ArticlesPage": "Articles page",
+    "Profile Page": "Profile",
+    "ArticlesPage": "Articles",
     "ArticleDetailsPage": "Article details page",
     "Короткий язык": "En",
     "Page not found": "Page not found",
@@ -15,5 +15,6 @@
     "Authorization form": "Authorization form",
     "Uncorrect username or password": "Uncorrect username or password",
     "Logout": "Logout",
-    "No Comments": "No comments"
+    "No Comments": "No comments",
+    "ReadMore": "Read more..."
 }

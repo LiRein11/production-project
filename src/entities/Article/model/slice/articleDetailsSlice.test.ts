@@ -12,6 +12,11 @@ const article: Article = {
     views: 1022,
     createdAt: '26.02.2022',
     type: [EArticleType.IT],
+    user: {
+        id: '1',
+        username: 'LiRein',
+        avatar: 'https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg',
+    },
     blocks: [
         {
             id: '1',

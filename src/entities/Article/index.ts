@@ -1,5 +1,5 @@
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export type { ArticleSchema, Article } from './model/types/article';
+export type { ArticleSchema, Article, ArticleView } from './model/types/article';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export {
     getArticleDetailsData,
