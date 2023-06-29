@@ -20,12 +20,12 @@ interface ViewType {
 
 const viewTypes: ViewType[] = [
     {
-        view: 'list',
-        icon: ListIcon,
-    },
-    {
         view: 'grid',
         icon: GridIcon,
+    },
+    {
+        view: 'list',
+        icon: ListIcon,
     },
 ];
 

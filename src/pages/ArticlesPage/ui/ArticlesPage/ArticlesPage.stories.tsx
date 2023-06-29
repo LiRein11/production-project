@@ -2,6 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import {
+    Article,
+    EArticleBlockType,
+    EArticleType,
+} from 'entities/Article/model/types/article';
 import ArticlesPage from './ArticlesPage';
 
 export default {
@@ -18,17 +23,8 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [
-    StoreDecorator({
-        articlesPage: {},
-    }),
-];
+Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [
-    ThemeDecorator(ETheme.DARK),
-    StoreDecorator({
-        articlesPage: {},
-    }),
-];
+Dark.decorators = [ThemeDecorator(ETheme.DARK), StoreDecorator({})];

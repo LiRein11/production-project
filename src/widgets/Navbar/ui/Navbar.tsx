@@ -35,29 +35,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
-                <Button
-                    className={classNames(cls.links)}
-                    theme={EButtonTheme.CLEAR}
-                    onClick={onLogout}
-                >
+            <header className={classNames(cls.Navbar, {}, [className])}>
+                <Button className={classNames(cls.links)} theme={EButtonTheme.CLEAR} onClick={onLogout}>
                     {t('Logout')}
                 </Button>
                 {/* <LoginModal isOpen={isAuthModal} onClose={onCloseModal} onOpen={onShowModal} /> */}
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
-            <Button
-                className={classNames(cls.links)}
-                theme={EButtonTheme.CLEAR}
-                onClick={onShowModal}
-            >
+        <header className={classNames(cls.Navbar, {}, [className])}>
+            <Button className={classNames(cls.links)} theme={EButtonTheme.CLEAR} onClick={onShowModal}>
                 {t('Login')}
             </Button>
             <LoginModal isOpen={isAuthModal} onClose={onCloseModal} onOpen={onShowModal} />
-        </div>
+        </header>
     );
 });

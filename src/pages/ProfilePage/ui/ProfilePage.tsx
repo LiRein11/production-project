@@ -1,14 +1,4 @@
-import {
-    EValidateError,
-    ProfileCard,
-    fetchProfileData,
-    getProfileError,
-    getProfileIsLoading,
-    getProfileReadonly,
-    getProfileValidateErrors,
-    profileActions,
-    profileReducer,
-} from 'entities/Profile';
+import { EValidateError, ProfileCard, fetchProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer } from 'entities/Profile';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
@@ -20,6 +10,7 @@ import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -114,25 +105,11 @@ const ProfilePage = memo(() => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <ProfilePageHeader />
-            {validateErrors?.length &&
-                validateErrors.map((err) => (
-                    <Text theme={ETextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />
-                ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-                readonly={readonly}
-            />
+            <Page>
+                <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => <Text theme={ETextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />)}
+                <ProfileCard data={formData} isLoading={isLoading} error={error} onChangeFirstname={onChangeFirstname} onChangeLastname={onChangeLastname} onChangeAge={onChangeAge} onChangeCity={onChangeCity} onChangeUsername={onChangeUsername} onChangeAvatar={onChangeAvatar} onChangeCurrency={onChangeCurrency} onChangeCountry={onChangeCountry} readonly={readonly} />
+            </Page>
         </DynamicReducerLoader>
     );
 });
