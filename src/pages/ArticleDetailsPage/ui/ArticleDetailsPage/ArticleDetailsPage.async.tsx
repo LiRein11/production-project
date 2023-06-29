@@ -7,7 +7,7 @@ export const ArticleDetailsPageAsync = lazy(
                 () =>
                     // @ts-ignore
                     resolve(import('./ArticleDetailsPage')),
-                1500,
+                400,
             );
         }),
 );
