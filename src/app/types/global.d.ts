@@ -26,6 +26,6 @@ type DeepPartial<T> = T extends object
       }
     : T;
 
-// type OptionalRecord<K extends keyof any, T> = {
-//     [P in K]?: T;
-// }; // Тот же Record, но могут быть необязательные поля (т.к. не все редюсеры являются обязательными)
+type OptionalRecord<K extends keyof any, T> = {
+    [P in K]?: T;
+}; // Тот же Record, но могут быть необязательные поля (т.к. не все редюсеры являются обязательными)

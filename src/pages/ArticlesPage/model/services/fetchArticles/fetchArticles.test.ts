@@ -69,6 +69,7 @@ describe('fetchArticles.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: false,
@@ -81,7 +82,7 @@ describe('fetchArticles.test', () => {
             }),
         );
         console.log(articles);
-        const action = await thunk.callThunk({ page: 2 });
+        const action = await thunk.callThunk({});
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(action.meta.requestStatus).toBe('fulfilled');
@@ -97,6 +98,7 @@ describe('fetchArticles.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: false,
@@ -104,7 +106,7 @@ describe('fetchArticles.test', () => {
             },
         });
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk({ page: 1 });
+        const result = await thunk.callThunk({});
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();

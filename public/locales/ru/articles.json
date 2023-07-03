@@ -1,4 +1,17 @@
 {
-  "ArticlesPage": "Страница статей",
-  "ArticleDetailsPage": "Детали статьи"
+    "ArticlesPage": "Страница статей",
+    "ArticleDetailsPage": "Детали статьи",
+    "Sort by": "Сортировать по",
+    "Search": "Поиск",
+    "by": "по",
+    "asc": "возрастанию",
+    "desc": "убыванию",
+    "created": "по дате создания",
+    "views": "по количеству просмотров",
+    "title": "по названию",
+    "IT": "Айти",
+    "All articles": "Все",
+    "ECONOMICS": "Экономика",
+    "SCIENCE": "Наука",
+    "Articles not found": "Статьи не найдены"
 }

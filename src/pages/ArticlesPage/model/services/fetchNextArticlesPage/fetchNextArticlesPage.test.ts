@@ -1,4 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { EArticleType } from 'entities/Article';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
@@ -11,6 +12,7 @@ describe('fetchNextArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: true,
@@ -20,7 +22,7 @@ describe('fetchNextArticlesPage.test', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4); // pending, fulfilled, 2 диспатча в самом экшене
-        expect(fetchArticles).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticles).toHaveBeenCalledWith({});
     });
 
     test('fetchArticles not called ', async () => {
@@ -29,6 +31,7 @@ describe('fetchNextArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: false,
@@ -47,6 +50,7 @@ describe('fetchNextArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: true,
                 hasMore: true,

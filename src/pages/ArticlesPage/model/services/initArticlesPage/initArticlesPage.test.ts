@@ -1,9 +1,13 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { EArticleType } from 'entities/Article';
 import { initArticlesPage } from './initArticlesPage';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
 jest.mock('../fetchArticles/fetchArticles');
 
+const params = new URLSearchParams();
+params.append('param1', 'value1');
+params.append('param2', 'value2');
 describe('initArticlesPage.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
@@ -11,6 +15,7 @@ describe('initArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: true,
@@ -18,10 +23,12 @@ describe('initArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        const queryString = params.toString();
 
+        await thunk.callThunk(params);
+        expect(queryString).toBe('param1=value1&param2=value2');
         expect(thunk.dispatch).toBeCalledTimes(4); // pending, fulfilled, 2 диспатча в самом экшене
-        expect(fetchArticles).toHaveBeenCalledWith({ page: 1 });
+        expect(fetchArticles).toHaveBeenCalledWith({});
     });
 
     test('initArticlesPage not called ', async () => {
@@ -30,6 +37,7 @@ describe('initArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: false,
@@ -37,7 +45,10 @@ describe('initArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        const queryString = params.toString();
+
+        await thunk.callThunk(params);
+        expect(queryString).toBe('param1=value1&param2=value2');
 
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticles).not.toHaveBeenCalled();
@@ -49,6 +60,7 @@ describe('initArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                type: EArticleType.ALL,
                 limit: 5,
                 isLoading: true,
                 hasMore: true,
@@ -56,9 +68,12 @@ describe('initArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        const queryString = params.toString();
+
+        await thunk.callThunk(params);
+        expect(queryString).toBe('param1=value1&param2=value2');
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticles).toHaveBeenCalledWith({ page: 1 });
+        expect(fetchArticles).toHaveBeenCalledWith({});
     });
 });
