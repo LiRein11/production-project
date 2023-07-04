@@ -1,4 +1,4 @@
 import { StateSchema } from 'app/providers/redux';
 
-export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsComments?.isLoading || false;
-export const getArticleCommentsError = (state: StateSchema) => state.articleDetailsComments?.error;
+export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsPage?.comments?.isLoading || false;
+export const getArticleCommentsError = (state: StateSchema) => state.articleDetailsPage?.comments?.error;

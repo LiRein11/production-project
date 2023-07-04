@@ -1,20 +1,20 @@
 import {} from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/redux';
-import { loginReducer } from 'features/authByUsername/model/slice/loginSlice';
-import { profileReducer } from 'entities/Profile';
-import { ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import 'app/styles/index.scss';
 import { articleDetailsReducer } from 'entities/Article';
+import { profileReducer } from 'entities/Profile';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage';
+import { loginReducer } from 'features/authByUsername/model/slice/loginSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
+import { ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (Story: Story) =>
