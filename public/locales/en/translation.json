@@ -5,7 +5,7 @@
     "О сайте": "About us",
     "Profile Page": "Profile",
     "ArticlesPage": "Articles",
-    "ArticleDetailsPage": "Article details page",
+    "ArticlePageDetails": "Article details page",
     "Короткий язык": "En",
     "Page not found": "Page not found",
     "toggle": "Toggle",
@@ -16,5 +16,9 @@
     "Uncorrect username or password": "Uncorrect username or password",
     "Logout": "Logout",
     "No Comments": "No comments",
-    "ReadMore": "Read more..."
+    "ReadMore": "Read more...",
+    "Edit": "Edit",
+    "Back to list": "Back to list",
+    "Production blog": "Production blog",
+    "Create article": "Create article"
 }

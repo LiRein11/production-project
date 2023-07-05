@@ -1,6 +1,6 @@
 {
     "ArticlesPage": "Страница статей",
-    "ArticleDetailsPage": "Детали статьи",
+    "ArticlePageDetails": "Детали статьи",
     "Sort by": "Сортировать по",
     "Search": "Поиск",
     "by": "по",
@@ -13,5 +13,7 @@
     "All articles": "Все",
     "ECONOMICS": "Экономика",
     "SCIENCE": "Наука",
-    "Articles not found": "Статьи не найдены"
+    "Articles not found": "Статьи не найдены",
+    "EditPage": "Редактирование статьи ",
+    "CreateNewArticle": "Создание новой статьи"
 }

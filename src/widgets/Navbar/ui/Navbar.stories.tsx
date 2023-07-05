@@ -26,3 +26,10 @@ Dark.decorators = [ThemeDecorator(ETheme.DARK), StoreDecorator({})];
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
 AuthNavbar.decorators = [StoreDecorator({ user: { authData: {} } })];
+
+export const AuthNavbarDark = Template.bind({});
+AuthNavbarDark.args = {};
+AuthNavbarDark.decorators = [
+    StoreDecorator({ user: { authData: {} } }),
+    ThemeDecorator(ETheme.DARK),
+];

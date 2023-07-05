@@ -4,6 +4,7 @@ import cls from './Text.module.scss';
 
 export enum ETextTheme {
     PRIMARY = 'primary',
+    INVERTED = 'inverted',
     ERROR = 'error',
 }
 

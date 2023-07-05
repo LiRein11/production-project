@@ -1,6 +1,6 @@
 {
     "ArticlesPage": "Articles page",
-    "ArticleDetailsPage": "Article details page",
+    "ArticlePageDetails": "Article details page",
     "Sort by": "Sort by",
     "Search": "Search",
     "by": "by",
@@ -13,5 +13,7 @@
     "All articles": "All",
     "ECONOMICS": "Economics",
     "SCIENCE": "Science",
-    "Articles not found": "Articles not found"
+    "Articles not found": "Articles not found",
+    "EditPage": "Edit page ",
+    "CreateNewArticle": "Create new article"
 }

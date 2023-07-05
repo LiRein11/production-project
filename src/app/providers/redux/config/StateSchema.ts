@@ -6,7 +6,8 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { LoginSchema } from 'features/authByUsername';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { ArticlePageDetailsSchema } from 'pages/ArticlePageDetails';
+
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'widgets/Page';
 
@@ -19,7 +20,7 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsPage?: ArticleDetailsPageSchema;
+    articlePageDetails?: ArticlePageDetailsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
 }

@@ -5,6 +5,9 @@ import { memo, useEffect, useState } from 'react';
 import { LoginModal } from 'features/authByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { ETextTheme, Text } from 'shared/ui/Text/Text';
+import { AppLink, EAppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 export interface NavbarProps {
@@ -36,6 +39,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text className={cls.appName} theme={ETextTheme.INVERTED} title={t('Production blog')} />
+                <AppLink className={cls.createBtn} theme={EAppLinkTheme.SECONDARY} to={RoutePath.article_create}>
+                    {t('Create article')}
+                </AppLink>
                 <Button className={classNames(cls.links)} theme={EButtonTheme.CLEAR} onClick={onLogout}>
                     {t('Logout')}
                 </Button>
