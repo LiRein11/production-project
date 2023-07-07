@@ -1,6 +1,6 @@
 {
     "Profile": "Profile",
-
+    "Edit": "Edit",
     "firstname": "Your firstname",
     "lastname": "Your lastname",
     "Error": "An error occurred while loading the profile",
