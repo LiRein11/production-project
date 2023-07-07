@@ -11,4 +11,4 @@ $api.interceptors.request.use((config) => {
         config.headers.authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
     }
     return config;
-});
+}); // Чтобы перед каждым запросом отрабатывалась проверка, иначе стреляют ошибки при первых авторизациях
