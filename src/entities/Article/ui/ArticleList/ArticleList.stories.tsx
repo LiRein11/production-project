@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/article';
 
@@ -97,6 +98,7 @@ LoadingList.args = {
     articles: [],
     view: 'list',
 };
+LoadingList.decorators = [StoreDecorator({})];
 
 export const LoadingGrid = Template.bind({});
 LoadingGrid.args = {
@@ -104,6 +106,7 @@ LoadingGrid.args = {
     articles: [],
     view: 'grid',
 };
+LoadingGrid.decorators = [StoreDecorator({})];
 
 export const NormalList = Template.bind({});
 NormalList.args = {
@@ -115,6 +118,7 @@ NormalList.args = {
 
     view: 'list',
 };
+NormalList.decorators = [StoreDecorator({})];
 
 export const NormalGrid = Template.bind({});
 NormalGrid.args = {
@@ -125,6 +129,7 @@ NormalGrid.args = {
     })),
     view: 'grid',
 };
+NormalGrid.decorators = [StoreDecorator({})];
 
 export const NormalListDark = Template.bind({});
 NormalListDark.args = {
@@ -136,7 +141,7 @@ NormalListDark.args = {
 
     view: 'list',
 };
-NormalListDark.decorators = [ThemeDecorator(ETheme.DARK)];
+NormalListDark.decorators = [ThemeDecorator(ETheme.DARK), StoreDecorator({})];
 
 export const NormalGridDark = Template.bind({});
 NormalGridDark.args = {
@@ -147,4 +152,4 @@ NormalGridDark.args = {
     })),
     view: 'grid',
 };
-NormalGridDark.decorators = [ThemeDecorator(ETheme.DARK)];
+NormalGridDark.decorators = [ThemeDecorator(ETheme.DARK), StoreDecorator({})];

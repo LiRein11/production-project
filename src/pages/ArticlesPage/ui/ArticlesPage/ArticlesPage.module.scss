@@ -1,7 +1,6 @@
 .ArticlesPage {
-  min-height: 100%;
-}
-
-.list {
-  margin-top: 30px;
+  flex-grow: 1;
+  overflow: auto;
+  width: 100%;
+  flex-shrink: 100;
 }

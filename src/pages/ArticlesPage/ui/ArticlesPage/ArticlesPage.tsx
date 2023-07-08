@@ -47,10 +47,10 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames(cls.ArticlesPage, {}, [className])} onScrollEnd={onLoadNextPart}>
-                <ArticlesPageFilters />
-                <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} />
-            </Page>
+            <div className={classNames(cls.ArticlesPage, {}, [className])}>
+                {/* <ArticlesPageFilters /> */}
+                <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} onLoadNextPart={onLoadNextPart} />
+            </div>
         </DynamicReducerLoader>
     );
 };

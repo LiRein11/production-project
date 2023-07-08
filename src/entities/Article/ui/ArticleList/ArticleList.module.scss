@@ -1,11 +1,48 @@
+.ArticleList {
+  height: 100%;
+}
+
 .list {
   .card {
-    margin-bottom: 30px;
+    padding: 20px 20px 20px 45px;
   }
 }
 
 .grid {
+  .card {
+    margin: 30px;
+  }
+
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: 30px;
+}
+
+.itemsWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 30px;
+}
+
+.skeleton {
+  padding-bottom: 30px;
+}
+
+.ItemContainer {
+  width: 230px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-right: 30px;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+  }
+
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 }

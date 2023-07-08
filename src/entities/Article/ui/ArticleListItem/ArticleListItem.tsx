@@ -10,6 +10,7 @@ import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/consts/localstorage';
 import { Article, ArticleTextBlock, ArticleView, EArticleBlockType } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
@@ -19,14 +20,19 @@ interface ArticleListItemProps {
     article?: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    index: number;
 }
 
-export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view, target } = props;
+export const ArticleListItem = (props: ArticleListItemProps) => {
+    const { className, article, view, target, index } = props;
     const { t } = useTranslation();
 
     const [isHover, bindHover] = useHover();
     console.log(isHover);
+
+    const handleButtonClick = () => {
+        sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX, JSON.stringify(index));
+    };
 
     const types = <Text text={article?.type.join(', ')} className={cls.types} />;
     const views = (
@@ -35,6 +41,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <Icon Svg={EyeIcon} />
         </>
     );
+
     if (view === 'list') {
         const textBlock = article?.blocks.find((block) => block.type === EArticleBlockType.TEXT) as ArticleTextBlock;
 
@@ -52,7 +59,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                     <div className={cls.footer}>
                         <AppLink to={RoutePath.article_details + article?.id} target={target}>
-                            <Button theme={EButtonTheme.OUTLINE}>{t('ReadMore')}</Button>
+                            <Button onClick={handleButtonClick} theme={EButtonTheme.OUTLINE}>
+                                {t('ReadMore')}
+                            </Button>
                         </AppLink>
                         {views}
                     </div>
@@ -63,7 +72,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <AppLink to={RoutePath.article_details + article?.id} target={target}>
+            <AppLink onClick={handleButtonClick} to={RoutePath.article_details + article?.id} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <img alt={article?.title} src={article?.img} className={cls.img} />
@@ -78,4 +87,4 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             </AppLink>
         </div>
     );
-});
+};
