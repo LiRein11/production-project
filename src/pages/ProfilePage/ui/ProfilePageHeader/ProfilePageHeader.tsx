@@ -7,7 +7,7 @@ import { getProfileData, getProfileReadonly, profileActions, updateProfileData }
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 
 export interface ProfilePageHeaderProps {
     className?: string;
@@ -35,26 +35,26 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames('', {}, [className])}>
             <Text title={t('Profile')} />
             {canEdit && (
-                <div className={cls.btnsWrapper}>
+                <div>
                     {readonly ? (
-                        <Button className={cls.editBtn} theme={EButtonTheme.OUTLINE} onClick={onClickEdit}>
+                        <Button theme={EButtonTheme.OUTLINE} onClick={onClickEdit}>
                             {t('Edit')}
                         </Button>
                     ) : (
-                        <>
-                            <Button className={cls.editBtn} theme={EButtonTheme.OUTLINE_RED} onClick={onClickCancel}>
+                        <HStack gap="8">
+                            <Button theme={EButtonTheme.OUTLINE_RED} onClick={onClickCancel}>
                                 {t('Cancel')}
                             </Button>
-                            <Button className={cls.saveBtn} theme={EButtonTheme.OUTLINE} onClick={onClickSave}>
+                            <Button theme={EButtonTheme.OUTLINE} onClick={onClickSave}>
                                 {t('Save')}
                             </Button>
-                        </>
+                        </HStack>
                     )}
                 </div>
             )}
-        </div>
+        </HStack>
     );
 };

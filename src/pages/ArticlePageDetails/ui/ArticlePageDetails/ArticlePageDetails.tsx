@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/ui/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -64,13 +65,15 @@ const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticlePageDetails, {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <Text title={t('Recommendations')} className={cls.commentTitle} />
-                <ArticleList className={cls.recommendations} articles={recommendations} isLoading={recommendationsIsLoading} target="_blank" />
-                <Text title={t('Comments')} className={cls.commentTitle} />
-                <AddCommentForm onSendComment={onSendComment} />
-                <CommentList isLoading={commentsIsLoading} comments={comments} />
+                <VStack gap="16" max>
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id} />
+                    <Text title={t('Recommendations')} className={cls.commentTitle} />
+                    <ArticleList className={cls.recommendations} articles={recommendations} isLoading={recommendationsIsLoading} target="_blank" />
+                    <Text title={t('Comments')} className={cls.commentTitle} />
+                    <AddCommentForm onSendComment={onSendComment} />
+                    <CommentList isLoading={commentsIsLoading} comments={comments} />
+                </VStack>
             </Page>
         </DynamicReducerLoader>
     );
