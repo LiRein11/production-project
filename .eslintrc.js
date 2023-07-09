@@ -23,7 +23,7 @@ module.exports = {
         sourceType: 'module',
         // project: ["./tsconfig.json"],
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'sergey-plugin'],
     ignorePatterns: ['.eslintrc.js'],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -63,6 +63,7 @@ module.exports = {
         'no-undef': 'off',
         'no-unsafe-optional-chaining': 'off',
         'react/no-array-index-key': 'off',
+        'sergey-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

@@ -28,8 +28,10 @@ const Header = () => <ArticlesPageFilters className={cls.card} />;
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, isLoading, view = 'grid', target, onLoadNextPart } = props;
     const { t } = useTranslation('articles');
+
     const [selectedArticleId, setSelectedArticleId] = useState(1);
     const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
+
     const renderArticle = (index: number, article: Article) => <ArticleListItem article={article} view={view} className={cls.card} key={article.id} target={target} index={index} />;
 
     const Footer = memo(() => {

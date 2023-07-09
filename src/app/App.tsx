@@ -1,22 +1,26 @@
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
 
+import { getUserInited, userActions } from 'entities/User';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getUserInited, userActions } from 'entities/User';
 
+import { useLocation } from 'react-router-dom';
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/consts/localstorage';
 import { AppRouter } from './providers/router';
 
 const App = () => {
     const dispatch = useDispatch();
-
     const inited = useSelector(getUserInited);
-
+    const sessionStorageIdx = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX);
+    const { pathname } = useLocation();
     useEffect(() => {
         dispatch(userActions.initAuthData());
-    }, [dispatch]);
+        if (!pathname.includes('/articles') && sessionStorageIdx) {
+            sessionStorage.removeItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX);
+        }
+    }, [dispatch, pathname, sessionStorageIdx]);
 
     return (
         <div className={classNames('app', {}, [])}>

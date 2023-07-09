@@ -1,6 +1,6 @@
-import { updateProfileData } from 'entities/Profile';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { EValidateError, ProfileSchema } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 
