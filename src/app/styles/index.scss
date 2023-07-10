@@ -20,6 +20,10 @@ body {
   display: flex;
 }
 
+.storiesTopListBox {
+  top: 200px;
+}
+
 *::-webkit-scrollbar {
   width: 12px; // ширина scrollbar
   height: 8px;
