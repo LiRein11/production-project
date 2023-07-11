@@ -23,5 +23,5 @@ export const CountrySelect = memo(({ className, value, onChange, readonly }: Cou
         [onChange],
     );
 
-    return <ListBox className={className} defaultValue={t('Country')} onChange={onChangeHandlerSelect} value={value} items={options} readonly={readonly} direction="top" label={t('Country')} />;
+    return <ListBox className={className} defaultValue={t('Country')} onChange={onChangeHandlerSelect} value={value} items={options} readonly={readonly} direction="top right" label={t('Country')} />;
 });
