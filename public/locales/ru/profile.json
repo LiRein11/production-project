@@ -19,5 +19,6 @@
     "INCORRECT_CITY": "Некорректный город",
     "INCORRECT_AGE": "Некорректный возраст",
     "INCORRECT_SERVER_ERROR": "Произошла ошибка",
-    "INCORRECT_NO_DATA": "Произошла ошибка"
+    "INCORRECT_NO_DATA": "Произошла ошибка",
+    "Profile not found": "Профиль не найден"
 }

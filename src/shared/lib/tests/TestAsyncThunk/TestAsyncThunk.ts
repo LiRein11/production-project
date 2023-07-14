@@ -1,11 +1,9 @@
 import { AsyncThunkAction, DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/redux';
 import axios, { AxiosStatic } from 'axios';
-import { EValidateError } from 'entities/Profile';
+import { EValidateError } from 'features/editableProfileCard';
 
-type ActionCreatorType<Return, Arg, RejectedValue> = (
-    arg: Arg,
-) => AsyncThunkAction<Return, Arg, { rejectValue: string | EValidateError[] }>;
+type ActionCreatorType<Return, Arg, RejectedValue> = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: string | EValidateError[] }>;
 
 jest.mock('axios');
 

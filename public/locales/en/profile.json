@@ -19,5 +19,6 @@
     "INCORRECT_CITY": "Incorrect city",
     "INCORRECT_AGE": "Incorrect age",
     "INCORRECT_SERVER_ERROR": "Server error",
-    "INCORRECT_NO_DATA": "Error (no data)"
+    "INCORRECT_NO_DATA": "Error (no data)",
+    "Profile not found": "Profile not found"
 }

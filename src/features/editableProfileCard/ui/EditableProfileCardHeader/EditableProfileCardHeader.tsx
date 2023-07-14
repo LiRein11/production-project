@@ -1,19 +1,23 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, EButtonTheme } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
-import { useSelector } from 'react-redux';
-import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
-import { useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { memo, useCallback } from 'react';
 import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, EButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
+import { Text } from 'shared/ui/Text/Text';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 
-export interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
+    const { className } = props;
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
@@ -57,4 +61,4 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
             )}
         </HStack>
     );
-};
+});

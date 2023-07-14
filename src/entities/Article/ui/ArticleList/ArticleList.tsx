@@ -23,7 +23,7 @@ const getSkeletons = () => {
     return new Array(3).fill(0).map((_, index) => <ArticleListItemSkeleton className={cls.card} key={index} view="list" />);
 };
 
-const Header = () => <ArticlesPageFilters className={cls.card} />;
+const Header = () => <ArticlesPageFilters className={cls.header} />;
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, isLoading, view = 'grid', target, onLoadNextPart } = props;

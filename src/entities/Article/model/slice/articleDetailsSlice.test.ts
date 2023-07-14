@@ -1,4 +1,3 @@
-import { updateProfileData } from 'entities/Profile';
 import { Article, EArticleBlockType, EArticleType } from '../types/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { articleDetailsReducer } from './articleDetailsSlice';

@@ -1,7 +1,7 @@
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 import { validateProfileData } from './validateProfileData';
-import { EValidateError } from '../../types/profile';
+import { EValidateError } from '../../types/editableProfileCardSchema';
 
 const data = {
     first: 'Сергей',
