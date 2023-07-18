@@ -20,5 +20,7 @@
     "ReadMore": "Читать далее...",
     "Back to list": "Назад к списку",
     "Production blog": "Производственный блог",
-    "Create article": "Создать статью"
+    "Create article": "Создать статью",
+    "AdminPanel": "Админка",
+    "NoAccess": "У вас нет доступа к этой странице"
 }

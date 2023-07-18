@@ -4,7 +4,7 @@ import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { memo, useEffect, useState } from 'react';
 import { LoginModal } from 'features/authByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { AppLink, EAppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -21,6 +21,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    const isAdminPanelAvailable = isAdmin || isManager;
+
     const onCloseModal = () => {
         setIsAuthModal(false);
     };
@@ -49,6 +54,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={cls.dropdown}
                     direction="bottom left"
                     items={[
+                        ...(isAdminPanelAvailable
+                            ? [
+                                {
+                                    content: t('AdminPanel'),
+                                    href: RoutePath.admin_panel,
+                                },
+                            ]
+                            : []),
                         {
                             content: t('Profile Page'),
                             href: RoutePath.profile + authData.id,

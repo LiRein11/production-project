@@ -1,35 +1,28 @@
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import userEvent from '@testing-library/user-event';
 import { Counter } from './Counter';
 
 describe('Counter', () => {
-    test('test render', () => {
+    beforeEach(() => {
         componentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         });
-
+    });
+    test('test render', () => {
         expect(screen.getByTestId('value-title')).toHaveTextContent('10');
         screen.debug();
     });
 
-    test('increment', () => {
-        componentRender(<Counter />, {
-            initialState: { counter: { value: 10 } },
-        });
-        // const dec = expect(screen.getByTestId('decrement'));
-        userEvent.click(screen.getByTestId('increment'));
+    test('increment', async () => {
+        await userEvent.click(screen.getByTestId('increment'));
         expect(screen.getByTestId('value-title')).toHaveTextContent('11');
-
         screen.debug();
     });
 
-    test('decrement', () => {
-        componentRender(<Counter />, {
-            initialState: { counter: { value: 10 } },
-        });
-
-        userEvent.click(screen.getByTestId('decrement'));
+    test('decrement', async () => {
+        await userEvent.click(screen.getByTestId('decrement'));
         expect(screen.getByTestId('value-title')).toHaveTextContent('9');
 
         screen.debug();

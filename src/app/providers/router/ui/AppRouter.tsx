@@ -7,7 +7,7 @@ import { RequireAuth } from './RequireAuth';
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRouterProps) => {
         const element = <Suspense fallback={<LoaderPage />}>{route.element}</Suspense>;
-        return <Route key={route.path} path={route.path} element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element} />;
+        return <Route key={route.path} path={route.path} element={route.authOnly ? <RequireAuth roles={route?.roles}>{element}</RequireAuth> : element} />;
     }, []);
 
     return (
