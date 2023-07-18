@@ -20,7 +20,7 @@ interface ArticleListItemProps {
     article?: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
-    index: number;
+    index?: number;
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {

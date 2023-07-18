@@ -121,7 +121,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <VStack gap="8" max className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
-                {validateErrors?.length && validateErrors.map((err) => <Text theme={ETextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />)}
+                {validateErrors?.length && validateErrors.map((err) => <Text data-testid="EditableProfileCard.Error" theme={ETextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />)}
                 <ProfileCard data={formData} isLoading={isLoading} error={error} onChangeFirstname={onChangeFirstname} onChangeLastname={onChangeLastname} onChangeAge={onChangeAge} onChangeCity={onChangeCity} onChangeUsername={onChangeUsername} onChangeAvatar={onChangeAvatar} onChangeCurrency={onChangeCurrency} onChangeCountry={onChangeCountry} readonly={readonly} />
             </VStack>
         </DynamicReducerLoader>

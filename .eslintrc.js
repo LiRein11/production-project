@@ -64,6 +64,7 @@ module.exports = {
         'no-unsafe-optional-chaining': 'off',
         'react/no-array-index-key': 'off',
         'sergey-plugin/path-checker': 'error',
+        'no-nested-ternary':'off'
     },
     globals: {
         __IS_DEV__: true,

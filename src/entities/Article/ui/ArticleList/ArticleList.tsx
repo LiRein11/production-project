@@ -16,6 +16,7 @@ interface ArticleListProps {
     isLoading?: boolean;
     view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    noVirtualized?: boolean;
     onLoadNextPart?: () => void;
 }
 
@@ -26,7 +27,7 @@ const getSkeletons = () => {
 const Header = () => <ArticlesPageFilters className={cls.header} />;
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const { className, articles, isLoading, view = 'grid', target, onLoadNextPart } = props;
+    const { className, articles, isLoading, view = 'grid', target, onLoadNextPart, noVirtualized = false } = props;
     const { t } = useTranslation('articles');
 
     const [selectedArticleId, setSelectedArticleId] = useState(1);
@@ -89,7 +90,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {view === 'list' ? (
+            {noVirtualized ? (
+                articles.map((item) => <ArticleListItem article={item} view={view} target={target} key={item.id} className={cls.card} />)
+            ) : view === 'list' ? (
                 <Virtuoso
                     style={{ height: '100%' }}
                     data={articles}
@@ -119,7 +122,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     }}
                 />
             )}
-
             {/* {articles?.length > 0 ? articles?.map(renderArticle) : null} */}
             {/* {isLoading && getSkeletons(view)} */}
         </div>

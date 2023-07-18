@@ -35,17 +35,27 @@ export interface TextProps {
     theme?: ETextTheme;
     align?: ETextAlign;
     size?: ETextSize;
+
+    'data-testid'?: string;
 }
 
 export const Text = memo((props: TextProps) => {
-    const { className, text, title, theme = ETextTheme.PRIMARY, align = ETextAlign.LEFT, size = ETextSize.M } = props;
+    const { className, text, title, theme = ETextTheme.PRIMARY, align = ETextAlign.LEFT, size = ETextSize.M, 'data-testid': dataTestId = 'Text' } = props;
 
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
         <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {title && (
+                <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
+                    {text}
+                </p>
+            )}
         </div>
     );
 });
