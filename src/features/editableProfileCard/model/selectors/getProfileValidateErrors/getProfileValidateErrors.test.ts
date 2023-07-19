@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/redux';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
-import { EValidateError } from '../../types/editableProfileCardSchema';
+import { EValidateError } from '../../consts/consts';
 
 describe('getProfileValidateErrors.test', () => {
     test('should return incorrect age', () => {

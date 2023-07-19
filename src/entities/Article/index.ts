@@ -1,5 +1,5 @@
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export { ArticleSchema, Article, ArticleView, EArticleSortField, EArticleType } from './model/types/article';
+export type { ArticleSchema, Article, ArticleView } from './model/types/article';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './model/selectors/getArticleDetails';
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
@@ -8,3 +8,4 @@ export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelecto
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 export { ArticleList } from './ui/ArticleList/ArticleList';
+export { EArticleSortField, EArticleBlockType, EArticleType } from './model/consts/consts';

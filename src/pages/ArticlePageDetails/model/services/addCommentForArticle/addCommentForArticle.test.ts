@@ -1,9 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import {
-    Article,
-    EArticleBlockType,
-    EArticleType,
-} from 'entities/Article/model/types/article';
+import { Article } from 'entities/Article/model/types/article';
+import { EArticleType, EArticleBlockType } from 'entities/Article';
 import { addCommentForArticle } from './addCommentForArticle';
 
 const comment = {

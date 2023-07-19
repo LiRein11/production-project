@@ -5,7 +5,7 @@ import { ThunkConfig } from 'app/providers/redux/config/StateSchema';
 import { Profile } from 'entities/Profile';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
-import { EValidateError } from '../../types/editableProfileCardSchema';
+import { EValidateError } from '../../consts/consts';
 
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<EValidateError[]>>('profile/updateProfileData', async (_, thunkApi) => {
     const { extra, rejectWithValue, getState } = thunkApi;

@@ -27,6 +27,8 @@
         "paths": {
             "*": ["./src/*"]
         },
+        // Для слежки за импортами типов, чтобы они были изолированы. Также следит чтобы не было пустых ts файлов.
+        "isolatedModules": true,
         // Строгий режим (мастхев)
         "strict": true
     },
@@ -35,6 +37,6 @@
         "compilerOptions": {
             "module": "CommonJS"
         }
-    },
+    }
     // "include": ["./config/jest/jest-setup.ts"] // Чтобы подружить ts и testing-library/jest-dom
 }

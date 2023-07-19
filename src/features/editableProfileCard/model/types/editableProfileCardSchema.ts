@@ -1,14 +1,5 @@
 import { Profile } from 'entities/Profile';
-
-export enum EValidateError {
-    INCORRECT_FIRSTNAME = 'INCORRECT_FIRSTNAME',
-    INCORRECT_LASTNAME = 'INCORRECT_LASTNAME',
-    INCORRECT_CITY = 'INCORRECT_CITY',
-    INCORRECT_AGE = 'INCORRECT_AGE',
-    INCORRECT_USERNAME = 'INCORRECT_USERNAME',
-    NO_DATA = 'NO_DATA',
-    SERVER_ERROR = 'SERVER_ERROR',
-}
+import { EValidateError } from '../consts/consts';
 
 export interface ProfileSchema {
     data?: Profile;

@@ -2,10 +2,8 @@ import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profileSlice';
-import {
-    ProfileSchema,
-    EValidateError,
-} from '../types/editableProfileCardSchema';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
+import { EValidateError } from '../consts/consts';
 
 const data = {
     first: 'Сергей',

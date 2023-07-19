@@ -3,8 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useMemo } from 'react';
 import { Select, SelectOptions } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types/order';
+import { EArticleSortField } from '../../model/consts/consts';
 import cls from './ArticleSortSelector.module.scss';
-import { EArticleSortField } from '../../model/types/article';
 
 interface ArticleSortSelectorProps {
     className?: string;

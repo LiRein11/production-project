@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -11,7 +11,8 @@ import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/consts/localstorage';
-import { Article, ArticleTextBlock, ArticleView, EArticleBlockType } from '../../model/types/article';
+import { EArticleBlockType } from '../../model/consts/consts';
+import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 

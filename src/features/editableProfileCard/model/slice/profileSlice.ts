@@ -3,7 +3,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Profile } from 'entities/Profile';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { ProfileSchema, EValidateError } from '../types/editableProfileCardSchema';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
+import { EValidateError } from '../consts/consts';
 
 const initialState: ProfileSchema = {
     isLoading: true,

@@ -1,4 +1,4 @@
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleList } from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';

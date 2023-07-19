@@ -6,7 +6,8 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from './getArticleDetails';
-import { Article, EArticleBlockType, EArticleType } from '../types/article';
+import { Article } from '../types/article';
+import { EArticleType, EArticleBlockType } from '../consts/consts';
 
 const article: Article = {
     id: '1',
