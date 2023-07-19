@@ -23,7 +23,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 
 interface ArticleDetailsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const renderBlock = (block: ArticleBlock) => {
@@ -92,7 +92,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <VStack gap="16" className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack gap="16" max className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </VStack>
         </DynamicReducerLoader>

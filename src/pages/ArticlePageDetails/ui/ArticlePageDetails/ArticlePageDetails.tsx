@@ -34,10 +34,6 @@ const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
 
-    if (!id) {
-        return <Page>{t('ArticleNotFound')}</Page>;
-    }
-
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticlePageDetails, {}, [className])}>

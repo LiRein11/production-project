@@ -17,7 +17,7 @@ import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlic
 
 interface ArticleDetailsCommentsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
@@ -40,7 +40,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     });
 
     return (
-        <VStack gap="16" className={classNames('', {}, [className])}>
+        <VStack gap="16" max className={classNames('', {}, [className])}>
             <Text title={t('Comments')} />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList isLoading={commentsIsLoading} comments={comments} />
