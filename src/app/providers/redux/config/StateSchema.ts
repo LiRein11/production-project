@@ -1,6 +1,7 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticlesHeaderFiltersSchema } from 'entities/Article/model/types/articlesHeaderFiltersSchema';
 import { CounterSchema } from 'entities/Counter';
 
 import { UserSchema } from 'entities/User';
@@ -9,7 +10,6 @@ import { LoginSchema } from 'features/authByUsername';
 import { ProfileSchema } from 'features/editableProfileCard';
 import { ArticlePageDetailsSchema } from 'pages/ArticlePageDetails';
 
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { rtkApi } from 'shared/api/rtkApi';
 import { ScrollSaveSchema } from 'widgets/Page';
 
@@ -25,7 +25,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articlePageDetails?: ArticlePageDetailsSchema;
     addCommentForm?: AddCommentFormSchema;
-    articlesPage?: ArticlesPageSchema;
+    articlesPage?: ArticlesHeaderFiltersSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

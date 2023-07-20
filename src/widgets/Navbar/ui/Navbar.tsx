@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { AppLink, EAppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 export interface NavbarProps {

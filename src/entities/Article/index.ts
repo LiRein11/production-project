@@ -1,11 +1,13 @@
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export type { ArticleSchema, Article, ArticleView } from './model/types/article';
-export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
+export type { Article, ArticleView } from './model/types/article';
 export { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './model/selectors/getArticleDetails';
-export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { EArticleSortField, EArticleBlockType, EArticleType } from './model/consts/consts';
+export { articleDetailsReducer } from './model/slices/articleDetailsSlice';
+export { articlesHeaderFiltersActions, articlesHeaderFiltersReducer, getArticles } from './model/slices/articlesHeaderFiltersSlice';
+export { getArticlesInited, getArticlesIsLoading, getArticlesPage, getArticlesHasMore, getArticlesView, getArticlesError } from './model/selectors/articles';
+export { fetchArticles } from './model/services/fetchArticles/fetchArticles';

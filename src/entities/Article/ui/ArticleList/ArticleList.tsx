@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
-import { ArticlesPageFilters } from 'pages/ArticlesPage';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/consts/localstorage';
+
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
+import { ArticlesHeaderFilters } from '../ArticlesPageFilters/ArticlesHeaderFilters';
 
 interface ArticleListProps {
     className?: string;
@@ -24,7 +25,7 @@ const getSkeletons = () => {
     return new Array(3).fill(0).map((_, index) => <ArticleListItemSkeleton className={cls.card} key={index} view="list" />);
 };
 
-const Header = () => <ArticlesPageFilters className={cls.header} />;
+const Header = memo(() => <ArticlesHeaderFilters className={cls.header} />);
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, isLoading, view = 'grid', target, onLoadNextPart, noVirtualized = false } = props;

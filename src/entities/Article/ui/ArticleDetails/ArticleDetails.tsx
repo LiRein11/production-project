@@ -15,7 +15,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { EArticleBlockType } from '../../model/consts/consts';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
 import cls from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

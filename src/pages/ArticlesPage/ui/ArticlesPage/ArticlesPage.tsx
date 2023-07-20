@@ -1,4 +1,4 @@
-import { ArticleList } from 'entities/Article';
+import { ArticleList, articlesHeaderFiltersReducer, getArticles, getArticlesError, getArticlesIsLoading, getArticlesView } from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -6,10 +6,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { getArticlesError, getArticlesIsLoading, getArticlesView } from '../../model/selectors/articles';
+
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
+
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -17,7 +17,7 @@ interface ArticlesPageProps {
 }
 
 const reducers: ReducersList = {
-    articlesPage: articlesPageReducer,
+    articlesPage: articlesHeaderFiltersReducer,
 };
 
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {

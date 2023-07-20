@@ -1,10 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/redux/config/StateSchema';
 import { SortOrder } from 'shared/types/order';
-import { EArticleSortField, EArticleType } from 'entities/Article';
-import { getArticlesInited } from '../../selectors/articles';
-import { articlesPageActions } from '../../slices/articlesPageSlice';
-import { fetchArticles } from '../fetchArticles/fetchArticles';
+import { EArticleSortField, EArticleType, articlesHeaderFiltersActions, fetchArticles, getArticlesInited } from 'entities/Article';
 
 export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>('articles/initArticlesPage', async (searchParams, thunkApi) => {
     const { getState, dispatch } = thunkApi;
@@ -17,22 +14,22 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
         const typeFromUrl = searchParams.get('type') as EArticleType;
 
         if (orderFromUrl) {
-            dispatch(articlesPageActions.setOrder(orderFromUrl));
+            dispatch(articlesHeaderFiltersActions.setOrder(orderFromUrl));
         }
 
         if (sortFromUrl) {
-            dispatch(articlesPageActions.setSort(sortFromUrl));
+            dispatch(articlesHeaderFiltersActions.setSort(sortFromUrl));
         }
 
         if (searchFromUrl) {
-            dispatch(articlesPageActions.setSearch(searchFromUrl));
+            dispatch(articlesHeaderFiltersActions.setSearch(searchFromUrl));
         }
 
         if (typeFromUrl) {
-            dispatch(articlesPageActions.setType(typeFromUrl));
+            dispatch(articlesHeaderFiltersActions.setType(typeFromUrl));
         }
 
-        dispatch(articlesPageActions.initState());
+        dispatch(articlesHeaderFiltersActions.initState());
         dispatch(fetchArticles({}));
     }
 });

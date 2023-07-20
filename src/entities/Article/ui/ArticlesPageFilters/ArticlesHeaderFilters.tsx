@@ -1,4 +1,3 @@
-import { ArticleSortSelector, ArticleTypeTabs, ArticleView, ArticleViewSelector, EArticleSortField, EArticleType } from 'entities/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,16 +7,23 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from 'shared/types/order';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
-import { getArticlesOrder, getArticlesSearch, getArticlesSort, getArticlesType, getArticlesView } from '../../model/selectors/articles';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
-import { articlesPageActions } from '../../model/slices/articlesPageSlice';
-import cls from './ArticlesPageFilters.module.scss';
 
-interface ArticlesPageFiltersProps {
+import { articlesHeaderFiltersActions } from '../../model/slices/articlesHeaderFiltersSlice';
+import { EArticleSortField, EArticleType } from '../../model/consts/consts';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { ArticleView } from '../../model/types/article';
+import { getArticlesView, getArticlesSort, getArticlesOrder, getArticlesSearch, getArticlesType } from '../../model/selectors/articles';
+
+import cls from './ArticlesHeaderFilters.module.scss';
+import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
+import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleViewSelector } from '../ArticleViewSelector/ArticleViewSelector';
+
+interface ArticlesHeaderFiltersProps {
     className?: string;
 }
 
-export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
+export const ArticlesHeaderFilters = memo((props: ArticlesHeaderFiltersProps) => {
     const { className } = props;
     const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
@@ -35,7 +41,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeView = useCallback(
         (view: ArticleView) => {
-            dispatch(articlesPageActions.setView(view));
+            dispatch(articlesHeaderFiltersActions.setView(view));
         },
 
         [dispatch],
@@ -43,8 +49,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeOrder = useCallback(
         (order: SortOrder) => {
-            dispatch(articlesPageActions.setOrder(order));
-            dispatch(articlesPageActions.setPage(1));
+            dispatch(articlesHeaderFiltersActions.setOrder(order));
+            dispatch(articlesHeaderFiltersActions.setPage(1));
             fetchData();
         },
 
@@ -53,8 +59,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeSort = useCallback(
         (sort: EArticleSortField) => {
-            dispatch(articlesPageActions.setSort(sort));
-            dispatch(articlesPageActions.setPage(1));
+            dispatch(articlesHeaderFiltersActions.setSort(sort));
+            dispatch(articlesHeaderFiltersActions.setPage(1));
             fetchData();
         },
 
@@ -63,8 +69,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeSearch = useCallback(
         (search: string) => {
-            dispatch(articlesPageActions.setSearch(search));
-            dispatch(articlesPageActions.setPage(1));
+            dispatch(articlesHeaderFiltersActions.setSearch(search));
+            dispatch(articlesHeaderFiltersActions.setPage(1));
             debouncedFetchData();
         },
 
@@ -73,8 +79,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeType = useCallback(
         (value: EArticleType) => {
-            dispatch(articlesPageActions.setType(value));
-            dispatch(articlesPageActions.setPage(1));
+            dispatch(articlesHeaderFiltersActions.setType(value));
+            dispatch(articlesHeaderFiltersActions.setPage(1));
             fetchData();
         },
 
@@ -82,7 +88,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+        <div className={classNames(cls.ArticlesHeaderFilters, {}, [className])}>
             <div className={cls.sortWrapper}>
                 <ArticleSortSelector onChangeOrder={onChangeOrder} onChangeSort={onChangeSort} sort={sort} order={order} />
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />

@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
@@ -11,6 +11,8 @@ import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/consts/localstorage';
+
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { EArticleBlockType } from '../../model/consts/consts';
 import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -29,7 +31,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     const { t } = useTranslation();
 
     const [isHover, bindHover] = useHover();
-    console.log(isHover);
+    // console.log(isHover);
 
     const handleButtonClick = () => {
         sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX, JSON.stringify(index));

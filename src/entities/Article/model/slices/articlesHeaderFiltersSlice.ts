@@ -1,11 +1,14 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/redux';
-import { Article, ArticleView, EArticleSortField, EArticleType } from 'entities/Article';
+
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
 
 import { SortOrder } from 'shared/types/order';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
+
+import { EArticleSortField, EArticleType } from '../consts/consts';
 import { fetchArticles } from '../services/fetchArticles/fetchArticles';
+import { Article, ArticleView } from '../types/article';
+import { ArticlesHeaderFiltersSchema } from '../types/articlesHeaderFiltersSchema';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
@@ -13,9 +16,9 @@ const articlesAdapter = createEntityAdapter<Article>({
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>((state) => state.articlesPage || articlesAdapter.getInitialState());
 
-const articlesPageSlice = createSlice({
+const articlesHeaderFiltersSlice = createSlice({
     name: 'articlesPageSlice',
-    initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
+    initialState: articlesAdapter.getInitialState<ArticlesHeaderFiltersSchema>({
         isLoading: false,
         error: undefined,
         ids: [],
@@ -84,5 +87,5 @@ const articlesPageSlice = createSlice({
     },
 });
 
-export const { reducer: articlesPageReducer } = articlesPageSlice;
-export const { actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesHeaderFiltersReducer } = articlesHeaderFiltersSlice;
+export const { actions: articlesHeaderFiltersActions } = articlesHeaderFiltersSlice;

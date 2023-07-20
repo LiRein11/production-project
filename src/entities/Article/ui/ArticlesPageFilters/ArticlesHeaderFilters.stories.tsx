@@ -2,18 +2,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
-import { ArticlesPageFilters } from './ArticlesPageFilters';
+import { ArticlesHeaderFilters } from './ArticlesHeaderFilters';
 
 export default {
-    title: 'pages/Article/ArticlesPageFilters',
-    component: ArticlesPageFilters,
+    title: 'entities/Article/ArticlesHeaderFilters',
+    component: ArticlesHeaderFilters,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticlesPageFilters>;
+} as ComponentMeta<typeof ArticlesHeaderFilters>;
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => (
-    <ArticlesPageFilters {...args} />
+const Template: ComponentStory<typeof ArticlesHeaderFilters> = (args) => (
+    <ArticlesHeaderFilters {...args} />
 );
 
 export const Normal = Template.bind({});
