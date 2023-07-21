@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
@@ -25,7 +26,16 @@ export function buildPlugins({ paths, isDev, env, apiUrl, project }: BuildOption
         new BundleAnalyzerPlugin({ analyzerMode: env.analyze ? 'server' : 'disabled' }), // Анализ бандла
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
-        }), // Для копирования файлов/директорий в билд сборку
+        }), // Для копирования файлов/директорий в билд сборку\
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
+        }), // Для параллельной слежки за ts ошибками.
     ];
 
     if (isDev) {
