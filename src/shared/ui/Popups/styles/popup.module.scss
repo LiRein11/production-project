@@ -16,6 +16,11 @@
   border-radius: 8px;
 }
 
+button.active {
+  background: var(--inverted-primary-color);
+  border-radius: 8px;
+}
+
 .optionsTopLeft {
   bottom: 100%;
   right: 0;

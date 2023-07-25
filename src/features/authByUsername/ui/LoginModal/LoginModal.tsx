@@ -6,14 +6,13 @@ import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 export interface LoginModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onOpen?: () => void;
 }
 
 export const LoginModal = (props: LoginModalProps) => {
-    const { isOpen, onClose, onOpen } = props;
+    const { isOpen, onClose } = props;
 
     return (
-        <Modal lazy isOpen={isOpen} onClose={onClose} onOpen={onOpen}>
+        <Modal lazy isOpen={isOpen} onClose={onClose}>
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync />
             </Suspense>

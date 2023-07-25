@@ -6,11 +6,11 @@ export const enum ETheme {
     ORANGE = 'app_orange_theme',
 }
 
-export interface IThemeContextProps {
+export interface ThemeContextProps {
     theme?: ETheme;
     setTheme?: (theme: ETheme) => void;
 }
 
-export const ThemeContext = createContext<IThemeContextProps>({});
+export const ThemeContext = createContext<ThemeContextProps>({});
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';

@@ -1,7 +1,9 @@
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import React, { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
+import { Overlay } from '../Overlay/Overlay';
 
 export interface ModalProps {
     className?: string;
@@ -9,67 +11,18 @@ export interface ModalProps {
     lazy: boolean;
     isOpen: boolean;
     onClose: () => void;
-    onOpen?: () => void;
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-    const { className, children, isOpen, onOpen, onClose, lazy } = props;
+    const { className, children, isOpen, onClose, lazy } = props;
 
-    const [isClosing, setIsClosing] = useState(false);
-    const [isOpening, setIsOpening] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
+    // const contentClick = (e: React.MouseEvent) => {
+    //     e.stopPropagation();
+    // }; // Чтобы не было закрытия модалки при нажатии на неё. (перестает быть нужным с приходом Overlay)
 
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-            timerRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DELAY); // В случае демонтирования модалки из DOM дерева, таймаут может отработать и попытаться изменить состояние уже не существующего удалённого компонента и приложение упадет с ошибкой. Реф помогает избежать этой ошибки.
-        }
-    }, [onClose]);
-
-    const onKeyDown = useCallback(
-        (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                closeHandler();
-            }
-        },
-        [closeHandler],
-    ); // На каждый перерендер компонента создаётся новая фукнция со своей новой ссылкой, поэтому нужно как-то сохранять ссылку на эту функцию. useCallback запоминает и мемоизирует значение функции, и всегда её же возвращает (если в массиве зависимостей ничего не изменилось)
-
-    const contentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    }; // Чтобы не было закрытия модалки при нажатии на неё.
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsOpening(true);
-            timerRef.current = setTimeout(() => {
-                // onOpen();
-                setIsMounted(true);
-                setIsOpening(false);
-            }, ANIMATION_DELAY);
-        }
-        return () => {
-            setIsMounted(false);
-        };
-    }, [isOpen, onOpen]);
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown);
-        }
-
-        return () => {
-            clearInterval(timerRef.current);
-            window.removeEventListener('keydown', onKeyDown);
-        };
-    }, [isOpen, onKeyDown]); // Все таймауты, таймеры, которые используются внутри компонента, асинхронные операции нужно очищать в useEffect. Для этого можно вернуть функцию, в которой и будет очистка.
+    const { isClosing, isOpening, isMounted, close } = useModal({ animationDelay: ANIMATION_DELAY, onClose, isOpen });
 
     const mods: Mods = {
         [cls.opened]: isOpen,
@@ -84,11 +37,8 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={contentClick}>
-                        {children}
-                    </div>
-                </div>
+                <Overlay className={cls.overlay} onClick={close} />
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );

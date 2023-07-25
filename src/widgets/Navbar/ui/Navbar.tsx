@@ -1,17 +1,17 @@
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, EButtonTheme } from 'shared/ui/Button/Button';
-import { memo, useEffect, useState } from 'react';
+import { getUserAuthData } from 'entities/User';
 import { LoginModal } from 'features/authByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
-import { ETextTheme, Text } from 'shared/ui/Text/Text';
+import { memo, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, EAppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Button, EButtonTheme } from 'shared/ui/Button/Button';
+import { ETextTheme, Text } from 'shared/ui/Text/Text';
 
+import { AvatarDropdown } from 'features/avatarDropdown';
+import { NotificationButton } from 'features/notificationButton';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
-import { NotificationButton } from 'features/notificationButton';
-import { AvatarDropdown } from 'features/avatarDropdown';
 import cls from './Navbar.module.scss';
 
 export interface NavbarProps {
@@ -57,7 +57,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <Button className={classNames(cls.links)} theme={EButtonTheme.CLEAR} onClick={onShowModal}>
                 {t('Login')}
             </Button>
-            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} onOpen={onShowModal} />
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
         </header>
     );
 });
