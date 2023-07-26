@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/redux';
+import { StateSchema } from '@/app/providers/redux';
 import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername.test', () => {

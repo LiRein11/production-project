@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/redux';
+import { StateSchema } from '@/app/providers/redux';
 import { getProfileReadonly } from './getProfileReadonly';
 
 describe('getProfileReadonly.test', () => {

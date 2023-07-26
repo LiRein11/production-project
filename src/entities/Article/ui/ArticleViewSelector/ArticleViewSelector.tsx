@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import GridIcon from 'shared/assets/icons/grid-24-24.svg';
-import ListIcon from 'shared/assets/icons/list-24-24.svg';
-import { Button, EButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
 import { SVGProps, VFC } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import GridIcon from '@/shared/assets/icons/grid-24-24.svg';
+import ListIcon from '@/shared/assets/icons/list-24-24.svg';
+import { Button, EButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/types/article';
 

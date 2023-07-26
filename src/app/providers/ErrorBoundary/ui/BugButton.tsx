@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useEffect, useState } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export interface BugButtonProps {
     className?: string;
@@ -19,10 +19,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
     }, [stateBug]);
 
     return (
-        <button
-            className={classNames('', {}, [className])}
-            onClick={() => createBug()}
-        >
+        <button className={classNames('', {}, [className])} onClick={() => createBug()}>
             Create bug
         </button>
     );

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/redux/config/StateSchema';
-import { articlesHeaderFiltersActions, fetchArticles, getArticlesHasMore, getArticlesIsLoading, getArticlesPage } from 'entities/Article';
+import { ThunkConfig } from '@/app/providers/redux/config/StateSchema';
+import { articlesHeaderFiltersActions, fetchArticles, getArticlesHasMore, getArticlesIsLoading, getArticlesPage } from '@/entities/Article';
 
 export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>('articles/fetchNextArticlesPage', async (_, thunkApi) => {
     const { getState, dispatch } = thunkApi;

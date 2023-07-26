@@ -7,6 +7,8 @@ export function buildResolves(options: BuildOptions): ResolveOptions {
         preferAbsolute: true, // Абсолютные пути в приоритете
         modules: [options.paths.src, 'node_modules'], // Абсолютные импорты из src и node_modules
         mainFiles: ['index'],
-        alias: {},
+        alias: {
+            '@': options.paths.src,
+        },
     };
 }

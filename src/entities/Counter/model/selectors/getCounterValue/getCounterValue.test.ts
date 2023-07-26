@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/redux';
+import { StateSchema } from '@/app/providers/redux';
 import { getCounterValue } from './getCounterValue';
 
 describe('getCounter.test', () => {

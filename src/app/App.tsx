@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-
-import { getUserInited, userActions } from 'entities/User';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-
 import { useLocation } from 'react-router-dom';
-import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/consts/localstorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { getUserInited, userActions } from '@/entities/User';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
 import { AppRouter } from './providers/router';
 
 const App = () => {

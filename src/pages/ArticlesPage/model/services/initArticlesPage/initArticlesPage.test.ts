@@ -1,8 +1,8 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { EArticleType, fetchArticles } from 'entities/Article';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { EArticleType, fetchArticles } from '@/entities/Article';
 import { initArticlesPage } from './initArticlesPage';
 
-jest.mock('entities/Article/model/services/fetchArticles/fetchArticles');
+jest.mock('@/entities/Article/model/services/fetchArticles/fetchArticles');
 
 const params = new URLSearchParams();
 params.append('param1', 'value1');

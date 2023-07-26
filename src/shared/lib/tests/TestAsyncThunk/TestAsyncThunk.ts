@@ -1,7 +1,7 @@
 import { AsyncThunkAction, DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/redux';
 import axios, { AxiosStatic } from 'axios';
-import { EValidateError } from 'features/editableProfileCard';
+import { StateSchema } from '@/app/providers/redux';
+import { EValidateError } from '@/features/editableProfileCard';
 
 type ActionCreatorType<Return, Arg, RejectedValue> = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: string | EValidateError[] }>;
 

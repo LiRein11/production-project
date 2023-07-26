@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers/redux';
-
 import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema } from '@/app/providers/redux';
+
 import {
     getArticleDetailsData,
     getArticleDetailsError,

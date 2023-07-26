@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ECountry } from 'entities/Country';
-import { ECurrency } from 'entities/Currency';
-
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ETextTheme, Text } from 'shared/ui/Text/Text';
-import { ProfileCard } from 'entities/Profile';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ECountry } from '@/entities/Country';
+import { ECurrency } from '@/entities/Currency';
 
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { VStack } from 'shared/ui/Stack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { ETextTheme, Text } from '@/shared/ui/Text/Text';
+import { ProfileCard } from '@/entities/Profile';
+
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { VStack } from '@/shared/ui/Stack';
 import { EValidateError } from '../../model/consts/consts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

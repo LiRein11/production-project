@@ -21,6 +21,7 @@ export default {
     moduleNameMapper: {
         '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'mockSvgFile.tsx'), // Для файлов, которые заканчиваются на svg сгенерируется пустой компонент, просто div. Можно и svg отрисовать, но смысла мало.
+        '^@/(.*)$': '<rootDir>src/$1', // Для работы тестов с алиасами
     }, // Мапер, который делает из svg - React компонент
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],

@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/redux';
+import { StateSchema } from '@/app/providers/redux';
 import { EArticleSortField, EArticleType } from '../consts/consts';
 
 export const getArticlesIsLoading = (state: StateSchema) => state.articlesPage?.isLoading || false;

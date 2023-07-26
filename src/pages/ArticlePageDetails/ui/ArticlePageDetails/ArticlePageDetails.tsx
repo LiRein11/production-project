@@ -1,14 +1,13 @@
-import { ArticleDetails } from 'entities/Article';
-
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { VStack } from 'shared/ui/Stack';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { ArticleDetails } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { VStack } from '@/shared/ui/Stack';
 
-import { Page } from 'widgets/Page';
+import { Page } from '@/widgets/Page';
 import { articlePageDetailsReducer } from '../../model/slice';
 
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
