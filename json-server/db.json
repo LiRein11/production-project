@@ -209,7 +209,7 @@
             "id": "7",
             "title": "Ruby news",
             "subtitle": "Что нового в Ruby за 2022 год?",
-            "img": "https://wordticle.com/wp-content/uploads/2023/04/ruby.png",
+            "img": "https://i.pinimg.com/originals/eb/9e/3b/eb9e3b7dab09358e7cf13f188f64f9f4.png",
             "views": 432,
             "createdAt": "16.04.2023",
             "userId": "1",
@@ -661,6 +661,66 @@
             "city": "Ekaterinburg",
             "username": "user",
             "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd"
+        }
+    ],
+    "article-ratings": [
+        {
+            "id": "1",
+            "rate": 4,
+            "feedback": "Хорошая статья",
+            "userId": "1",
+            "articleId": "1"
+        },
+        {
+            "id": "2",
+            "rate": 4,
+            "feedback": "Хорошая статья",
+            "userId": "1",
+            "articleId": "2"
+        },
+        {
+            "articleId": "3",
+            "userId": "1",
+            "rate": 3,
+            "feedback": "",
+            "id": "qLz37My"
+        },
+        {
+            "articleId": "9",
+            "userId": "1",
+            "rate": 3,
+            "feedback": "fasf",
+            "id": "fJWHzdY"
+        },
+        {
+            "articleId": "19",
+            "userId": "1",
+            "rate": 4,
+            "feedback": "",
+            "id": "ZH9rhbA"
+        },
+        {
+            "articleId": "7",
+            "userId": "1",
+            "rate": 5,
+            "feedback": "good",
+            "id": "ougmyms"
+        }
+    ],
+    "profile-ratings": [
+        {
+            "id": "1",
+            "rate": 4,
+            "feedback": "Хороший профиль",
+            "userId": "1",
+            "articleId": "1"
+        },
+        {
+            "id": "2",
+            "rate": 4,
+            "feedback": "Хороший профиль",
+            "userId": "1",
+            "articleId": "2"
         }
     ]
 }

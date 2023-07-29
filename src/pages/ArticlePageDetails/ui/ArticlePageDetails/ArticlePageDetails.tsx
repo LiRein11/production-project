@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
@@ -13,6 +12,7 @@ import { articlePageDetailsReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticlePageDetails.module.scss';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticlePageDetailsProps {
     className?: string;
@@ -24,8 +24,11 @@ const reducers: ReducersList = {
 
 const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
     const { className } = props;
-    const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
+
+    if (!id) {
+        return null;
+    }
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
@@ -33,6 +36,7 @@ const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

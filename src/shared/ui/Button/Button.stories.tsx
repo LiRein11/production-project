@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/app/providers/ThemeProvider';
-import { Button, ButtonSize, EButtonTheme } from './Button';
+import { Button, EButtonSize, EButtonTheme } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -42,14 +42,14 @@ export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
     children: 'Text',
     theme: EButtonTheme.OUTLINE,
-    size: ButtonSize.L,
+    size: EButtonSize.L,
 };
 
 export const OutlineSizeXL = Template.bind({});
 OutlineSizeXL.args = {
     children: 'Text',
     theme: EButtonTheme.OUTLINE,
-    size: ButtonSize.XL,
+    size: EButtonSize.XL,
 };
 
 export const OutlineDark = Template.bind({});
@@ -76,7 +76,7 @@ Square.args = {
     children: '>',
     theme: EButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.M,
+    size: EButtonSize.M,
 };
 
 export const SquareL = Template.bind({});
@@ -84,7 +84,7 @@ SquareL.args = {
     children: '>',
     theme: EButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.L,
+    size: EButtonSize.L,
 };
 
 export const SquareXL = Template.bind({});
@@ -92,7 +92,7 @@ SquareXL.args = {
     children: '>',
     theme: EButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.XL,
+    size: EButtonSize.XL,
 };
 
 export const Disabled = Template.bind({});

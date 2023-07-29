@@ -22,5 +22,11 @@
     "Fantastic blog": "Fantastic blog",
     "Create article": "Create article",
     "AdminPanel": "Admin panel",
-    "NoAccess": "You do not have access to this page"
+    "NoAccess": "You do not have access to this page",
+    "Close": "Close",
+    "Send": "Send",
+    "Your feedback": "Your feedback",
+    "Rate the article": "Rate the article",
+    "Leave a review": "Leave a review",
+    "Thank you for rating": "Thank you for rating!"
 }

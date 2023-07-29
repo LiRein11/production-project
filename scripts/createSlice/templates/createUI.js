@@ -20,18 +20,9 @@ module.exports = async (layer, sliceName) => {
         try {
             const componentName = firstCharUpperCase(sliceName);
             await fs.mkdir(resolveUIPath(componentName));
-            await fs.writeFile(
-                resolveUIPath(componentName, `${componentName}.tsx`),
-                componentTemplate(componentName),
-            );
-            await fs.writeFile(
-                resolveUIPath(componentName, `${componentName}.stories.tsx`),
-                storyTemplate(layer, componentName),
-            );
-            await fs.writeFile(
-                resolveUIPath(componentName, `${componentName}.module.scss`),
-                styleTemplate(componentName),
-            );
+            await fs.writeFile(resolveUIPath(componentName, `${componentName}.tsx`), componentTemplate(componentName));
+            await fs.writeFile(resolveUIPath(componentName, `${componentName}.stories.tsx`), storyTemplate(layer, componentName));
+            await fs.writeFile(resolveUIPath(componentName, `${componentName}.module.scss`), styleTemplate(componentName));
         } catch (e) {
             console.log('Не удалось создать компонент');
         }

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LangSwitcher } from '@/widgets/LangSwitcher';
-import { Button, ButtonSize, EButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, EButtonSize, EButtonTheme } from '@/shared/ui/Button/Button';
 
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -29,7 +29,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     return (
         <section data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button data-testid="sidebar-btn" onClick={onToggle} className={cls.collapseBtn} theme={EButtonTheme.BACKGROUND_INVERTED} square size={ButtonSize.L}>
+            <Button data-testid="sidebar-btn" onClick={onToggle} className={cls.collapseBtn} theme={EButtonTheme.BACKGROUND_INVERTED} square size={EButtonSize.L}>
                 {collapsed ? '>' : '<'}
             </Button>
             <VStack role="navigation" gap="8" className={cls.items}>

@@ -22,5 +22,11 @@
     "Fantastic blog": "Фантастический блог",
     "Create article": "Создать статью",
     "AdminPanel": "Админка",
-    "NoAccess": "У вас нет доступа к этой странице"
+    "NoAccess": "У вас нет доступа к этой странице",
+    "Close": "Закрыть",
+    "Send": "Отправить",
+    "Your feedback": "Оставьте ваш фитбек",
+    "Rate the article": "Оцените статью",
+    "Leave a review": "Оставьте отзыв",
+    "Thank you for rating": "Спасибо за оценку!"
 }
