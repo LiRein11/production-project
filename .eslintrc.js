@@ -63,8 +63,9 @@ module.exports = {
         'no-undef': 'off',
         'no-unsafe-optional-chaining': 'off',
         'react/no-array-index-key': 'off',
-        'sergey-plugin/path-checker': 'error',
-        'no-nested-ternary':'off'
+        'sergey-plugin/path-checker': ['error', { alias: '@' }],
+        'sergey-plugin/public-api-imports': ['error', { alias: '@', testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] }],
+        'no-nested-ternary': 'off',
     },
     globals: {
         __IS_DEV__: true,

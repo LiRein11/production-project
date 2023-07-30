@@ -10,9 +10,10 @@ import { ETextTheme, Text } from '@/shared/ui/Text/Text';
 
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+
 import { HStack } from '@/shared/ui/Stack';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/consts/router';
 
 export interface NavbarProps {
     className?: string;

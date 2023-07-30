@@ -4,7 +4,7 @@ import { ETheme } from '@/app/providers/ThemeProvider';
 import { ListBox } from './ListBox';
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/Popups/ListBox',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' },

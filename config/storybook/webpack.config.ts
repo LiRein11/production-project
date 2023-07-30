@@ -16,7 +16,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config!.resolve!.modules!.unshift(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
 
-    config.resolve!.alias = { '@': paths.src }; // Для работы сторибука с алиасами
+    config.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    }; // Для работы сторибука с алиасами
 
     // eslint-disable-next-line
     const rules = config.module!.rules! as RuleSetRule[];

@@ -11,3 +11,4 @@ export { articleDetailsReducer } from './model/slices/articleDetailsSlice';
 export { articlesHeaderFiltersActions, articlesHeaderFiltersReducer, getArticles } from './model/slices/articlesHeaderFiltersSlice';
 export { getArticlesInited, getArticlesIsLoading, getArticlesPage, getArticlesHasMore, getArticlesView, getArticlesError } from './model/selectors/articles';
 export { fetchArticles } from './model/services/fetchArticles/fetchArticles';
+export type { ArticlesHeaderFiltersSchema } from './model/types/articlesHeaderFiltersSchema';

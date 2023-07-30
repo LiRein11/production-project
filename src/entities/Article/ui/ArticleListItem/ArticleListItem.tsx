@@ -12,11 +12,11 @@ import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text } from '@/shared/ui/Text/Text';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
 
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { EArticleBlockType } from '../../model/consts/consts';
 import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
     className?: string;

@@ -8,8 +8,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { getCanEditArticle } from '../../model/selectors/articles';
+import { RoutePath } from '@/shared/consts/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
