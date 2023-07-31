@@ -1,5 +1,6 @@
-import { User } from '@/entities/User';
 import { EArticleBlockType, EArticleType } from '../consts/consts';
+
+import { User } from '@/entities/User';
 
 export type ArticleView = 'list' | 'grid';
 

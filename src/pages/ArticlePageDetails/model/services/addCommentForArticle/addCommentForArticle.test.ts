@@ -1,6 +1,7 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { EArticleType, EArticleBlockType, Article } from '@/entities/Article';
 import { addCommentForArticle } from './addCommentForArticle';
+
+import { EArticleType, EArticleBlockType, Article } from '@/entities/Article';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const comment = {
     id: '1',

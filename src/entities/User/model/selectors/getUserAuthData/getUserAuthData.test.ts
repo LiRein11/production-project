@@ -1,7 +1,8 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
-import { StateSchema } from '@/app/providers/redux';
 import { getUserAuthData } from './getUserAuthData';
+
+import { StateSchema } from '@/app/providers/redux';
 
 const userData = {
     id: '1',

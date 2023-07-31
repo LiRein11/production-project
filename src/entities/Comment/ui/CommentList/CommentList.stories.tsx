@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { CommentList } from './CommentList';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/shared/consts/theme';
-import { CommentList } from './CommentList';
 
 export default {
     title: 'entities/Comment/CommentList',

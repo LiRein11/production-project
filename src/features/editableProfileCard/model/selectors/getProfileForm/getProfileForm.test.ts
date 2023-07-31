@@ -1,8 +1,10 @@
 import { DeepPartial } from '@reduxjs/toolkit';
+
+import { getProfileForm } from './getProfileForm';
+
 import { StateSchema } from '@/app/providers/redux';
 import { ECountry } from '@/entities/Country';
 import { ECurrency } from '@/entities/Currency';
-import { getProfileForm } from './getProfileForm';
 
 describe('getProfileForm.test', () => {
     const formData = {

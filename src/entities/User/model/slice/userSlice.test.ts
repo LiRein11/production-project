@@ -1,5 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
+
 import { UserSchema } from '../types/userSchema';
+
 import { userReducer, userActions } from './userSlice';
 
 const userData = {

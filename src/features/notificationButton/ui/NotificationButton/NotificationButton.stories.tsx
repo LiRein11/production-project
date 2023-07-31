@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { NotificationButton } from './NotificationButton';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from './NotificationButton';
 
 export default {
     title: 'features/NotificationButton',

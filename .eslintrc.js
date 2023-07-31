@@ -23,9 +23,32 @@ module.exports = {
         sourceType: 'module',
         // project: ["./tsconfig.json"],
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'sergey-plugin'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'sergey-plugin', 'unused-imports', 'import'],
     ignorePatterns: ['.eslintrc.js'],
     rules: {
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
+            },
+        ],
+        'unused-imports/no-unused-imports': 'error',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],

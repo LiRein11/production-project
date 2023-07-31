@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/redux';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
+
+import { StateSchema } from '@/app/providers/redux';
 import { EValidateError } from '@/shared/consts/errors';
 
 describe('getProfileValidateErrors.test', () => {

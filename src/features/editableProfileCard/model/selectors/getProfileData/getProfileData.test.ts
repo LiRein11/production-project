@@ -1,8 +1,10 @@
 import { DeepPartial } from '@reduxjs/toolkit';
+
+import { getProfileData } from './getProfileData';
+
 import { StateSchema } from '@/app/providers/redux';
 import { ECountry } from '@/entities/Country';
 import { ECurrency } from '@/entities/Currency';
-import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {
     const data = {

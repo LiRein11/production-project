@@ -1,6 +1,16 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { EArticleSortField, EArticleType } from '../../model/consts/consts';
+import { getArticlesView, getArticlesSort, getArticlesOrder, getArticlesSearch, getArticlesType } from '../../model/selectors/articles';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { articlesHeaderFiltersActions } from '../../model/slices/articlesHeaderFiltersSlice';
+import { ArticleView } from '../../model/types/article';
+import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
+import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleViewSelector } from '../ArticleViewSelector/ArticleViewSelector';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
@@ -8,16 +18,7 @@ import { SortOrder } from '@/shared/types/order';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 
-import { articlesHeaderFiltersActions } from '../../model/slices/articlesHeaderFiltersSlice';
-import { EArticleSortField, EArticleType } from '../../model/consts/consts';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
-import { ArticleView } from '../../model/types/article';
-import { getArticlesView, getArticlesSort, getArticlesOrder, getArticlesSearch, getArticlesType } from '../../model/selectors/articles';
-
 import cls from './ArticlesHeaderFilters.module.scss';
-import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
-import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
-import { ArticleViewSelector } from '../ArticleViewSelector/ArticleViewSelector';
 
 interface ArticlesHeaderFiltersProps {
     className?: string;

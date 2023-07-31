@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/redux';
 import { getLoginError } from './getLoginError';
+
+import { StateSchema } from '@/app/providers/redux';
 
 describe('getLoginError.test', () => {
     test('should return error', () => {

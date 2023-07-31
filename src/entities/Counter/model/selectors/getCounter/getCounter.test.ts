@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/redux';
 import { getCounter } from './getCounter';
+
+import { StateSchema } from '@/app/providers/redux';
 
 describe('getCounter.test', () => {
     test('getCounter should return obj', () => {

@@ -1,8 +1,10 @@
 import { EntityState } from '@reduxjs/toolkit';
 
-import { SortOrder } from '@/shared/types/order';
 import { EArticleSortField, EArticleType } from '../consts/consts';
+
 import { Article, ArticleView } from './article';
+
+import { SortOrder } from '@/shared/types/order';
 
 export interface ArticlesHeaderFiltersSchema extends EntityState<Article> {
     isLoading?: boolean;

@@ -1,7 +1,8 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { EArticleType, EArticleBlockType } from '../../consts/consts';
 
 import { fetchArticles } from './fetchArticles';
-import { EArticleType, EArticleBlockType } from '../../consts/consts';
+
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 // const articles = jest.mock('../fetchArticles/fetchArticles');
 

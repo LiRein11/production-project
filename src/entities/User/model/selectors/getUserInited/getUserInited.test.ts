@@ -1,6 +1,8 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/redux';
+
 import { getUserInited } from './getUserInited';
+
+import { StateSchema } from '@/app/providers/redux';
 
 describe('getInited.test', () => {
     test('should return inited=true', () => {

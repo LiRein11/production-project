@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { AvatarDropdown } from './AvatarDropdown';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { HStack } from '@/shared/ui/Stack';
-import { AvatarDropdown } from './AvatarDropdown';
 import { ETheme } from '@/shared/consts/theme';
+import { HStack } from '@/shared/ui/Stack';
 
 export default {
     title: 'features/AvatarDropdown',

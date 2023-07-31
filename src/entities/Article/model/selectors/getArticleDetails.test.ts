@@ -1,13 +1,15 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/redux';
+
+import { EArticleType, EArticleBlockType } from '../consts/consts';
+import { Article } from '../types/article';
 
 import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from './getArticleDetails';
-import { Article } from '../types/article';
-import { EArticleType, EArticleBlockType } from '../consts/consts';
+
+import { StateSchema } from '@/app/providers/redux';
 
 const article: Article = {
     id: '1',

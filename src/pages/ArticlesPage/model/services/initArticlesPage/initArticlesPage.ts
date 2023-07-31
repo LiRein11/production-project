@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/redux';
-import { SortOrder } from '@/shared/types/order';
 import { EArticleSortField, EArticleType, articlesHeaderFiltersActions, fetchArticles, getArticlesInited } from '@/entities/Article';
+import { SortOrder } from '@/shared/types/order';
 
 export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>('articles/initArticlesPage', async (searchParams, thunkApi) => {
     const { getState, dispatch } = thunkApi;

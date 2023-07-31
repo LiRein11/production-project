@@ -1,7 +1,13 @@
 import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 
+import { EArticleBlockType } from '../../model/consts/consts';
+import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
+import { RoutePath } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -10,13 +16,8 @@ import { Button, EButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text } from '@/shared/ui/Text';
-import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
 
-import { EArticleBlockType } from '../../model/consts/consts';
-import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
     className?: string;

@@ -1,16 +1,19 @@
-import { useTranslation } from 'react-i18next';
 import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { StateSchema } from '@/app/providers/redux';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
-import { scrollSaveActions } from '../../model/slices/scrollSaveSlice';
-import cls from './Page.module.scss';
+import { useLocation } from 'react-router-dom';
+
 import { getScrollSaveByPath } from '../../model/selectors/scrollSave';
+import { scrollSaveActions } from '../../model/slices/scrollSaveSlice';
+
+import { StateSchema } from '@/app/providers/redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+
+import cls from './Page.module.scss';
 
 interface PageProps {
     className?: string;

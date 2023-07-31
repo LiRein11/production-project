@@ -1,8 +1,10 @@
-import { ECurrency } from '@/entities/Currency';
-import { ECountry } from '@/entities/Country';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { profileActions, profileReducer } from './profileSlice';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
+
+import { profileActions, profileReducer } from './profileSlice';
+
+import { ECountry } from '@/entities/Country';
+import { ECurrency } from '@/entities/Currency';
 import { EValidateError } from '@/shared/consts/errors';
 
 const data = {

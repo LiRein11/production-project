@@ -1,8 +1,9 @@
-import { StateSchema } from '@/app/providers/redux';
 import {
     getAddCommentFormText,
     getAddCommentFormError,
 } from './getCommentFormSelectors';
+
+import { StateSchema } from '@/app/providers/redux';
 
 describe('getCommentFormSelectors.test', () => {
     test('should return value', () => {

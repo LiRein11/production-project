@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/redux';
 import { getLoginState } from './getLoginState';
+
+import { StateSchema } from '@/app/providers/redux';
 
 describe('getLoginState.test', () => {
     test('should return value', () => {

@@ -1,8 +1,9 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ECurrency } from '@/entities/Currency';
-import { ECountry } from '@/entities/Country';
 import { updateProfileData } from './updateProfileData';
+
+import { ECountry } from '@/entities/Country';
+import { ECurrency } from '@/entities/Currency';
 import { EValidateError } from '@/shared/consts/errors';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const data = {
     first: 'Сергей',

@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { CommentCard } from './CommentCard';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/shared/consts/theme';
-import { CommentCard } from './CommentCard';
 
 export default {
     title: 'entities/Comment/CommentCard',

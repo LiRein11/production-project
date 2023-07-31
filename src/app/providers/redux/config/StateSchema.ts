@@ -1,14 +1,13 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+
 import { ArticleDetailsSchema, ArticlesHeaderFiltersSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
-
 import { UserSchema } from '@/entities/User';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 import { LoginSchema } from '@/features/authByUsername';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { ArticlePageDetailsSchema } from '@/pages/ArticlePageDetails';
-
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ScrollSaveSchema } from '@/widgets/Page';
 

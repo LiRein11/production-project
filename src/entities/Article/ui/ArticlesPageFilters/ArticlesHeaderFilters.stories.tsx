@@ -1,8 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { ArticlesHeaderFilters } from './ArticlesHeaderFilters';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/shared/consts/theme';
-import { ArticlesHeaderFilters } from './ArticlesHeaderFilters';
 
 export default {
     title: 'entities/Article/ArticlesHeaderFilters',

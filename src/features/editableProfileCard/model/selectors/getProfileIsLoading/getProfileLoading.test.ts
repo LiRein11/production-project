@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/redux';
 import { getProfileIsLoading } from './getProfileIsLoading';
+
+import { StateSchema } from '@/app/providers/redux';
 
 describe('getProfileIsLoading.test', () => {
     test('should return true', () => {

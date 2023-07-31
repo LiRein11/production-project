@@ -1,12 +1,14 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from 'react';
 
+import { ProfileCard } from './ProfileCard';
+
+import { ECountry } from '@/entities/Country';
+import { ECurrency } from '@/entities/Currency';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/shared/consts/theme';
-import { ECurrency } from '@/entities/Currency';
-import { ECountry } from '@/entities/Country';
+
 // import avatar from 'shared/assets/tests/storybook.jpg';
-import { ProfileCard } from './ProfileCard';
 
 export default {
     title: 'entities/ProfileCard',
