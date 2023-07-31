@@ -7,7 +7,7 @@ import { ECurrency } from '@/entities/Currency';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ETextTheme, Text } from '@/shared/ui/Text/Text';
+import { ETextTheme, Text } from '@/shared/ui/Text';
 import { ProfileCard } from '@/entities/Profile';
 
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';

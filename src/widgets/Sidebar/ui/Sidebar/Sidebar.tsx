@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { LangSwitcher } from '@/features/LangSwitcher';
-import { Button, EButtonSize, EButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, EButtonSize, EButtonTheme } from '@/shared/ui/Button';
 
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';

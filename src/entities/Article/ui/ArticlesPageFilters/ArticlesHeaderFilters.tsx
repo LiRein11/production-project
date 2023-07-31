@@ -5,8 +5,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/order';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 
 import { articlesHeaderFiltersActions } from '../../model/slices/articlesHeaderFiltersSlice';
 import { EArticleSortField, EArticleType } from '../../model/consts/consts';

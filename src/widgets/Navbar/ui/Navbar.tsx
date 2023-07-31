@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { LoginModal } from '@/features/authByUsername';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, EAppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { Button, EButtonTheme } from '@/shared/ui/Button/Button';
-import { ETextTheme, Text } from '@/shared/ui/Text/Text';
+import { AppLink, EAppLinkTheme } from '@/shared/ui/AppLink';
+import { Button, EButtonTheme } from '@/shared/ui/Button';
+import { ETextTheme, Text } from '@/shared/ui/Text';
 
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';

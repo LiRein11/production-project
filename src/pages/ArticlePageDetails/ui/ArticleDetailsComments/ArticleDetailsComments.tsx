@@ -6,7 +6,7 @@ import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/addCommentForm';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
