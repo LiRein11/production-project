@@ -1,8 +1,7 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import { ReduxStoreWithManager } from '@/app/providers/redux';
-import { StateSchema, StateSchemaKey } from '@/app/providers/redux/config/StateSchema';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/redux';
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>; // Передается не просто рандомный редюсер, а забирается у него поле из стейт схемы в зависимости от того, какое название стоит в качестве name (более строгая типизация)

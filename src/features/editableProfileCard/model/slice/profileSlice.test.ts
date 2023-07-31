@@ -3,7 +3,7 @@ import { ECountry } from '@/entities/Country';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profileSlice';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
-import { EValidateError } from '../consts/consts';
+import { EValidateError } from '@/shared/consts/errors';
 
 const data = {
     first: 'Сергей',

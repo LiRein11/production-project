@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from '@/app/providers/ThemeProvider';
+import { ETheme } from '@/shared/consts/theme';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
 // import avatar from 'shared/assets/tests/storybook.jpg';

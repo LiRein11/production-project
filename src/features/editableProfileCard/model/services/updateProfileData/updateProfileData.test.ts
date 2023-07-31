@@ -2,7 +2,7 @@ import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
 import { updateProfileData } from './updateProfileData';
-import { EValidateError } from '../../consts/consts';
+import { EValidateError } from '@/shared/consts/errors';
 
 const data = {
     first: 'Сергей',

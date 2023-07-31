@@ -1,5 +1,5 @@
 import { Profile } from '@/entities/Profile';
-import { EValidateError } from '../consts/consts';
+import { EValidateError } from '@/shared/consts/errors';
 
 export interface ProfileSchema {
     data?: Profile;

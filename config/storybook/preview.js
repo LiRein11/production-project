@@ -1,5 +1,5 @@
 import { addDecorator } from '@storybook/react';
-import { ETheme } from 'app/providers/ThemeProvider';
+import { ETheme } from '../../src/shared/consts/theme';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 

@@ -12,7 +12,7 @@ import { ProfileCard } from '@/entities/Profile';
 
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { VStack } from '@/shared/ui/Stack';
-import { EValidateError } from '../../model/consts/consts';
+import { EValidateError } from '@/shared/consts/errors';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';

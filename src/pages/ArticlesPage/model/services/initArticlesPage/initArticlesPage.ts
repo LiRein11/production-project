@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/redux/config/StateSchema';
+import { ThunkConfig } from '@/app/providers/redux';
 import { SortOrder } from '@/shared/types/order';
 import { EArticleSortField, EArticleType, articlesHeaderFiltersActions, fetchArticles, getArticlesInited } from '@/entities/Article';
 

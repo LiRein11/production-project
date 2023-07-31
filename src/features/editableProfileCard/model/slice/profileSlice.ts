@@ -4,7 +4,7 @@ import { Profile } from '@/entities/Profile';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
-import { EValidateError } from '../consts/consts';
+import { EValidateError } from '@/shared/consts/errors';
 
 const initialState: ProfileSchema = {
     isLoading: true,

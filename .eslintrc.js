@@ -65,6 +65,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'sergey-plugin/path-checker': ['error', { alias: '@' }],
         'sergey-plugin/public-api-imports': ['error', { alias: '@', testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] }],
+        'sergey-plugin/layer-imports': ['error', { alias: '@', ignoreImportPatterns: ['**/redux', '**/testing'] }],
         'no-nested-ternary': 'off',
     },
     globals: {
