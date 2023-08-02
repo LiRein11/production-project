@@ -1,15 +1,18 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { getArticlesPageView, getArticlesPageError, getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlesHeaderFiltersReducer, getArticles } from '../../model/slices/articlesHeaderFiltersSlice';
+import { ArticlesHeaderFilters } from '../ArticlesPageFilters/ArticlesHeaderFilters';
 
-import { ArticleList, articlesHeaderFiltersReducer, getArticles, getArticlesError, getArticlesIsLoading, getArticlesView } from '@/entities/Article';
+import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from '@/widgets/Page';
 
 import cls from './ArticlesPage.module.scss';
 
@@ -26,15 +29,9 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
     const articles = useSelector(getArticles.selectAll);
-    const view = useSelector(getArticlesView);
-    const error = useSelector(getArticlesError);
-    const isLoading = useSelector(getArticlesIsLoading);
-
-    const onLoadNextPart = useCallback(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchNextArticlesPage());
-        }
-    }, [dispatch]);
+    const view = useSelector(getArticlesPageView);
+    const error = useSelector(getArticlesPageError);
+    const isLoading = useSelector(getArticlesPageIsLoading);
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
@@ -46,10 +43,10 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <div className={classNames(cls.ArticlesPage, {}, [className])}>
-                {/* <ArticlesPageFilters /> */}
-                <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} onLoadNextPart={onLoadNextPart} />
-            </div>
+            <Page className={classNames(cls.ArticlesPage, {}, [className])}>
+                <ArticlesHeaderFilters />
+                <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} />
+            </Page>
         </DynamicReducerLoader>
     );
 };

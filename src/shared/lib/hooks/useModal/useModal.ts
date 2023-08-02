@@ -6,6 +6,13 @@ export interface useModalProps {
     isOpen?: boolean;
 }
 
+/**
+ * Переиспользуемый хук для модальных компонентов (drawer/modal)
+ * @param animationDelay
+ * @param isOpen
+ * @param onClose
+ */
+
 export const useModal = (props: useModalProps) => {
     const { onClose, animationDelay, isOpen } = props;
 

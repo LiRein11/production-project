@@ -6,7 +6,7 @@ import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/authByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteArticleCreate } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, EAppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, EButtonTheme } from '@/shared/ui/Button';
@@ -40,7 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text className={cls.appName} theme={ETextTheme.INVERTED} title={t('Fantastic blog')} />
-                <AppLink className={cls.createBtn} theme={EAppLinkTheme.SECONDARY} to={RoutePath.article_create}>
+                <AppLink className={cls.createBtn} theme={EAppLinkTheme.SECONDARY} to={getRouteArticleCreate()}>
                     {t('Create article')}
                 </AppLink>
 

@@ -25,11 +25,11 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     const onOpenDrawer = useCallback(() => {
         setIsOpen(true);
-    }, [setIsOpen]);
+    }, []);
 
     const onCloseDrawer = useCallback(() => {
         setIsOpen(false);
-    }, [setIsOpen]);
+    }, []);
 
     const trigger = (
         <Button theme={EButtonTheme.CLEAR} onClick={onOpenDrawer}>

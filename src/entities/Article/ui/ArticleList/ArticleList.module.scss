@@ -1,54 +1,23 @@
-.ArticleList {
-  height: 100%;
-}
-
 .list {
+  margin-top: 30px;
+
   .card {
-    padding: 30px 20px 20px 30px;
+    margin-bottom: 30px;
   }
-}
-
-.virtuoso-grid-item {
-  padding: 50px;
-}
-
-.header {
-  margin: 30px 30px 0;
 }
 
 .grid {
-  padding: 10px;
-
-  .card {
-    margin-top: 30px;
-  }
-}
-
-.itemsWrapper {
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-  margin: 0 30px;
+  gap: 30px;
+
+  .card {
+    display: inline-flex;
+    height: 300px;
+  }
 }
 
 .skeleton {
   padding-bottom: 30px;
-}
-
-.ItemContainer {
-  width: 230px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-  margin-right: 30px;
-
-  @media (max-width: 1024px) {
-    width: 50%;
-  }
-
-  @media (max-width: 300px) {
-    width: 100%;
-  }
 }

@@ -4,8 +4,6 @@ import ArticlePageDetails from './ArticlePageDetails';
 
 import { EArticleType, EArticleBlockType, Article } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from '@/shared/consts/theme';
 
 export default {
     title: 'pages/ArticlePageDetails/ArticlePageDetails',
@@ -13,10 +11,15 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    parameters: {
+        loki: {
+            skip: true,
+        },
+    },
 } as ComponentMeta<typeof ArticlePageDetails>;
 
-const Template: ComponentStory<typeof ArticlePageDetails> = (args) => (
-    <ArticlePageDetails {...args} />
+const Template: ComponentStory<typeof ArticlePageDetails> = () => (
+    <ArticlePageDetails />
 );
 
 const article: Article = {
@@ -97,15 +100,31 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
     StoreDecorator({
-        articleDetails: { data: article },
+        articlePageDetails: {
+            comments: {
+                ids: ['1'],
+                entities: {
+                    1: {
+                        id: '1',
+                        text: 'some comment',
+                        articleId: '1',
+                        user: { id: '1' },
+                    },
+                },
+            },
+            recommendations: {
+                ids: [],
+                entities: {},
+            },
+        },
     }),
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-    StoreDecorator({
-        articleDetails: { data: article },
-    }),
-    ThemeDecorator(ETheme.DARK),
-];
+// export const Dark = Template.bind({});
+// Dark.args = {};
+// Dark.decorators = [
+//     StoreDecorator({
+//         articlePageDetails: { data: article },
+//     }),
+//     ThemeDecorator(ETheme.DARK),
+// ];

@@ -92,10 +92,12 @@
         "mini-css-extract-plugin": "^2.5.3",
         "prettier": "^2.8.8",
         "react-refresh": "^0.12.0",
-        "reg-cli": "^0.17.6",
+        "reg-cli": "^0.17.7",
         "sass": "^1.49.9",
         "sass-loader": "^12.6.0",
+        "storybook": "^7.2.0",
         "storybook-addon-mock": "^2.4.1",
+        "storybook-addon-themes": "^6.1.0",
         "style-loader": "^3.3.1",
         "stylelint": "^14.5.3",
         "stylelint-config-standard-scss": "^3.0.0",
@@ -126,8 +128,7 @@
         "react-dom": "^18.2.0",
         "react-i18next": "^11.15.5",
         "react-redux": "^7.2.9",
-        "react-router-dom": "^6.2.1",
-        "react-virtuoso": "^4.3.11"
+        "react-router-dom": "^6.2.1"
     },
     "loki": {
         "fetchFailIgnore": ".*",

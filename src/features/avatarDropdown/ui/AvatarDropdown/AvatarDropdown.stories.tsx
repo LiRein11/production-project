@@ -21,17 +21,6 @@ const Template: ComponentStory<typeof AvatarDropdown> = () => (
     </HStack>
 );
 
-export const AvatarDropdownNormal = Template.bind({});
-AvatarDropdownNormal.args = {};
-AvatarDropdownNormal.decorators = [StoreDecorator({})];
-
-export const AvatarDropdownDark = Template.bind({});
-AvatarDropdownDark.args = {};
-AvatarDropdownDark.decorators = [
-    StoreDecorator({}),
-    ThemeDecorator(ETheme.DARK),
-];
-
 export const AuthAvatarDropdown = Template.bind({});
 AuthAvatarDropdown.args = {};
 AuthAvatarDropdown.decorators = [

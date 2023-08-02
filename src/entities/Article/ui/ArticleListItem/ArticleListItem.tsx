@@ -7,7 +7,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -21,7 +21,7 @@ import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     className?: string;
-    article?: Article;
+    article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
     index?: number;
@@ -38,31 +38,31 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX, JSON.stringify(index));
     };
 
-    const types = <Text text={article?.type.join(', ')} className={cls.types} />;
+    const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
         <>
-            <Text text={String(article?.views)} className={cls.views} />
+            <Text text={String(article.views)} className={cls.views} />
             <Icon Svg={EyeIcon} />
         </>
     );
 
     if (view === 'list') {
-        const textBlock = article?.blocks.find((block) => block.type === EArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find((block) => block.type === EArticleBlockType.TEXT) as ArticleTextBlock;
 
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
-                        <Avatar size={30} src={article?.user.avatar} alt={article?.title || ''} />
-                        <Text text={article?.user.username} className={cls.username} />
-                        <Text text={article?.createdAt} className={cls.date} />
+                        <Avatar size={30} src={article.user.avatar} alt={article.title || ''} />
+                        <Text text={article.user.username} className={cls.username} />
+                        <Text text={article.createdAt} className={cls.date} />
                     </div>
-                    <Text title={article?.title} className={cls.title} />
+                    <Text title={article.title} className={cls.title} />
                     {types}
-                    <img src={article?.img} className={cls.img} alt={article?.title} />
+                    <img src={article.img} className={cls.img} alt={article.title} />
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                     <div className={cls.footer}>
-                        <AppLink to={RoutePath.article_details + article?.id} target={target}>
+                        <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                             <Button onClick={handleButtonClick} theme={EButtonTheme.OUTLINE}>
                                 {t('ReadMore')}
                             </Button>
@@ -76,17 +76,17 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     return (
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <AppLink onClick={handleButtonClick} to={RoutePath.article_details + article?.id} target={target}>
+            <AppLink onClick={handleButtonClick} to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
-                        <img alt={article?.title} src={article?.img} className={cls.img} />
-                        <Text text={article?.createdAt} className={cls.date} />
+                        <img alt={article.title} src={article.img} className={cls.img} />
+                        <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>
                         {types}
                         {views}
                     </div>
-                    <Text text={article?.title} className={cls.title} />
+                    <Text text={article.title} className={cls.title} />
                 </Card>
             </AppLink>
         </div>

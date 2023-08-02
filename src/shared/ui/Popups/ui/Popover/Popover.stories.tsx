@@ -1,9 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { Button } from '../../../Button';
+
 import { Popover } from './Popover';
 
 export default {
-    title: 'shared/Popover',
+    title: 'shared/Popups/Popover',
     component: Popover,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,4 +17,7 @@ const Template: ComponentStory<typeof Popover> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    trigger: <Button>Open</Button>,
+    children: 'content',
+};

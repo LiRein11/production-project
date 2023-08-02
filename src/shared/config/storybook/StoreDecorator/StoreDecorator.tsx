@@ -8,6 +8,7 @@ import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 import { loginReducer } from '@/features/authByUsername/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
 import { articlePageDetailsReducer } from '@/pages/ArticlePageDetails/testing';
+import { articlesHeaderFiltersReducer } from '@/pages/ArticlesPage/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
 const defaultAsyncReducers: ReducersList = {
@@ -16,6 +17,7 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articlePageDetails: articlePageDetailsReducer,
+    articlesPage: articlesHeaderFiltersReducer,
 };
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (Story: Story) =>
