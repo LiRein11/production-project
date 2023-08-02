@@ -5,7 +5,7 @@ import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 import { EArticleType } from '@/entities/Article';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-jest.mock('entities/Article/model/services/fetchArticles/fetchArticles');
+jest.mock('@/pages/ArticlesPage/model/services/fetchArticles/fetchArticles');
 
 describe('fetchNextArticlesPage.test', () => {
     test('success', async () => {

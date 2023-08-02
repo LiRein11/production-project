@@ -5,7 +5,7 @@ import { initArticlesPage } from './initArticlesPage';
 import { EArticleType } from '@/entities/Article';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-jest.mock('@/entities/Article/model/services/fetchArticles/fetchArticles');
+jest.mock('@/pages/ArticlesPage/model/services/fetchArticles/fetchArticles');
 
 const params = new URLSearchParams();
 params.append('param1', 'value1');
