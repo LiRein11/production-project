@@ -26,7 +26,8 @@
         "analyze:dev": "npm run build:dev --env analyze=true",
         "storybook": "start-storybook -p 6006 -c ./config/storybook",
         "storybook:build": "build-storybook -c ./config/storybook",
-        "generate:slice": "node ./scripts/createSlice/index.js"
+        "generate:slice": "node ./scripts/createSlice/index.js",
+        "postinstall": "node ./scripts/removeBabelCache.js"
     },
     "keywords": [],
     "author": "",

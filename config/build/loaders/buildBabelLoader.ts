@@ -12,6 +12,7 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => {
         use: {
             loader: require.resolve('babel-loader'),
             options: {
+                cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
                     ['@babel/plugin-transform-runtime'],
