@@ -10,11 +10,13 @@ import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, EButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
 import cls from './ArticleListItem.module.scss';
@@ -59,7 +61,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage fallback={<Skeleton width="100%" height={250} />} src={article.img} className={cls.img} alt={article.title} />
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                     <div className={cls.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)} target={target}>
@@ -79,7 +81,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             <AppLink onClick={handleButtonClick} to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
-                        <img alt={article.title} src={article.img} className={cls.img} />
+                        <AppImage fallback={<Skeleton width={200} height={200} />} alt={article.title} src={article.img} className={cls.img} />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>
