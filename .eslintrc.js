@@ -90,6 +90,7 @@ module.exports = {
         'sergey-plugin/public-api-imports': ['error', { alias: '@', testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] }],
         'sergey-plugin/layer-imports': ['error', { alias: '@', ignoreImportPatterns: ['**/redux', '**/testing'] }],
         'no-nested-ternary': 'off',
+        'react/destructuring-assignment': 'off',
     },
     globals: {
         __IS_DEV__: true,
