@@ -637,6 +637,13 @@
             "password": "123",
             "roles": ["MANAGER"],
             "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd"
+        },
+        {
+            "id": "4",
+            "username": "testuser",
+            "password": "123",
+            "roles": ["ADMIN"],
+            "avatar": "https://i.yapx.cc/Ra9P6.jpg"
         }
     ],
     "profile": [

@@ -43,7 +43,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page data-testid="ArticlesPage" className={classNames(cls.ArticlesPage, {}, [className])}>
                 <ArticlesHeaderFilters />
                 <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} />
             </Page>

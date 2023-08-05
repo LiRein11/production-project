@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -24,11 +24,13 @@ const App = () => {
 
     return (
         <div className={classNames('app', {}, [])}>
-            <Navbar />
-            <div className="content-page">
-                <Sidebar />
-                {inited && <AppRouter />}
-            </div>
+            <Suspense fallback="">
+                <Navbar />
+                <div className="content-page">
+                    <Sidebar />
+                    {inited && <AppRouter />}
+                </div>
+            </Suspense>
         </div>
     );
 };
