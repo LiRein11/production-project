@@ -94,7 +94,7 @@ export const ArticlesHeaderFilters = memo((props: ArticlesHeaderFiltersProps) =>
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
-                <Input value={search} onChange={onChangeSearch} placeholder={t('Search')} />
+                <Input data-testid="ArticlesHeaderFilters.Input" value={search} onChange={onChangeSearch} placeholder={t('Search')} />
             </Card>
             <ArticleTypeTabs className={cls.tabs} value={type} onChangeType={onChangeType} />
         </div>

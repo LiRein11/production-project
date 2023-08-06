@@ -48,7 +48,7 @@ export interface FlexProps extends DivProps {
 }
 
 export const Flex = memo((props: FlexProps) => {
-    const { className, children, align = 'center', justify = 'start', direction = 'row', gap, max } = props;
+    const { className, children, align = 'center', justify = 'start', direction = 'row', gap, max, ...otherProps } = props;
     const { t } = useTranslation();
 
     const classes = [className, alignClasses[align], justifyClasses[justify], directionClasses[direction], gap && gapClasses[gap]];
@@ -57,5 +57,9 @@ export const Flex = memo((props: FlexProps) => {
         [cls.max]: max,
     };
 
-    return <div className={classNames(cls.Flex, mods, classes)}>{children}</div>;
+    return (
+        <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
+            {children}
+        </div>
+    );
 });

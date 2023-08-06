@@ -52,7 +52,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         const textBlock = article.blocks.find((block) => block.type === EArticleBlockType.TEXT) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} alt={article.title || ''} />
@@ -78,7 +78,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     return (
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <AppLink onClick={handleButtonClick} to={getRouteArticleDetails(article.id)} target={target}>
+            <AppLink data-testid="ArticleListItem" onClick={handleButtonClick} to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <AppImage fallback={<Skeleton width={200} height={200} />} alt={article.title} src={article.img} className={cls.img} />
