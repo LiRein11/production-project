@@ -24,7 +24,7 @@ const articlesHeaderFiltersSlice = createSlice({
         view: 'grid',
         page: 1,
         hasMore: true,
-        limit: 30,
+        limit: 9,
         sort: EArticleSortField.CREATED,
         search: '',
         order: 'asc',

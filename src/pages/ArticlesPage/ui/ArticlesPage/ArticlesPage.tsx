@@ -1,8 +1,9 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import { getArticlesPageView, getArticlesPageError, getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesHeaderFiltersReducer, getArticles } from '../../model/slices/articlesHeaderFiltersSlice';
 import { ArticlesHeaderFilters } from '../ArticlesPageFilters/ArticlesHeaderFilters';
@@ -33,6 +34,10 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const error = useSelector(getArticlesPageError);
     const isLoading = useSelector(getArticlesPageIsLoading);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
     });
@@ -43,7 +48,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page data-testid="ArticlesPage" className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page onScrollEnd={onLoadNextPart} data-testid="ArticlesPage" className={classNames(cls.ArticlesPage, {}, [className])}>
                 <ArticlesHeaderFilters />
                 <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} />
             </Page>
