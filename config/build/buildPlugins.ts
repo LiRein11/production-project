@@ -20,7 +20,7 @@ export function buildPlugins({ paths, isDev, env, apiUrl, project }: BuildOption
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }), // Для создания глобальных переменных
-        new BundleAnalyzerPlugin({ analyzerMode: env.analyze ? 'server' : 'disabled' }), // Анализ бандла
+        new BundleAnalyzerPlugin({ analyzerMode: env?.analyze ? 'server' : 'disabled' }), // Анализ бандла
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
