@@ -3,5 +3,5 @@
 
 npx lint-staged
 # npm run lint:ts
-# npm run lint:scss
+# npm run lint:scss 
 # npm run test:ui

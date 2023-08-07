@@ -13,6 +13,7 @@ import {
     DynamicReducerLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { getFeatureFlag } from '@/shared/lib/features/setGetFeatures';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
@@ -29,6 +30,7 @@ const reducers: ReducersList = {
 const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
+    const isArticleRatingEnable = getFeatureFlag('isArticleRatingEnable');
 
     if (!id) {
         return null;
@@ -40,7 +42,7 @@ const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRating articleId={id} />
+                    {isArticleRatingEnable && <ArticleRating articleId={id} />}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

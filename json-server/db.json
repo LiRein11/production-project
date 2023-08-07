@@ -624,71 +624,6 @@
           ]
         }
       ]
-    },
-    {
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2023 год?",
-      "img": "https://pluspng.com/img-png/kotlin-logo-png-kotlin-collection-function-techshots-medium-1200x630.png",
-      "views": 242,
-      "createdAt": "12.03.2023",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "rmpS7xP"
-    },
-    {
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2023 год?",
-      "img": "https://pluspng.com/img-png/kotlin-logo-png-kotlin-collection-function-techshots-medium-1200x630.png",
-      "views": 242,
-      "createdAt": "12.03.2023",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "w1kesFD"
-    },
-    {
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2023 год?",
-      "img": "https://pluspng.com/img-png/kotlin-logo-png-kotlin-collection-function-techshots-medium-1200x630.png",
-      "views": 242,
-      "createdAt": "12.03.2023",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "iQ4RvX3"
-    },
-    {
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2023 год?",
-      "img": "https://pluspng.com/img-png/kotlin-logo-png-kotlin-collection-function-techshots-medium-1200x630.png",
-      "views": 242,
-      "createdAt": "12.03.2023",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "CCYzfTq"
-    },
-    {
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2023 год?",
-      "img": "https://pluspng.com/img-png/kotlin-logo-png-kotlin-collection-function-techshots-medium-1200x630.png",
-      "views": 242,
-      "createdAt": "12.03.2023",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "zR3DkmP"
     }
   ],
   "comments": [
@@ -793,12 +728,6 @@
       "articleId": "13",
       "userId": "1",
       "id": "M4HoNme"
-    },
-    {
-      "text": "text",
-      "articleId": "CCYzfTq",
-      "userId": "4",
-      "id": "gL1_wqK"
     }
   ],
   "users": [
@@ -809,6 +738,9 @@
       "roles": [
         "ADMIN"
       ],
+      "features":{
+        "isArticleRatingEnable": true
+      },
       "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg"
     },
     {
@@ -818,6 +750,9 @@
       "roles": [
         "USER"
       ],
+      "features":{
+        "isArticleRatingEnable": false
+      },
       "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd"
     },
     {
