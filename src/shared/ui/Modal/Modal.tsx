@@ -25,7 +25,11 @@ export const Modal = (props: ModalProps) => {
     //     e.stopPropagation();
     // }; // Чтобы не было закрытия модалки при нажатии на неё. (перестает быть нужным с приходом Overlay)
 
-    const { isClosing, isOpening, isMounted, close } = useModal({ animationDelay: ANIMATION_DELAY, onClose, isOpen });
+    const { isClosing, isOpening, isMounted, close } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        onClose,
+        isOpen,
+    });
 
     const mods: Mods = {
         [cls.opened]: isOpen,

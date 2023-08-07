@@ -48,7 +48,16 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = memo((props: ButtonProps) => {
-    const { children, className, theme = EButtonTheme.OUTLINE, square, size = EButtonSize.M, disabled, fullWidth, ...otherProps } = props;
+    const {
+        children,
+        className,
+        theme = EButtonTheme.OUTLINE,
+        square,
+        size = EButtonSize.M,
+        disabled,
+        fullWidth,
+        ...otherProps
+    } = props;
 
     const mods: Mods = {
         [cls.square]: square,
@@ -57,7 +66,11 @@ export const Button = memo((props: ButtonProps) => {
     };
 
     return (
-        <button className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])} disabled={disabled} {...otherProps}>
+        <button
+            className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
+            disabled={disabled}
+            {...otherProps}
+        >
             {children}
         </button>
     );

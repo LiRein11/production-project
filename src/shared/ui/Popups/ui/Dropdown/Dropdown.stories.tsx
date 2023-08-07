@@ -12,9 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => (
-    <Dropdown {...args} />
-);
+const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

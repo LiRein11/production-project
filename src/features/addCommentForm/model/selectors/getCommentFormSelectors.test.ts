@@ -1,7 +1,4 @@
-import {
-    getAddCommentFormText,
-    getAddCommentFormError,
-} from './getCommentFormSelectors';
+import { getAddCommentFormText, getAddCommentFormError } from './getCommentFormSelectors';
 
 import { StateSchema } from '@/app/providers/redux';
 

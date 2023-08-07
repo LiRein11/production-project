@@ -24,7 +24,14 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
     const GestureRef = useRef<GestureType>();
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const value = useMemo(() => ({ Spring: SpringRef.current, Gesture: GestureRef.current, isLoaded }), [isLoaded]);
+    const value = useMemo(
+        () => ({
+            Spring: SpringRef.current,
+            Gesture: GestureRef.current,
+            isLoaded,
+        }),
+        [isLoaded],
+    );
 
     useEffect(() => {
         getAsyncAnimationModules().then(([Spring, Gesture]) => {

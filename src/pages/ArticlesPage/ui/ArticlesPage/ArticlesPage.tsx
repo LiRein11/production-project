@@ -2,15 +2,25 @@ import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { getArticlesPageView, getArticlesPageError, getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageView,
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+} from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { articlesHeaderFiltersReducer, getArticles } from '../../model/slices/articlesHeaderFiltersSlice';
+import {
+    articlesHeaderFiltersReducer,
+    getArticles,
+} from '../../model/slices/articlesHeaderFiltersSlice';
 import { ArticlesHeaderFilters } from '../ArticlesPageFilters/ArticlesHeaderFilters';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import {
+    DynamicReducerLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
@@ -48,9 +58,18 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page onScrollEnd={onLoadNextPart} data-testid="ArticlesPage" className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                data-testid="ArticlesPage"
+                className={classNames(cls.ArticlesPage, {}, [className])}
+            >
                 <ArticlesHeaderFilters />
-                <ArticleList view={view} articles={articles} isLoading={isLoading} className={cls.list} />
+                <ArticleList
+                    view={view}
+                    articles={articles}
+                    isLoading={isLoading}
+                    className={cls.list}
+                />
             </Page>
         </DynamicReducerLoader>
     );

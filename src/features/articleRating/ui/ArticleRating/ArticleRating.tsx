@@ -59,7 +59,17 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
     const rating = data?.[0];
 
-    return <RatingCard onAccept={onAccept} onCancel={onCancel} rate={rating?.rate} className={classNames('', {}, [className])} title={t('Rate the article')} feedbackTitle={t('Leave a review')} hasFeedback />;
+    return (
+        <RatingCard
+            onAccept={onAccept}
+            onCancel={onCancel}
+            rate={rating?.rate}
+            className={classNames('', {}, [className])}
+            title={t('Rate the article')}
+            feedbackTitle={t('Leave a review')}
+            hasFeedback
+        />
+    );
 });
 
 export default ArticleRating;

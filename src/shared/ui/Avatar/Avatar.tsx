@@ -29,7 +29,18 @@ export const Avatar = ({ className, src, size = 100, alt, fallbackInverted }: Av
     );
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;
-    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />;
+    const errorFallback = (
+        <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />
+    );
 
-    return <AppImage fallback={fallback} errorFallback={errorFallback} src={src} alt={alt} style={styles} className={classNames(cls.Avatar, mods, [className])} />;
+    return (
+        <AppImage
+            fallback={fallback}
+            errorFallback={errorFallback}
+            src={src}
+            alt={alt}
+            style={styles}
+            className={classNames(cls.Avatar, mods, [className])}
+        />
+    );
 };

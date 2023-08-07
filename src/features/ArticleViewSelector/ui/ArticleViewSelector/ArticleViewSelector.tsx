@@ -44,8 +44,20 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
             {viewTypes.map((viewType) => (
-                <Button data-testid={viewType['data-testid']} key={viewType.view} theme={EButtonTheme.CLEAR} onClick={onClick(viewType.view)}>
-                    <Icon Svg={viewType.icon} className={classNames('', { [cls.notSelected]: viewType.view !== view }, [])} />
+                <Button
+                    data-testid={viewType['data-testid']}
+                    key={viewType.view}
+                    theme={EButtonTheme.CLEAR}
+                    onClick={onClick(viewType.view)}
+                >
+                    <Icon
+                        Svg={viewType.icon}
+                        className={classNames(
+                            '',
+                            { [cls.notSelected]: viewType.view !== view },
+                            [],
+                        )}
+                    />
                 </Button>
             ))}
         </div>

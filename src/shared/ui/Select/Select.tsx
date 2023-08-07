@@ -21,7 +21,15 @@ export interface SelectProps<T extends string> {
 }
 
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
-    const { className, label, options, value, onChange, readonly, 'data-testid': dataTestId = 'Select' } = props;
+    const {
+        className,
+        label,
+        options,
+        value,
+        onChange,
+        readonly,
+        'data-testid': dataTestId = 'Select',
+    } = props;
 
     const onChangeHandlerSelect = (e: ChangeEvent<HTMLSelectElement>) => {
         if (onChange) {
@@ -40,7 +48,13 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     return (
         <div className={classNames(cls.SelectWrapper, {}, [className])}>
             {label && <span className={cls.label}>{`${label}>`}</span>}
-            <select data-testid={dataTestId} disabled={readonly} value={value} onChange={onChangeHandlerSelect} className={cls.select}>
+            <select
+                data-testid={dataTestId}
+                disabled={readonly}
+                value={value}
+                onChange={onChangeHandlerSelect}
+                className={cls.select}
+            >
                 {optionsList}
             </select>
         </div>

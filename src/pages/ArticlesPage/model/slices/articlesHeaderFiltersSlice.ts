@@ -12,7 +12,9 @@ const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
-export const getArticles = articlesAdapter.getSelectors<StateSchema>((state) => state.articlesPage || articlesAdapter.getInitialState());
+export const getArticles = articlesAdapter.getSelectors<StateSchema>(
+    (state) => state.articlesPage || articlesAdapter.getInitialState(),
+);
 
 const articlesHeaderFiltersSlice = createSlice({
     name: 'articlesPageSlice',
@@ -78,10 +80,13 @@ const articlesHeaderFiltersSlice = createSlice({
                 articlesAdapter.addMany(state, action.payload);
             }
         });
-        builder.addCase(fetchArticles.rejected, (state, action: PayloadAction<string | undefined>) => {
-            state.isLoading = false;
-            state.error = action.payload;
-        });
+        builder.addCase(
+            fetchArticles.rejected,
+            (state, action: PayloadAction<string | undefined>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            },
+        );
     },
 });
 

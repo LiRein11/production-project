@@ -16,9 +16,7 @@ export default {
     decorators: [withMock],
 } as ComponentMeta<typeof NotificationList>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => (
-    <NotificationList {...args} />
-);
+const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
 
 const notifications = [
     {
@@ -86,10 +84,7 @@ NormalDark.parameters = {
 
 export const NormalLoadingDark = Template.bind({});
 NormalLoadingDark.args = {};
-NormalLoadingDark.decorators = [
-    StoreDecorator({}),
-    ThemeDecorator(ETheme.DARK),
-];
+NormalLoadingDark.decorators = [StoreDecorator({}), ThemeDecorator(ETheme.DARK)];
 NormalLoadingDark.parameters = {
     mockData: [
         {

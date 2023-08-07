@@ -49,10 +49,15 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     );
 
     if (view === 'list') {
-        const textBlock = article.blocks.find((block) => block.type === EArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === EArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
-            <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                data-testid="ArticleListItem"
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} alt={article.title || ''} />
@@ -61,8 +66,15 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <AppImage fallback={<Skeleton width="100%" height={250} />} src={article.img} className={cls.img} alt={article.title} />
-                    {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
+                    <AppImage
+                        fallback={<Skeleton width="100%" height={250} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
+                    {textBlock && (
+                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                    )}
                     <div className={cls.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                             <Button onClick={handleButtonClick} theme={EButtonTheme.OUTLINE}>
@@ -78,10 +90,20 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     return (
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <AppLink data-testid="ArticleListItem" onClick={handleButtonClick} to={getRouteArticleDetails(article.id)} target={target}>
+            <AppLink
+                data-testid="ArticleListItem"
+                onClick={handleButtonClick}
+                to={getRouteArticleDetails(article.id)}
+                target={target}
+            >
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
-                        <AppImage fallback={<Skeleton width={200} height={200} />} alt={article.title} src={article.img} className={cls.img} />
+                        <AppImage
+                            fallback={<Skeleton width={200} height={200} />}
+                            alt={article.title}
+                            src={article.img}
+                            className={cls.img}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>

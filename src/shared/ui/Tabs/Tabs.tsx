@@ -34,7 +34,13 @@ export const Tabs = memo((props: TabsProps) => {
     return (
         <div className={classNames(cls.Tabs, {}, [className])}>
             {tabs.map((tab) => (
-                <Card data-testid={tab['data-testid']} className={cls.tab} theme={tab.value === value ? ECardTheme.NORMAL : ECardTheme.OUTLINED} key={tab.value} onClick={onClickHandle(tab)}>
+                <Card
+                    data-testid={tab['data-testid']}
+                    className={cls.tab}
+                    theme={tab.value === value ? ECardTheme.NORMAL : ECardTheme.OUTLINED}
+                    key={tab.value}
+                    onClick={onClickHandle(tab)}
+                >
                     {tab.content}
                 </Card>
             ))}

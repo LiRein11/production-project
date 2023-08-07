@@ -42,7 +42,15 @@ export interface TextProps {
 }
 
 export const Text = memo((props: TextProps) => {
-    const { className, text, title, theme = ETextTheme.PRIMARY, align = ETextAlign.LEFT, size = ETextSize.M, 'data-testid': dataTestId = 'Text' } = props;
+    const {
+        className,
+        text,
+        title,
+        theme = ETextTheme.PRIMARY,
+        align = ETextAlign.LEFT,
+        size = ETextSize.M,
+        'data-testid': dataTestId = 'Text',
+    } = props;
 
     const HeaderTag = mapSizeToHeaderTag[size];
 

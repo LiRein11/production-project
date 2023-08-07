@@ -60,10 +60,30 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         <DynamicReducerLoader reducers={{ loginForm: loginReducer }} removeAfterUnmount>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Authorization form')} />
-                {error && <Text text={t('Uncorrect username or password')} theme={ETextTheme.ERROR} />}
-                <Input autofocus type="text" className={classNames(cls.input)} placeholder={t('Enter username')} onChange={onChangeUsername} value={username} />
-                <Input type="text" className={classNames(cls.input)} placeholder={t('Enter password')} onChange={onChangePassword} value={password} />
-                <Button theme={EButtonTheme.OUTLINE} className={classNames(cls.loginBtn)} onClick={onLoginClick} disabled={isLoading}>
+                {error && (
+                    <Text text={t('Uncorrect username or password')} theme={ETextTheme.ERROR} />
+                )}
+                <Input
+                    autofocus
+                    type="text"
+                    className={classNames(cls.input)}
+                    placeholder={t('Enter username')}
+                    onChange={onChangeUsername}
+                    value={username}
+                />
+                <Input
+                    type="text"
+                    className={classNames(cls.input)}
+                    placeholder={t('Enter password')}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <Button
+                    theme={EButtonTheme.OUTLINE}
+                    className={classNames(cls.loginBtn)}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
                     {t('Login')}
                 </Button>
             </div>

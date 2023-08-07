@@ -5,7 +5,13 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        'prettier',
+        'plugin:jsx-a11y/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     overrides: [
         {
@@ -23,7 +29,16 @@ module.exports = {
         sourceType: 'module',
         // project: ["./tsconfig.json"],
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'sergey-plugin', 'unused-imports', 'import'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks',
+        'sergey-plugin',
+        'unused-imports',
+        'import',
+        'eslint-plugin-prettier',
+    ],
     ignorePatterns: ['.eslintrc.js'],
     rules: {
         'import/order': [
@@ -49,9 +64,6 @@ module.exports = {
             },
         ],
         'unused-imports/no-unused-imports': 'error',
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -87,10 +99,20 @@ module.exports = {
         'no-unsafe-optional-chaining': 'off',
         'react/no-array-index-key': 'off',
         'sergey-plugin/path-checker': ['error', { alias: '@' }],
-        'sergey-plugin/public-api-imports': ['error', { alias: '@', testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] }],
-        'sergey-plugin/layer-imports': ['error', { alias: '@', ignoreImportPatterns: ['**/redux', '**/testing'] }],
+        'sergey-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'sergey-plugin/layer-imports': [
+            'error',
+            { alias: '@', ignoreImportPatterns: ['**/redux', '**/testing'] },
+        ],
         'no-nested-ternary': 'off',
         'react/destructuring-assignment': 'off',
+        // 'react/jsx-max-props-per-line': ['error', { maximum: 3, when: 'always' }],
     },
     globals: {
         __IS_DEV__: true,

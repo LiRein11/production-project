@@ -24,10 +24,13 @@ export const articleDetailsSlice = createSlice({
             state.isLoading = false;
             state.error = undefined;
         });
-        builder.addCase(fetchArticleById.rejected, (state, action: PayloadAction<string | undefined>) => {
-            state.isLoading = false;
-            state.error = action.payload;
-        });
+        builder.addCase(
+            fetchArticleById.rejected,
+            (state, action: PayloadAction<string | undefined>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            },
+        );
     },
 });
 

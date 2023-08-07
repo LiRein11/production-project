@@ -30,22 +30,51 @@ export interface ListBoxProps {
 }
 
 export function ListBox(props: ListBoxProps) {
-    const { items, className, value, defaultValue, onChange, readonly, label, direction = 'bottom right' } = props;
+    const {
+        items,
+        className,
+        value,
+        defaultValue,
+        onChange,
+        readonly,
+        label,
+        direction = 'bottom right',
+    } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
 
     return (
         <HStack gap="4">
             {label && <span>{`${label}>`}</span>}
-            <HListBox disabled={readonly} as="div" className={classNames(cls.ListBox, {}, [className, popupCls.popup])} value={value} onChange={onChange}>
+            <HListBox
+                disabled={readonly}
+                as="div"
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+                value={value}
+                onChange={onChange}
+            >
                 <HListBox.Button disabled={readonly} className={popupCls.trigger}>
                     <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
                 <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (
-                        <HListBox.Option as={Fragment} key={item.value} value={item.value} disabled={item.disabled}>
+                        <HListBox.Option
+                            as={Fragment}
+                            key={item.value}
+                            value={item.value}
+                            disabled={item.disabled}
+                        >
                             {({ active, selected }) => (
-                                <li className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: item.disabled }, [])}>
+                                <li
+                                    className={classNames(
+                                        cls.item,
+                                        {
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: item.disabled,
+                                        },
+                                        [],
+                                    )}
+                                >
                                     <HStack>
                                         {item.content}
                                         {selected && <CheckIcon className={cls.icon} />}

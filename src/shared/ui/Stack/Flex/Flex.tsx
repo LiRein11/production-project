@@ -48,10 +48,25 @@ export interface FlexProps extends DivProps {
 }
 
 export const Flex = memo((props: FlexProps) => {
-    const { className, children, align = 'center', justify = 'start', direction = 'row', gap, max, ...otherProps } = props;
+    const {
+        className,
+        children,
+        align = 'center',
+        justify = 'start',
+        direction = 'row',
+        gap,
+        max,
+        ...otherProps
+    } = props;
     const { t } = useTranslation();
 
-    const classes = [className, alignClasses[align], justifyClasses[justify], directionClasses[direction], gap && gapClasses[gap]];
+    const classes = [
+        className,
+        alignClasses[align],
+        justifyClasses[justify],
+        directionClasses[direction],
+        gap && gapClasses[gap],
+    ];
 
     const mods: Mods = {
         [cls.max]: max,

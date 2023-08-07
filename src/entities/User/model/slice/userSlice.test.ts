@@ -13,9 +13,7 @@ const userData = {
 describe('articleDetailsSlice.test', () => {
     test('test setAuthData', () => {
         const state: DeepPartial<UserSchema> = {};
-        expect(
-            userReducer(state as UserSchema, userActions.setAuthData(userData)),
-        ).toEqual({
+        expect(userReducer(state as UserSchema, userActions.setAuthData(userData))).toEqual({
             authData: userData,
         });
     });
@@ -23,9 +21,7 @@ describe('articleDetailsSlice.test', () => {
     test('test initAuthData', () => {
         const state: DeepPartial<UserSchema> = { _inited: false };
 
-        expect(
-            userReducer(state as UserSchema, userActions.initAuthData()),
-        ).toEqual({
+        expect(userReducer(state as UserSchema, userActions.initAuthData())).toEqual({
             _inited: true,
         });
     });

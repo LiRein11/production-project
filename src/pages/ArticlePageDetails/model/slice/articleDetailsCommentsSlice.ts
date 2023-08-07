@@ -10,7 +10,9 @@ const commentsAdapter = createEntityAdapter<Comment>({
     selectId: (comment) => comment.id,
 });
 
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>((state) => state.articlePageDetails?.comments || commentsAdapter.getInitialState());
+export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
+    (state) => state.articlePageDetails?.comments || commentsAdapter.getInitialState(),
+);
 
 const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsCommentsSlice',
@@ -26,15 +28,21 @@ const articleDetailsCommentsSlice = createSlice({
             state.isLoading = true;
             state.error = undefined;
         });
-        builder.addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<Comment[]>) => {
-            commentsAdapter.setAll(state, action.payload);
-            state.isLoading = false;
-            state.error = undefined;
-        });
-        builder.addCase(fetchCommentsByArticleId.rejected, (state, action: PayloadAction<string | undefined>) => {
-            state.isLoading = false;
-            state.error = action.payload;
-        });
+        builder.addCase(
+            fetchCommentsByArticleId.fulfilled,
+            (state, action: PayloadAction<Comment[]>) => {
+                commentsAdapter.setAll(state, action.payload);
+                state.isLoading = false;
+                state.error = undefined;
+            },
+        );
+        builder.addCase(
+            fetchCommentsByArticleId.rejected,
+            (state, action: PayloadAction<string | undefined>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            },
+        );
         // builder.addCase(addCommentForArticle.pending, (state) => {
         //     state.error = undefined;
         // });

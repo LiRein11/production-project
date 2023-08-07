@@ -86,10 +86,7 @@ describe('articleDetailsSlice.test', () => {
             isLoading: false,
         };
         expect(
-            articleDetailsReducer(
-                state as ArticleDetailsSchema,
-                fetchArticleById.pending,
-            ),
+            articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.pending),
         ).toEqual({
             isLoading: true,
             error: undefined,

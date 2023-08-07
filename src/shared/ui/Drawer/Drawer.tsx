@@ -38,7 +38,12 @@ export const DrawerContent = memo((props: DrawerProps) => {
     }, [isOpen, openDrawer]);
 
     const close = (velocity = 0) => {
-        api.start({ y: height, immediate: false, config: { ...Spring.config.stiff, velocity }, onResolve: onClose });
+        api.start({
+            y: height,
+            immediate: false,
+            config: { ...Spring.config.stiff, velocity },
+            onResolve: onClose,
+        });
     };
 
     const bind = Gesture.useDrag(
@@ -53,7 +58,12 @@ export const DrawerContent = memo((props: DrawerProps) => {
                 }
             } else api.start({ y: my, immediate: true });
         },
-        { from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true },
+        {
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
+        },
     );
 
     if (!isOpen) {
@@ -67,7 +77,15 @@ export const DrawerContent = memo((props: DrawerProps) => {
             <div className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}>
                 <Overlay onClick={close} />
 
-                <Spring.a.div className={cls.sheet} style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }} {...bind()}>
+                <Spring.a.div
+                    className={cls.sheet}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px)`,
+                        y,
+                    }}
+                    {...bind()}
+                >
                     {children}
                 </Spring.a.div>
             </div>

@@ -16,17 +16,17 @@ export function useTheme(): IUseThemeResult {
     const toggleTheme = () => {
         let newTheme: ETheme;
         switch (theme) {
-        case ETheme.DARK:
-            newTheme = ETheme.ORANGE;
-            break;
-        case ETheme.LIGHT:
-            newTheme = ETheme.DARK;
-            break;
-        case ETheme.ORANGE:
-            newTheme = ETheme.LIGHT;
-            break;
-        default:
-            newTheme = ETheme.LIGHT;
+            case ETheme.DARK:
+                newTheme = ETheme.ORANGE;
+                break;
+            case ETheme.LIGHT:
+                newTheme = ETheme.DARK;
+                break;
+            case ETheme.ORANGE:
+                newTheme = ETheme.LIGHT;
+                break;
+            default:
+                newTheme = ETheme.LIGHT;
         }
         setTheme?.(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);

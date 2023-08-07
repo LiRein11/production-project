@@ -1,9 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
-import {
-    getArticleCommentsIsLoading,
-    getArticleCommentsError,
-} from './comments';
+import { getArticleCommentsIsLoading, getArticleCommentsError } from './comments';
 
 import { StateSchema } from '@/app/providers/redux';
 
@@ -21,9 +18,7 @@ describe('comments.test', () => {
 
     test('should work isLoading with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(
-            false,
-        );
+        expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(false);
     });
 
     test('should return error', () => {
@@ -39,8 +34,6 @@ describe('comments.test', () => {
 
     test('should work error with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticleCommentsError(state as StateSchema)).toEqual(
-            undefined,
-        );
+        expect(getArticleCommentsError(state as StateSchema)).toEqual(undefined);
     });
 });

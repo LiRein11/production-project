@@ -18,7 +18,12 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === 'grid' ? 10 : 3).fill(0).map((item, index) => <ArticleListItemSkeleton className={cls.card} key={index} view={view} />);
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === 'grid' ? 10 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+        ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, isLoading, view = 'grid', target } = props;
@@ -33,9 +38,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <div
+            data-testid="ArticleList"
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+        >
             {articles.map((item) => (
-                <ArticleListItem article={item} view={view} target={target} key={item.id} className={cls.card} />
+                <ArticleListItem
+                    article={item}
+                    view={view}
+                    target={target}
+                    key={item.id}
+                    className={cls.card}
+                />
             ))}
             {isLoading && getSkeletons(view)}
         </div>

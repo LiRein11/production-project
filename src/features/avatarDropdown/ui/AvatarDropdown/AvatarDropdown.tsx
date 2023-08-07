@@ -40,11 +40,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             items={[
                 ...(isAdminPanelAvailable
                     ? [
-                        {
-                            content: t('AdminPanel'),
-                            href: getRouteAdminPanel(),
-                        },
-                    ]
+                          {
+                              content: t('AdminPanel'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
                     : []),
                 {
                     content: t('Profile Page'),

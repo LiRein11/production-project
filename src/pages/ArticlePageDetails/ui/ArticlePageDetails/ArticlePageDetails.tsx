@@ -9,7 +9,10 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleRating } from '@/features/articleRating';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import {
+    DynamicReducerLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 

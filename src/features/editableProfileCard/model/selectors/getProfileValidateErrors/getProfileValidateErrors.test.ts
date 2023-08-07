@@ -62,9 +62,7 @@ describe('getProfileValidateErrors.test', () => {
         const state: DeepPartial<StateSchema> = {
             profile: { validateErrors: [EValidateError.NO_DATA] },
         };
-        expect(getProfileValidateErrors(state as StateSchema)).toEqual([
-            EValidateError.NO_DATA,
-        ]);
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual([EValidateError.NO_DATA]);
     });
 
     test('should return incorrect city, age, username', () => {
@@ -93,8 +91,6 @@ describe('getProfileValidateErrors.test', () => {
 
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileValidateErrors(state as StateSchema)).toEqual(
-            undefined,
-        );
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
     });
 });

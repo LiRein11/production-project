@@ -16,7 +16,10 @@ import { ECurrency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { EValidateError } from '@/shared/consts/errors';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import {
+    DynamicReducerLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
@@ -99,14 +102,22 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const onChangeCurrency = useCallback(
         (currency?: ECurrency) => {
-            dispatch(profileActions.updateProfile({ currency: currency || ECurrency.RUB }));
+            dispatch(
+                profileActions.updateProfile({
+                    currency: currency || ECurrency.RUB,
+                }),
+            );
         },
         [dispatch],
     );
 
     const onChangeCountry = useCallback(
         (country?: ECountry) => {
-            dispatch(profileActions.updateProfile({ country: country || ECountry.RUSSIA }));
+            dispatch(
+                profileActions.updateProfile({
+                    country: country || ECountry.RUSSIA,
+                }),
+            );
         },
         [dispatch],
     );
@@ -121,8 +132,29 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <VStack gap="8" max className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
-                {validateErrors?.length && validateErrors.map((err) => <Text data-testid="EditableProfileCard.Error" theme={ETextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />)}
-                <ProfileCard data={formData} isLoading={isLoading} error={error} onChangeFirstname={onChangeFirstname} onChangeLastname={onChangeLastname} onChangeAge={onChangeAge} onChangeCity={onChangeCity} onChangeUsername={onChangeUsername} onChangeAvatar={onChangeAvatar} onChangeCurrency={onChangeCurrency} onChangeCountry={onChangeCountry} readonly={readonly} />
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text
+                            data-testid="EditableProfileCard.Error"
+                            theme={ETextTheme.ERROR}
+                            text={validateErrorsTranslate[err]}
+                            key={err}
+                        />
+                    ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                    readonly={readonly}
+                />
             </VStack>
         </DynamicReducerLoader>
     );

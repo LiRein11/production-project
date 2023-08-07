@@ -2,7 +2,13 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getArticlesPageView, getArticlesPageSort, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageType } from '../../model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageView,
+    getArticlesPageSort,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageType,
+} from '../../model/selectors/articlesPageSelectors';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { articlesHeaderFiltersActions } from '../../model/slices/articlesHeaderFiltersSlice';
 
@@ -90,11 +96,21 @@ export const ArticlesHeaderFilters = memo((props: ArticlesHeaderFiltersProps) =>
     return (
         <div className={classNames(cls.ArticlesHeaderFilters, {}, [className])}>
             <div className={cls.sortWrapper}>
-                <ArticleSortSelector onChangeOrder={onChangeOrder} onChangeSort={onChangeSort} sort={sort} order={order} />
+                <ArticleSortSelector
+                    onChangeOrder={onChangeOrder}
+                    onChangeSort={onChangeSort}
+                    sort={sort}
+                    order={order}
+                />
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
-                <Input data-testid="ArticlesHeaderFilters.Input" value={search} onChange={onChangeSearch} placeholder={t('Search')} />
+                <Input
+                    data-testid="ArticlesHeaderFilters.Input"
+                    value={search}
+                    onChange={onChangeSearch}
+                    placeholder={t('Search')}
+                />
             </Card>
             <ArticleTypeTabs className={cls.tabs} value={type} onChangeType={onChangeType} />
         </div>

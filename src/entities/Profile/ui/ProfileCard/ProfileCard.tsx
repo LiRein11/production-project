@@ -31,11 +31,29 @@ export interface ProfileCardProps {
 
 export const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
-    const { className, data, isLoading, error, onChangeFirstname, onChangeLastname, onChangeAge, onChangeUsername, onChangeCity, onChangeCurrency, onChangeAvatar, onChangeCountry, readonly } = props;
+    const {
+        className,
+        data,
+        isLoading,
+        error,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangeAge,
+        onChangeUsername,
+        onChangeCity,
+        onChangeCurrency,
+        onChangeAvatar,
+        onChangeCountry,
+        readonly,
+    } = props;
 
     if (isLoading) {
         return (
-            <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+            >
                 <Loader />
             </HStack>
         );
@@ -43,27 +61,88 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-                <Text theme={ETextTheme.ERROR} title={t('Error')} text={t('Reload')} align={ETextAlign.CENTER} />
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+            >
+                <Text
+                    theme={ETextTheme.ERROR}
+                    title={t('Error')}
+                    text={t('Reload')}
+                    align={ETextAlign.CENTER}
+                />
             </HStack>
         );
     }
 
     return (
-        <VStack gap="16" max className={classNames(cls.ProfileCard, { [cls.editing]: !readonly }, [className])}>
+        <VStack
+            gap="16"
+            max
+            className={classNames(cls.ProfileCard, { [cls.editing]: !readonly }, [className])}
+        >
             {data?.avatar && (
                 <HStack justify="center" max className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} size={150} alt="avatar" />
                 </HStack>
             )}
-            <Input data-testid="ProfileCard.firstname" value={data?.first} placeholder={t('firstname')} className={cls.input} onChange={onChangeFirstname} readonly={readonly} />
-            <Input data-testid="ProfileCard.lastname" value={data?.lastname} placeholder={t('lastname')} className={cls.input} onChange={onChangeLastname} readonly={readonly} />
-            <Input value={data?.age} placeholder={t('Age')} className={cls.input} onChange={onChangeAge} readonly={readonly} />
-            <Input value={data?.city} placeholder={t('City')} className={cls.input} onChange={onChangeCity} readonly={readonly} />
-            <Input value={data?.username} placeholder={t('Username')} className={cls.input} onChange={onChangeUsername} readonly={readonly} />
-            <Input value={data?.avatar} placeholder={t('Avatar')} className={cls.input} onChange={onChangeAvatar} readonly={readonly} />
-            <CurrencySelect className={cls.input} value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
-            <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry} readonly={readonly} />
+            <Input
+                data-testid="ProfileCard.firstname"
+                value={data?.first}
+                placeholder={t('firstname')}
+                className={cls.input}
+                onChange={onChangeFirstname}
+                readonly={readonly}
+            />
+            <Input
+                data-testid="ProfileCard.lastname"
+                value={data?.lastname}
+                placeholder={t('lastname')}
+                className={cls.input}
+                onChange={onChangeLastname}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.age}
+                placeholder={t('Age')}
+                className={cls.input}
+                onChange={onChangeAge}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.city}
+                placeholder={t('City')}
+                className={cls.input}
+                onChange={onChangeCity}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.username}
+                placeholder={t('Username')}
+                className={cls.input}
+                onChange={onChangeUsername}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.avatar}
+                placeholder={t('Avatar')}
+                className={cls.input}
+                onChange={onChangeAvatar}
+                readonly={readonly}
+            />
+            <CurrencySelect
+                className={cls.input}
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+            />
+            <CountrySelect
+                className={cls.input}
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+            />
         </VStack>
     );
 };

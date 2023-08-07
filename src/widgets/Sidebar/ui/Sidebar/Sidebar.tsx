@@ -22,7 +22,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const sidebarItemsList = useSelector(getSidebarItems);
 
     const itemsList = useMemo(() => {
-        return sidebarItemsList.map((item) => <SidebarItem collapsed={collapsed} item={item} key={item.path} />);
+        return sidebarItemsList.map((item) => (
+            <SidebarItem collapsed={collapsed} item={item} key={item.path} />
+        ));
     }, [collapsed, sidebarItemsList]);
 
     const onToggle = () => {
@@ -30,8 +32,18 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     };
 
     return (
-        <section data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button data-testid="sidebar-btn" onClick={onToggle} className={cls.collapseBtn} theme={EButtonTheme.BACKGROUND_INVERTED} square size={EButtonSize.L}>
+        <section
+            data-testid="sidebar"
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+        >
+            <Button
+                data-testid="sidebar-btn"
+                onClick={onToggle}
+                className={cls.collapseBtn}
+                theme={EButtonTheme.BACKGROUND_INVERTED}
+                square
+                size={EButtonSize.L}
+            >
                 {collapsed ? '>' : '<'}
             </Button>
             <VStack role="navigation" gap="8" className={cls.items}>

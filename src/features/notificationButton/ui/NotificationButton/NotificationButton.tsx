@@ -49,7 +49,11 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     }
 
     return (
-        <Popover className={classNames(cls.NotificationButton, {}, [className])} direction={direction} trigger={trigger}>
+        <Popover
+            className={classNames(cls.NotificationButton, {}, [className])}
+            direction={direction}
+            trigger={trigger}
+        >
             <NotificationList className={cls.notifications} />
         </Popover>
     );

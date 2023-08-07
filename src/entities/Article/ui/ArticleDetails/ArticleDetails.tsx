@@ -3,7 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { EArticleBlockType } from '../../model/consts/consts';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { ArticleBlock } from '../../model/types/article';
@@ -14,7 +18,10 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import {
+    DynamicReducerLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -32,14 +39,16 @@ interface ArticleDetailsProps {
 
 const renderBlock = (block: ArticleBlock) => {
     switch (block.type) {
-    case EArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block} />;
-    case EArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent key={block.id} className={cls.block} block={block} />;
-    case EArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block} />;
-    default:
-        return null;
+        case EArticleBlockType.CODE:
+            return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block} />;
+        case EArticleBlockType.IMAGE:
+            return (
+                <ArticleImageBlockComponent key={block.id} className={cls.block} block={block} />
+            );
+        case EArticleBlockType.TEXT:
+            return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block} />;
+        default:
+            return null;
     }
 };
 
@@ -71,7 +80,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             </>
         );
     } else if (error) {
-        content = <Text title={t('ErrorArticle')} align={ETextAlign.CENTER} theme={ETextTheme.ERROR} />;
+        content = (
+            <Text title={t('ErrorArticle')} align={ETextAlign.CENTER} theme={ETextTheme.ERROR} />
+        );
     } else {
         content = (
             <>
@@ -79,7 +90,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Avatar src={article?.img} size={200} alt="avatar" />
                 </HStack>
                 <VStack gap="4" max data-testid="ArticleDetails.Info">
-                    <Text className={cls.title} title={article?.title} text={article?.subtitle} size={ETextSize.L} />
+                    <Text
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={ETextSize.L}
+                    />
                     <HStack gap="8" className={cls.articleInfo}>
                         <Icon Svg={EyeIcon} className={cls.icon} />
                         <Text text={String(article?.views)} />

@@ -23,7 +23,11 @@ directories?.forEach((directory) => {
     const isIndexFileExist = directory.getSourceFile(`${folderName}/${indexFilename}`);
 
     if (!isIndexFileExist) {
-        const filesInFolder = directory.getSourceFiles(['**/*.tsx', '!**/*.stories.tsx', '!**/*.test.tsx']);
+        const filesInFolder = directory.getSourceFiles([
+            '**/*.tsx',
+            '!**/*.stories.tsx',
+            '!**/*.test.tsx',
+        ]);
 
         let content = '';
 
@@ -34,7 +38,9 @@ directories?.forEach((directory) => {
             content += `export {${moduleName}} from "${modulePath}"\n`;
         });
         // console.log(content)
-        const file = directory.createSourceFile(`${folderName}/${indexFilename}`, content, { overwrite: true });
+        const file = directory.createSourceFile(`${folderName}/${indexFilename}`, content, {
+            overwrite: true,
+        });
 
         // eslint-disable-next-line no-console
         file.save().then(() => console.log(`${folderName} --> index.ts created!`));

@@ -39,8 +39,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text className={cls.appName} theme={ETextTheme.INVERTED} title={t('Fantastic blog')} />
-                <AppLink className={cls.createBtn} theme={EAppLinkTheme.SECONDARY} to={getRouteArticleCreate()}>
+                <Text
+                    className={cls.appName}
+                    theme={ETextTheme.INVERTED}
+                    title={t('Fantastic blog')}
+                />
+                <AppLink
+                    className={cls.createBtn}
+                    theme={EAppLinkTheme.SECONDARY}
+                    to={getRouteArticleCreate()}
+                >
                     {t('Create article')}
                 </AppLink>
 
@@ -55,7 +63,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Button className={classNames(cls.links)} theme={EButtonTheme.CLEAR} onClick={onShowModal}>
+            <Button
+                className={classNames(cls.links)}
+                theme={EButtonTheme.CLEAR}
+                onClick={onShowModal}
+            >
                 {t('Login')}
             </Button>
             <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
