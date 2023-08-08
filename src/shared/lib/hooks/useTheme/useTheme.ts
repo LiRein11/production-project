@@ -7,13 +7,13 @@ import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localstorage';
 
 export interface IUseThemeResult {
     theme: ETheme;
-    toggleTheme?: () => void;
+    toggleTheme?: (saveAction?: (theme: ETheme) => void) => void;
 }
 
 export function useTheme(): IUseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction?: (theme: ETheme) => void) => {
         let newTheme: ETheme;
         switch (theme) {
             case ETheme.DARK:
@@ -30,6 +30,8 @@ export function useTheme(): IUseThemeResult {
         }
         setTheme?.(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+
+        saveAction?.(newTheme);
         // document.body.className = newTheme;
     };
     useEffect(() => {

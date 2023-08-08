@@ -15,6 +15,7 @@ const App = () => {
     const inited = useSelector(getUserInited);
     const sessionStorageIdx = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX);
     const { pathname } = useLocation();
+
     useEffect(() => {
         dispatch(userActions.initAuthData());
         if (!pathname.includes('/articles') && sessionStorageIdx) {

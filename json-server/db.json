@@ -738,10 +738,15 @@
       "roles": [
         "ADMIN"
       ],
-      "features":{
+      "features": {
         "isArticleRatingEnable": true
       },
-      "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg"
+      "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg",
+      "jsonSettings": {
+        "theme": "app_orange_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      }
     },
     {
       "id": "2",
@@ -750,7 +755,7 @@
       "roles": [
         "USER"
       ],
-      "features":{
+      "features": {
         "isArticleRatingEnable": false
       },
       "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd"
