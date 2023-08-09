@@ -18,7 +18,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 
     const dispatch = useAppDispatch();
 
-    const toggleHanler = useCallback(() => {
+    const toggleHandler = useCallback(() => {
         toggleTheme?.((newTheme) => {
             dispatch(saveJsonSettings({ theme: newTheme }));
         });
@@ -27,7 +27,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     return (
         <Button
             theme={EButtonTheme.CLEAR}
-            onClick={toggleHanler}
+            onClick={toggleHandler}
             className={classNames('', {}, [className])}
         >
             {theme === ETheme.LIGHT ? <LightIcon /> : <DarkIcon />}

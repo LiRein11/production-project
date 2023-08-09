@@ -7,3 +7,4 @@ export { UserRole } from './model/consts/consts';
 export { getUserRoles } from './model/selectors/roleSelectors';
 export { useJsonSettings, getJsonSettings } from './model/selectors/jsonSettings';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
+export { initAuthData } from './model/services/initAuthData';

@@ -8,9 +8,9 @@ import { ETheme } from '@/shared/consts/theme';
 
 export const ThemeDecorator = (theme: ETheme) => (Story: Story) =>
     (
-        <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme}`}>
-                <Story />
-            </div>
-        </ThemeProvider>
+        // <ThemeProvider initialTheme={theme}>
+        <div className={`app ${theme}`}>
+            <Story />
+        </div>
+        // </ThemeProvider>
     );

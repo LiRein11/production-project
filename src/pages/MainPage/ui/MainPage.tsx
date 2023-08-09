@@ -15,7 +15,6 @@ const MainPage = memo(() => {
     return (
         <>
             <Page data-testid="MainPage">{t('Главная страница')}</Page>
-
             {/* <Counter /> */}
             {/* <BugButton /> */}
         </>

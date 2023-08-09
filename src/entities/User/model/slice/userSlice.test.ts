@@ -1,5 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
+import { initAuthData } from '../services/initAuthData';
 import { UserSchema } from '../types/userSchema';
 
 import { userReducer, userActions } from './userSlice';
@@ -21,8 +22,9 @@ describe('articleDetailsSlice.test', () => {
     test('test initAuthData', () => {
         const state: DeepPartial<UserSchema> = { _inited: false };
 
-        expect(userReducer(state as UserSchema, userActions.initAuthData())).toEqual({
+        expect(userReducer(state as UserSchema, initAuthData.fulfilled(userData, ''))).toEqual({
             _inited: true,
+            authData: userData,
         });
     });
 

@@ -1,27 +1,29 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { AppRouter } from './providers/router';
 
-import { getUserInited, userActions } from '@/entities/User';
-import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
+import { getUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { LoaderPage } from '@/widgets/LoaderPage';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
 const App = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
-    const sessionStorageIdx = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX);
-    const { pathname } = useLocation();
+    const { theme } = useTheme();
 
     useEffect(() => {
-        dispatch(userActions.initAuthData());
-        if (!pathname.includes('/articles') && sessionStorageIdx) {
-            sessionStorage.removeItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX);
-        }
-    }, [dispatch, pathname, sessionStorageIdx]);
+        dispatch(initAuthData());
+    }, [dispatch]);
+    console.log(inited);
+
+    if (!inited) {
+        return <LoaderPage />;
+    }
 
     return (
         <div className={classNames('app', {}, [])}>

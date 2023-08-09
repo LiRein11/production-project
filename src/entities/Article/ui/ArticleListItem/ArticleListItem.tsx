@@ -6,7 +6,6 @@ import { Article, ArticleTextBlock, ArticleView } from '../../model/types/articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/consts/localstorage';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
@@ -35,10 +34,6 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     const [isHover, bindHover] = useHover();
     // console.log(isHover);
-
-    const handleButtonClick = () => {
-        sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX, JSON.stringify(index));
-    };
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
@@ -77,9 +72,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)} target={target}>
-                            <Button onClick={handleButtonClick} theme={EButtonTheme.OUTLINE}>
-                                {t('ReadMore')}
-                            </Button>
+                            <Button theme={EButtonTheme.OUTLINE}>{t('ReadMore')}</Button>
                         </AppLink>
                         {views}
                     </div>
@@ -92,7 +85,6 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <AppLink
                 data-testid="ArticleListItem"
-                onClick={handleButtonClick}
                 to={getRouteArticleDetails(article.id)}
                 target={target}
             >
