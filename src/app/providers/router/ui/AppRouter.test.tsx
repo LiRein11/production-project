@@ -34,7 +34,7 @@ describe('app/providers/router/AppRouter', () => {
     test('Доступ к закрытой странице авторизованного пользователя', async () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
-            initialState: { user: { _inited: true, authData: {} } },
+            initialState: { user: { _inited: true, authData: { id: '1' } } },
         });
 
         const page = await screen.findByTestId('ProfilePage');
