@@ -16,6 +16,7 @@ import {
 import { ArticlesHeaderFilters } from '../ArticlesPageFilters/ArticlesHeaderFilters';
 
 import { ArticleList } from '@/entities/Article';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicReducerLoader,
@@ -70,6 +71,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
                     isLoading={isLoading}
                     className={cls.list}
                 />
+                <ArticlePageGreeting />
             </Page>
         </DynamicReducerLoader>
     );

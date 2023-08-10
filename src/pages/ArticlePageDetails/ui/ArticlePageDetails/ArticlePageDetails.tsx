@@ -14,7 +14,7 @@ import {
     DynamicReducerLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
@@ -38,19 +38,17 @@ const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
         return null;
     }
 
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnable',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Article rating coming soon!')}</Card>,
-    });
-
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticlePageDetails, {}, [className])}>
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {articleRatingCard}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnable"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Article rating coming soon!')}</Card>}
+                    />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

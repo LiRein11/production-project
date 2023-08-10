@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { ETheme } from '../../../consts/theme';
 import { ThemeContext } from '../../context/ThemeContext';
@@ -34,9 +34,9 @@ export function useTheme(): IUseThemeResult {
         saveAction?.(newTheme);
         // document.body.className = newTheme;
     };
-    // useEffect(() => {
-    //     document.body.className = theme || '';
-    // }, [theme]);
+    useEffect(() => {
+        document.body.className = theme || '';
+    }, [theme]);
     return {
         theme: theme || ETheme.LIGHT,
         toggleTheme,
