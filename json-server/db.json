@@ -761,7 +761,8 @@
       },
       "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd",
       "jsonSettings": {
-        "isArticlesPageWasOpened": true
+        "isArticlesPageWasOpened": true,
+        "theme": "app_light_theme"
       }
     },
     {
@@ -868,14 +869,14 @@
       "rate": 4,
       "feedback": "Хороший профиль",
       "userId": "1",
-      "articleId": "1"
+      "profileId": "1"
     },
     {
-      "id": "2",
-      "rate": 4,
-      "feedback": "Хороший профиль",
+      "profileId": "2",
       "userId": "1",
-      "articleId": "2"
+      "rate": 3,
+      "feedback": "гуд профайл",
+      "id": "yBcTy3s"
     }
   ]
 }
