@@ -8,6 +8,7 @@ import { scrollSaveActions } from '../../model/slices/scrollSaveSlice';
 
 import { StateSchema } from '@/app/providers/redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -59,7 +60,15 @@ export const Page = (props: PageProps) => {
             data-testid={props['data-testid'] ?? ''}
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page,
+                }),
+                {},
+                [className],
+            )}
         >
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}

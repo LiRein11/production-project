@@ -114,6 +114,7 @@ module.exports = {
         'react/destructuring-assignment': 'off',
         'react/no-unstable-nested-components': 'warn',
         'consistent-return': 'off',
+        'no-redeclare': 'off',
         // 'react/jsx-max-props-per-line': ['error', { maximum: 3, when: 'always' }],
     },
     globals: {

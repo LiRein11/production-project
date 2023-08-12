@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
 
 import { getUserInited, initAuthData } from '@/entities/User';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { LoaderPage } from '@/widgets/LoaderPage';
@@ -26,15 +28,32 @@ const App = () => {
     }
 
     return (
-        <div className={classNames('app', {}, [])}>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <div className={classNames('app', {}, [])}>
+                    <Suspense fallback="">
+                        <Navbar />
+                        <div className="content-page">
+                            <Sidebar />
+                            <AppRouter />
+                        </div>
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
+            }
+            on={
+                <div className={classNames('app_redesigned', {}, [])}>
+                    <Suspense fallback="">
+                        <MainLayout
+                            sidebar={<Sidebar />}
+                            content={<AppRouter />}
+                            header={<Navbar />}
+                            toolbar={<div>asgsagsa</div>}
+                        />
+                    </Suspense>
+                </div>
+            }
+        />
     );
 };
 
