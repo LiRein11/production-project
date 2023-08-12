@@ -33,7 +33,8 @@
         "remove-feature": "ts-node ./scripts/remove-feature.ts"
     },
     "lint-staged": {
-        "**/*.{ts,tsx}": ["prettier", "eslint"]
+        "**/*.{ts,tsx}": ["prettier", "eslint"],
+        "**/*.scss": "npx stylelint"
     },
     "keywords": [],
     "author": "",

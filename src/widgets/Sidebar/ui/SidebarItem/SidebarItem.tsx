@@ -6,7 +6,7 @@ import { SidebarItemType } from '../../model/types/sidebar';
 
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, EAppLinkTheme } from '@/shared/ui/AppLink';
+import { AppLink, EAppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 
 import cls from './SidebarItem.module.scss';
 

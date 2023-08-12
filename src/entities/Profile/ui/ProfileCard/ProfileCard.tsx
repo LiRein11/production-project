@@ -5,11 +5,11 @@ import { Profile } from '../../model/types/profile';
 import { CountrySelect, ECountry } from '@/entities/Country';
 import { CurrencySelect, ECurrency } from '@/entities/Currency';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { ETextAlign, ETextTheme, Text } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { ETextTheme, ETextAlign, Text } from '@/shared/ui/deprecated/Text';
 
 import cls from './ProfileCard.module.scss';
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ECountry } from '../../model/consts/consts';
 
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 
 export interface CountrySelectProps {
     className?: string;

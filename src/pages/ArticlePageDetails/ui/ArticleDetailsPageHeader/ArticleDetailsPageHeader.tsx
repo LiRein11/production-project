@@ -8,8 +8,8 @@ import { getCanEditArticle } from '../../model/selectors/articles';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, EButtonTheme } from '@/shared/ui/Button';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, EButtonTheme } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

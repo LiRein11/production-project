@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleImageBlock } from '../../model/types/article';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ETextAlign, Text } from '@/shared/ui/Text';
+import { ETextAlign, Text } from '@/shared/ui/deprecated/Text';
 
 import cls from './ArticleImageBlockComponent.module.scss';
 

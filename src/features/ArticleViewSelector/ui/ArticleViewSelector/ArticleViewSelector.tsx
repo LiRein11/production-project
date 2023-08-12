@@ -4,8 +4,8 @@ import { ArticleView } from '@/entities/Article';
 import GridIcon from '@/shared/assets/icons/grid-24-24.svg';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, EButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Button, EButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 
 import cls from './ArticleViewSelector.module.scss';
 
@@ -51,6 +51,8 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                     onClick={onClick(viewType.view)}
                 >
                     <Icon
+                        width={24}
+                        height={24}
                         Svg={viewType.icon}
                         className={classNames(
                             '',

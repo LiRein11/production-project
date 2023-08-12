@@ -12,9 +12,9 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicReducerLoader } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, EButtonTheme } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
-import { ETextTheme, Text } from '@/shared/ui/Text';
+import { Button, EButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { ETextTheme, Text } from '@/shared/ui/deprecated/Text';
 
 import cls from './LoginForm.module.scss';
 
