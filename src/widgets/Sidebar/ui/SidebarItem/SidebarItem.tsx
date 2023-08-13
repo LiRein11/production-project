@@ -6,7 +6,10 @@ import { SidebarItemType } from '../../model/types/sidebar';
 
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, EAppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLink as AppLinkDeprecated, EAppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import cls from './SidebarItem.module.scss';
 
@@ -25,13 +28,31 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     }
 
     return (
-        <AppLink
-            to={item.path}
-            theme={EAppLinkTheme.PRIMARY}
-            className={classNames(cls.item, { [cls.collapsed]: collapsed })}
-        >
-            <item.Icon className={cls.icon} />
-            <span className={classNames(cls.link)}>{t(item.text)}</span>
-        </AppLink>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <AppLink
+                    to={item.path}
+                    variant="primary"
+                    className={classNames(cls.itemRedesigned, {
+                        [cls.collapsedRedesigned]: collapsed,
+                    })}
+                    activeClassName={cls.active}
+                >
+                    <Icon Svg={item.Icon} />
+                    <span className={classNames(cls.link)}>{t(item.text)}</span>
+                </AppLink>
+            }
+            off={
+                <AppLinkDeprecated
+                    to={item.path}
+                    theme={EAppLinkTheme.PRIMARY}
+                    className={classNames(cls.item, { [cls.collapsed]: collapsed })}
+                >
+                    <item.Icon className={cls.icon} />
+                    <span className={classNames(cls.link)}>{t(item.text)}</span>
+                </AppLinkDeprecated>
+            }
+        />
     );
 });
