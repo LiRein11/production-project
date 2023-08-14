@@ -2,8 +2,8 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { Fragment, ReactNode } from 'react';
 
+import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Button/Button';
-import { HStack } from '../../../Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 

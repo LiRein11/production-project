@@ -47,10 +47,6 @@ export interface FlexProps extends DivProps {
     max?: boolean;
 }
 
-/**
- * Устарел, используются новые компоненты из папки redesigned
- * @deprecated
- */
 export const Flex = memo((props: FlexProps) => {
     const {
         className,

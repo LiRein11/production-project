@@ -16,7 +16,7 @@ import {
 } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 
 import cls from './ArticlePageDetails.module.scss';

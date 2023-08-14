@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 export interface LoginModalProps {
     isOpen: boolean;
