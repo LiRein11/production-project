@@ -5,7 +5,7 @@ import { ViewSelectorContainer } from './ViewSelectorContainer';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: 'shared/ViewSelectorContainer',
+    title: 'pages/ArticlesPage/ViewSelectorContainer',
     component: ViewSelectorContainer,
     argTypes: {
         backgroundColor: { control: 'color' },

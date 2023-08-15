@@ -34,9 +34,11 @@ export function useTheme(): IUseThemeResult {
         saveAction?.(newTheme);
         // document.body.className = newTheme;
     };
+
     useEffect(() => {
         document.body.className = theme || '';
     }, [theme]);
+
     return {
         theme: theme || ETheme.LIGHT,
         toggleTheme,

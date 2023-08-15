@@ -1,12 +1,9 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticlesFilters } from '@/widgets/ArticlesFilters';
-
-import cls from './FiltersContainer.module.scss';
 
 interface FiltersContainerProps {
     className?: string;
@@ -14,7 +11,6 @@ interface FiltersContainerProps {
 
 export const FiltersContainer = memo((props: FiltersContainerProps) => {
     const { className } = props;
-    const { t } = useTranslation();
     const { onChangeOrder, onChangeSort, sort, order, search, onChangeSearch, type, onChangeType } =
         useArticleFilters();
 
@@ -28,7 +24,7 @@ export const FiltersContainer = memo((props: FiltersContainerProps) => {
             onChangeOrder={onChangeOrder}
             onChangeSort={onChangeSort}
             onChangeType={onChangeType}
-            className={classNames(cls.FiltersContainer, {}, [className])}
+            className={classNames('', {}, [className])}
         />
     );
 });

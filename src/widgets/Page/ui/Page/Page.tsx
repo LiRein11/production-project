@@ -1,5 +1,4 @@
 import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -27,7 +26,6 @@ export const PAGE_ID = 'PAGE_ID';
 
 export const Page = (props: PageProps) => {
     const { className, children, onScrollEnd } = props;
-    const { t } = useTranslation();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();

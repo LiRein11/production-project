@@ -8,7 +8,7 @@ import cls from './Flex.module.scss';
 export type FlexAlign = 'center' | 'start' | 'end';
 export type FlexJustify = 'center' | 'start' | 'end' | 'between';
 export type FlexDirection = 'column' | 'row';
-export type FlexGap = '4' | '8' | '16' | '32';
+export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 const alignClasses: Record<FlexAlign, string> = {
     center: cls.alignCenter,
@@ -32,6 +32,7 @@ const gapClasses: Record<FlexGap, string> = {
     4: cls.gap4,
     8: cls.gap8,
     16: cls.gap16,
+    24: cls.gap24,
     32: cls.gap32,
 };
 

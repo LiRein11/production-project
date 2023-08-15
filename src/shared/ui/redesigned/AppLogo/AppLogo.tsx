@@ -17,9 +17,9 @@ export const AppLogo = memo((props: AppLogoProps) => {
 
     return (
         <HStack max justify="center" className={classNames(cls.AppLogo, {}, [className])}>
+            <AppSvg width={size} height={size} color="black" className={cls.appLogo} />
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />
-            <AppSvg width={size} height={size} color="black" className={cls.appLogo} />
         </HStack>
     );
 });

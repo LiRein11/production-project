@@ -16,12 +16,13 @@ import { Sidebar } from '@/widgets/Sidebar';
 const App = () => {
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
-    const { theme } = useTheme();
 
     useEffect(() => {
         dispatch(initAuthData());
     }, [dispatch]);
     console.log(inited);
+
+    const { theme } = useTheme();
 
     if (!inited) {
         return <LoaderPage />;

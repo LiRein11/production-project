@@ -5,7 +5,7 @@ import { FiltersContainer } from './FiltersContainer';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: 'shared/FiltersContainer',
+    title: 'pages/ArticlesPage/FiltersContainer',
     component: FiltersContainer,
     argTypes: {
         backgroundColor: { control: 'color' },

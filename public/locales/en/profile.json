@@ -1,8 +1,8 @@
 {
     "Profile": "Profile",
     "Edit": "Edit",
-    "firstname": "Your firstname",
-    "lastname": "Your lastname",
+    "firstname": "Firstname",
+    "lastname": "lastname",
     "Error": "An error occurred while loading the profile",
     "Reload": "Reload the page",
     "Cancel": "Cancel",
