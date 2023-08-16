@@ -4,17 +4,18 @@
 @import "themes/dark";
 @import "themes/orange";
 
-.app_light_theme,
-.app_dark_theme,
-.app_drawer,
-body {
-  color: var(--primary-color);
-  font: var(--font-m);
-}
+// .app_light_theme,
+// .app_dark_theme,
+// .app_drawer,
+// body {
+
+// }
 
 .app {
   background: var(--bg-color);
   min-height: 100vh;
+  color: var(--primary-color);
+  font: var(--font-m);
 }
 
 .app_redesigned {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
+import { getRouteAdminPanel, getRouteProfile, getRouteSettings } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -53,6 +53,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                               ]
                             : []),
                         {
+                            content: t('Settings'),
+                            href: getRouteSettings(),
+                        },
+                        {
                             content: t('Profile Page'),
                             href: getRouteProfile(authData.id),
                         },
@@ -77,6 +81,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                                   },
                               ]
                             : []),
+                        {
+                            content: t('Settings'),
+                            href: getRouteSettings(),
+                        },
                         {
                             content: t('Profile Page'),
                             href: getRouteProfile(authData.id),

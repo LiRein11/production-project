@@ -6,7 +6,7 @@ import { JsonSettings } from '../types/jsonSettings';
 import { User, UserSchema } from '../types/userSchema';
 
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
-import { setFeatureFlags } from '@/shared/lib/features/setGetFeatures';
+import { setFeatureFlags } from '@/shared/lib/features/lib/setGetFeatures';
 
 const initialState: UserSchema = { _inited: false };
 
