@@ -1,21 +1,23 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Article } from '../../model/types/article';
+import { Article } from '../../../model/types/article';
 
-import { ArticleListItem } from './ArticleListItem';
+import { ArticleListItemDeprecated } from './ArticleListItemDeprecated';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/shared/consts/theme';
 
 export default {
-    title: 'entities/Article/ArticleListItem',
-    component: ArticleListItem,
+    title: 'entities/Article/ArticleListItem/ArticleListItemDeprecated',
+    component: ArticleListItemDeprecated,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleListItem>;
+} as ComponentMeta<typeof ArticleListItemDeprecated>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+const Template: ComponentStory<typeof ArticleListItemDeprecated> = (args) => (
+    <ArticleListItemDeprecated {...args} />
+);
 
 const article = {
     id: '1',

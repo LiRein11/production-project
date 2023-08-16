@@ -29,15 +29,6 @@ interface ViewType {
 
 const viewTypes: ViewType[] = [
     {
-        view: 'grid',
-        icon: toggleFeatures({
-            name: 'isAppRedesigned',
-            on: () => GridIcon,
-            off: () => GridIconDeprecated,
-        }),
-        'data-testid': 'ArticleViewSelectorGrid',
-    },
-    {
         view: 'list',
         icon: toggleFeatures({
             name: 'isAppRedesigned',
@@ -45,6 +36,15 @@ const viewTypes: ViewType[] = [
             off: () => ListIconDeprecated,
         }),
         'data-testid': 'ArticleViewSelectorList',
+    },
+    {
+        view: 'grid',
+        icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => GridIcon,
+            off: () => GridIconDeprecated,
+        }),
+        'data-testid': 'ArticleViewSelectorGrid',
     },
 ];
 
@@ -68,6 +68,8 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                             <Icon
                                 onClick={onClick(viewType.view)}
                                 clickable
+                                width={24}
+                                height={24}
                                 Svg={viewType.icon}
                                 className={classNames(
                                     '',
