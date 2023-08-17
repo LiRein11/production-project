@@ -4,6 +4,8 @@ import UserIcon from '../../../assets/icons/user-32-32.svg';
 import { AppImage } from '../../redesigned/AppImage';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
+import { HStack } from '../Stack';
+import { Text } from '../Text';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
@@ -14,9 +16,10 @@ interface AvatarProps {
     src?: string;
     size?: number;
     alt?: string;
+    username?: string;
 }
 
-export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
+export const Avatar = ({ className, src, size = 100, alt, username }: AvatarProps) => {
     const mods: Mods = {};
 
     const styles = useMemo<CSSProperties>(
@@ -31,13 +34,16 @@ export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
     const errorFallback = <Icon width={size} height={size} Svg={UserIcon} />;
 
     return (
-        <AppImage
-            fallback={fallback}
-            errorFallback={errorFallback}
-            src={src}
-            alt={alt}
-            style={styles}
-            className={classNames(cls.Avatar, mods, [className])}
-        />
+        <HStack gap="8">
+            <AppImage
+                fallback={fallback}
+                errorFallback={errorFallback}
+                src={src}
+                alt={alt}
+                style={styles}
+                className={classNames(cls.Avatar, mods, [className])}
+            />
+            {username && <Text text={username} bold />}
+        </HStack>
     );
 };

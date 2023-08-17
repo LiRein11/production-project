@@ -30,5 +30,8 @@
   "Leave a review": "Leave a review",
   "Thank you for rating": "Thank you for rating!",
   "Rate the profile": "Rate the profile",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

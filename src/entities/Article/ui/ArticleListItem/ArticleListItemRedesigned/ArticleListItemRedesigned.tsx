@@ -29,10 +29,13 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     // console.log(isHover);
 
     const userInfo = (
-        <>
-            <Avatar size={32} src={article.user?.avatar} alt={article.title || ''} />
-            <Text bold text={article.user?.username} />
-        </>
+        <Avatar
+            username={article.user?.username}
+            size={32}
+            src={article.user?.avatar}
+            alt={article.title || ''}
+            className={cls.avatar}
+        />
     );
 
     const views = (
@@ -91,9 +94,9 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
-            <Card className={cls.card} border="round">
+            <Card className={cls.card} border="round" padding="0">
                 <AppImage
-                    fallback={<Skeleton width={200} height={200} />}
+                    fallback={<Skeleton width="100%" height={200} />}
                     alt={article.title}
                     src={article.img}
                     className={cls.img}

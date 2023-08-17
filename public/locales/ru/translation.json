@@ -30,5 +30,9 @@
     "Leave a review": "Оставьте отзыв",
     "Thank you for rating": "Спасибо за оценку!",
     "Rate the profile": "Оцените профиль",
-    "Settings": "Настройки"
+    "Settings": "Настройки",
+    "{{count}} views_zero": "{{count}} просмотров",
+    "{{count}} views_one": "{{count}} просмотр",
+    "{{count}} views_few": "{{count}} просмотра",
+    "{{count}} views_many": "{{count}} просмотров"
 }

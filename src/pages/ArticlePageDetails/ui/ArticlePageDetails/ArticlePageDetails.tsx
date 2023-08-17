@@ -3,12 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { articlePageDetailsReducer } from '../../model/slice';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleRating } from '@/features/articleRating';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicReducerLoader,
@@ -40,19 +43,40 @@ const ArticlePageDetails: FC<ArticlePageDetailsProps> = (props) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <Page className={classNames(cls.ArticlePageDetails, {}, [className])}>
-                <VStack gap="16" max>
-                    <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id} />
-                    <ToggleFeatures
-                        feature="isArticleRatingEnable"
-                        on={<ArticleRating articleId={id} />}
-                        off={<Card>{t('Article rating coming soon!')}</Card>}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <StickyContentLayout
+                        content={
+                            <Page className={classNames(cls.ArticlePageDetails, {}, [className])}>
+                                <VStack gap="16" max>
+                                    <DetailsContainer />
+                                    <ArticleRating articleId={id} />
+
+                                    <ArticleRecommendationsList />
+                                    <ArticleDetailsComments id={id} />
+                                </VStack>
+                            </Page>
+                        }
+                        right={<AdditionalInfoContainer />}
                     />
-                    <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
-                </VStack>
-            </Page>
+                }
+                off={
+                    <Page className={classNames(cls.ArticlePageDetails, {}, [className])}>
+                        <VStack gap="16" max>
+                            <ArticleDetailsPageHeader />
+                            <ArticleDetails id={id} />
+                            <ToggleFeatures
+                                feature="isArticleRatingEnable"
+                                on={<ArticleRating articleId={id} />}
+                                off={<Card>{t('Article rating coming soon!')}</Card>}
+                            />
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={id} />
+                        </VStack>
+                    </Page>
+                }
+            />
         </DynamicReducerLoader>
     );
 };
