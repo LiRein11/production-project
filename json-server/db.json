@@ -728,6 +728,12 @@
       "articleId": "13",
       "userId": "1",
       "id": "M4HoNme"
+    },
+    {
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dicta quo facilis sunt error quia veniam possimus, in voluptates! Commodi enim aliquid unde totam hic dolore non temporibus sunt atque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dicta quo facilis sunt error quia veniam possimus, in voluptates! Commodi enim aliquid unde totam hic dolore non temporibus sunt atque?",
+      "articleId": "10",
+      "userId": "1",
+      "id": "iARNdxe"
     }
   ],
   "users": [
@@ -744,7 +750,7 @@
       },
       "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true

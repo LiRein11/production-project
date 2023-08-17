@@ -10,10 +10,12 @@ import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlic
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/addCommentForm';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { ETextSize, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -22,7 +24,7 @@ interface ArticleDetailsCommentsProps {
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
     const { className, id } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
 
     const comments = useSelector(getArticleComments.selectAll);
@@ -41,7 +43,11 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>
-            <Text title={t('Comments')} />
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={<Text size="l" title={t('Comments')} />}
+                off={<TextDeprecated size={ETextSize.L} title={t('Comments')} />}
+            />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList isLoading={commentsIsLoading} comments={comments} />
         </VStack>

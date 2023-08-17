@@ -34,6 +34,15 @@ export const Page = (props: PageProps) => {
         getScrollSaveByPath(state, pathname),
     );
 
+    // useEffect(() => {
+    //     if (wrapperRef.current) {
+    //         wrapperRef.current.scrollTop = scrollPosition;
+    //         return;
+    //     }
+
+    //     document.body.scrollIntoView({ behavior: 'smooth' });
+    // }, [pathname, scrollPosition]);
+
     useInfiniteScroll({
         triggerRef,
         wrapperRef: toggleFeatures({

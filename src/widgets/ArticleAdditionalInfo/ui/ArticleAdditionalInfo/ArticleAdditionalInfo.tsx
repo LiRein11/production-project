@@ -19,6 +19,22 @@ export const ArticleAdditionalInfo = memo((props: ArticleAdditionalInfoProps) =>
     const { className, author, createdAt, views } = props;
     const { t } = useTranslation();
 
+    // const isLoading = useSelector(getArticleDetailsIsLoading);
+
+    // if (isLoading) {
+    //     return (
+    //         <VStack max gap="32">
+    //             <HStack gap="8">
+    //                 <Skeleton height={32} width={32} border="50%" />
+    //                 <Skeleton height={24} width={50} />
+    //                 <Skeleton height={24} width={80} />
+    //             </HStack>
+    //             <Skeleton height={40} width={150} border="50%" />
+    //             <Skeleton height={40} width={120} />
+    //         </VStack>
+    //     );
+    // }
+
     return (
         <VStack gap="32" className={classNames('', {}, [className])}>
             <HStack gap="8">

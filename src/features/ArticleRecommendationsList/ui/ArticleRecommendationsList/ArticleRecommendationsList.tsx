@@ -5,8 +5,10 @@ import { useArticleRecommendationsList } from '../../api/articleRecommendationAp
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ETextSize, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleRecommendationsList.module.scss';
 
@@ -29,7 +31,11 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             gap="8"
             className={classNames('', {}, [className])}
         >
-            <Text title={t('Recommendations')} />
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={<Text size="l" title={t('Recommendations')} />}
+                off={<TextDeprecated size={ETextSize.L} title={t('Recommendations')} />}
+            />
             <ArticleList
                 articles={articles}
                 target="_blank"

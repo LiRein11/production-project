@@ -12,7 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof OnEditBtn>;
 
-const Template: ComponentStory<typeof OnEditBtn> = (args) => <OnEditBtn {...args} />;
+const Template: ComponentStory<typeof OnEditBtn> = () => <OnEditBtn />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

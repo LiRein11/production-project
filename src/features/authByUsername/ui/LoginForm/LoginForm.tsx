@@ -11,10 +11,15 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicReducerLoader } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, EButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { ETextTheme, Text } from '@/shared/ui/deprecated/Text';
+import { Button as ButtonDeprecated, EButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { ETextTheme, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './LoginForm.module.scss';
 
@@ -58,35 +63,74 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <DynamicReducerLoader reducers={{ loginForm: loginReducer }} removeAfterUnmount>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('Authorization form')} />
-                {error && (
-                    <Text text={t('Uncorrect username or password')} theme={ETextTheme.ERROR} />
-                )}
-                <Input
-                    autofocus
-                    type="text"
-                    className={classNames(cls.input)}
-                    placeholder={t('Enter username')}
-                    onChange={onChangeUsername}
-                    value={username}
-                />
-                <Input
-                    type="text"
-                    className={classNames(cls.input)}
-                    placeholder={t('Enter password')}
-                    onChange={onChangePassword}
-                    value={password}
-                />
-                <Button
-                    theme={EButtonTheme.OUTLINE}
-                    className={classNames(cls.loginBtn)}
-                    onClick={onLoginClick}
-                    disabled={isLoading}
-                >
-                    {t('Login')}
-                </Button>
-            </div>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <VStack className={classNames(cls.LoginForm, {}, [className])} gap="16">
+                        <Text title={t('Authorization form')} />
+                        {error && (
+                            <Text text={t('Uncorrect username or password')} variant="error" />
+                        )}
+                        <Input
+                            autofocus
+                            type="text"
+                            className={classNames(cls.input)}
+                            placeholder={t('Enter username')}
+                            onChange={onChangeUsername}
+                            value={username}
+                        />
+                        <Input
+                            type="text"
+                            className={classNames(cls.input)}
+                            placeholder={t('Enter password')}
+                            onChange={onChangePassword}
+                            value={password}
+                        />
+                        <Button
+                            variant="outline"
+                            className={classNames(cls.loginBtn)}
+                            onClick={onLoginClick}
+                            disabled={isLoading}
+                        >
+                            {t('Login')}
+                        </Button>
+                    </VStack>
+                }
+                off={
+                    <div className={classNames(cls.LoginForm, {}, [className])}>
+                        <TextDeprecated title={t('Authorization form')} />
+                        {error && (
+                            <TextDeprecated
+                                text={t('Uncorrect username or password')}
+                                theme={ETextTheme.ERROR}
+                            />
+                        )}
+                        <InputDeprecated
+                            autofocus
+                            type="text"
+                            className={classNames(cls.input)}
+                            placeholder={t('Enter username')}
+                            onChange={onChangeUsername}
+                            value={username}
+                        />
+                        <InputDeprecated
+                            type="text"
+                            className={classNames(cls.input)}
+                            placeholder={t('Enter password')}
+                            onChange={onChangePassword}
+                            value={password}
+                        />
+                        <ButtonDeprecated
+                            theme={EButtonTheme.OUTLINE}
+                            className={classNames(cls.loginBtn)}
+                            onClick={onLoginClick}
+                            disabled={isLoading}
+                        >
+                            {t('Login')}
+                        </ButtonDeprecated>
+                    </div>
+                }
+            />
         </DynamicReducerLoader>
     );
 });

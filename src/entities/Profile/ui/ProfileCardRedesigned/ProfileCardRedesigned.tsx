@@ -5,7 +5,6 @@ import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Input } from '@/shared/ui/redesigned/Input';
@@ -67,7 +66,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
     return (
-        <Card padding="24" max className={classNames('', {}, [className])}>
+        <Card padding="24" border="partial" max className={className}>
             <VStack gap="32">
                 {data?.avatar && (
                     <HStack justify="center" max>
