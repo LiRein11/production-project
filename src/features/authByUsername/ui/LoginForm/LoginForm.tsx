@@ -13,6 +13,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicReducerLoader } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { Button as ButtonDeprecated, EButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { ETextTheme, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
@@ -34,6 +35,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     const username = useSelector(getLoginUsername);
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
+    const forceUpdate = useForceUpdate();
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -56,10 +58,13 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         [dispatch],
     );
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-        dispatch(loginActions.setClearInputs());
-    }, [dispatch, username, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            dispatch(loginActions.setClearInputs());
+            forceUpdate();
+        }
+    }, [dispatch, username, password, forceUpdate]);
 
     return (
         <DynamicReducerLoader reducers={{ loginForm: loginReducer }} removeAfterUnmount>
