@@ -33,6 +33,7 @@ export const Page = (props: PageProps) => {
     const scrollPosition = useSelector((state: StateSchema) =>
         getScrollSaveByPath(state, pathname),
     );
+    // console.log(scrollPosition);
 
     // useEffect(() => {
     //     if (wrapperRef.current) {
