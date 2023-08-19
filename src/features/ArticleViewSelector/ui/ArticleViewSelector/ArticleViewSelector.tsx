@@ -68,6 +68,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                             <Icon
                                 onClick={onClick(viewType.view)}
                                 clickable
+                                key={viewType.view}
                                 width={24}
                                 height={24}
                                 Svg={viewType.icon}

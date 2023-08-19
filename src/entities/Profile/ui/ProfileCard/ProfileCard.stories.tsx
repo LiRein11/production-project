@@ -5,6 +5,7 @@ import { ProfileCard } from './ProfileCard';
 
 import { ECountry } from '@/entities/Country';
 import { ECurrency } from '@/entities/Currency';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/shared/consts/theme';
 
@@ -20,8 +21,7 @@ export default {
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+const primaryArgs = {
     data: {
         first: 'Сергей',
         lastname: 'Степанов',
@@ -34,6 +34,13 @@ Primary.args = {
     },
     readonly: false,
 };
+
+export const Primary = Template.bind({});
+Primary.args = primaryArgs;
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = primaryArgs;
+PrimaryRedesigned.decorators = [NewDesignDecorator];
 
 export const WithError = Template.bind({});
 WithError.args = { error: 'true' };
