@@ -5,27 +5,15 @@ import { profileReducer } from '../../model/slice/profileSlice';
 
 import { EditableProfileCard } from './EditableProfileCard';
 
-import { ECountry } from '@/entities/Country';
-import { ECurrency } from '@/entities/Currency';
+import { mockProfile } from '@/entities/Profile/testing';
 import { $api } from '@/shared/api/api';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
-
-const profile = {
-    id: '1',
-    first: 'admin',
-    lastname: 'admin',
-    age: 23,
-    currency: ECurrency.RUB,
-    country: ECountry.RUSSIA,
-    city: 'Kurgan',
-    username: 'admin',
-};
 
 const options = {
     initialState: {
         profile: {
-            data: profile,
-            form: profile,
+            data: mockProfile,
+            form: mockProfile,
             readonly: true,
         },
         user: {

@@ -1,4 +1,4 @@
-import { Suspense, memo, useEffect } from 'react';
+import { Suspense, memo, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppToolbar } from './lib/useAppToolbar';
@@ -20,6 +20,7 @@ const App = memo(() => {
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
     const toolbar = useAppToolbar();
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -27,6 +28,11 @@ const App = memo(() => {
     console.log(inited);
 
     const { theme } = useTheme();
+
+    if (localStorage.getItem('last_design') !== 'new' && !inited) {
+        localStorage.setItem('last_design', 'new');
+        window.location.reload();
+    }
 
     if (!inited) {
         return (

@@ -734,6 +734,12 @@
       "articleId": "10",
       "userId": "1",
       "id": "iARNdxe"
+    },
+    {
+      "text": "da",
+      "articleId": "8",
+      "userId": "1",
+      "id": "O9FhWZ3"
     }
   ],
   "users": [
@@ -745,12 +751,12 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnable": true,
+        "isArticleRatingEnable": false,
         "isAppRedesigned": true
       },
       "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257690_85-p-paren-na-fioletovom-fone-111.jpg",
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -764,7 +770,8 @@
         "USER"
       ],
       "features": {
-        "isArticleRatingEnable": false
+        "isArticleRatingEnable": false,
+        "isAppRedesigned": false
       },
       "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd",
       "jsonSettings": {
@@ -868,6 +875,13 @@
       "rate": 5,
       "feedback": "good",
       "id": "ougmyms"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "norm",
+      "id": "cGtb_s5"
     }
   ],
   "profile-ratings": [

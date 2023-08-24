@@ -47,7 +47,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 В проекте используется библиотека i18next для работы с переводами.
 Файлы с переводами хранятся в public/locales.
 
-Для комфортной работы рекомендуем установить плагин для webstorm/vscode
+Для комфортной работы рекомендуется установить плагин для webstorm/vscode
 
 Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
 
@@ -169,27 +169,26 @@ Clear.args = {
 Взаимодействие с данными осуществляется с помощью redux toolkit.
 По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
 
-Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
+Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts).
 
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
-[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx).
 
 ---
 
 ### Работа с feature-flags
 
-Разрешено использование feature flags только с помощью хелпера toggleFeatures
+Разрешено использование feature flags только с помощью хелпера [toggleFeatures](src\shared\lib\features\lib\toggleFeatures.ts).
 
-в него передается объект с опциями
+В него передается объект с опциями:
 
 {
 name: название фича-флага,
 on: функция, которая отработает после Включения фичи
-of: функция, которая отработает после ВЫключения фичи
+of: функция, которая отработает после Выключения фичи
 }
 
-Для автоматического удаления фичи использовать скрипт remove-feature.ts,
-который принимает 2 аргумента
+Для автоматического удаления фичи использовать скрипт [remove-feature](scripts\remove-feature.ts), который принимает 2 аргумента
 
 1. Название удаляемого фича-флага
 2. Состояние (on\off)
