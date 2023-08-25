@@ -73,6 +73,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                 on={
                     <VStack className={classNames(cls.LoginForm, {}, [className])} gap="16">
                         <Text title={t('Authorization form')} />
+                        <Text text="login: admin/user, password: 123" />
                         {error && (
                             <Text text={t('Uncorrect username or password')} variant="error" />
                         )}
