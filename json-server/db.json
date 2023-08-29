@@ -771,12 +771,12 @@
       ],
       "features": {
         "isArticleRatingEnable": false,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_orange_theme"
+        "theme": "app_light_theme"
       }
     },
     {

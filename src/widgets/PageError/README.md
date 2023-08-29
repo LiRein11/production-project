@@ -1,1 +1,7 @@
-## Widget PageError is for ...
+## Виджет со страницей ошибки
+
+#### Public api
+
+-   Components
+
+`PageError` - Компонент со страницей ошибки

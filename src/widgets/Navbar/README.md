@@ -1,1 +1,7 @@
-## Widget Navbar is for ...
+## Виджет с навбаром
+
+#### Public api
+
+-   Components
+
+`Navbar` - Компонент с навбаром

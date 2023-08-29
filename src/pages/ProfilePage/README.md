@@ -1,1 +1,7 @@
-## Page ProfilePage is for ...
+## Страница с профилем пользователя
+
+#### Public api
+
+-   Components
+
+`ProfilePage` - Компонент со страницей с профилем пользователя
