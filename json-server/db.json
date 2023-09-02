@@ -740,6 +740,12 @@
       "articleId": "8",
       "userId": "1",
       "id": "O9FhWZ3"
+    },
+    {
+      "text": "kruto",
+      "articleId": "14",
+      "userId": "1",
+      "id": "UecKUs2"
     }
   ],
   "users": [
@@ -776,7 +782,7 @@
       "avatar": "https://static.wikia.nocookie.net/822f0ba7-1d6d-48e7-9a1d-96a0c662d4cd",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       }
     },
     {
@@ -882,6 +888,13 @@
       "rate": 3,
       "feedback": "norm",
       "id": "cGtb_s5"
+    },
+    {
+      "articleId": "14",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "kruto",
+      "id": "XHgbPSr"
     }
   ],
   "profile-ratings": [

@@ -8,11 +8,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    parameters: {
-        loki: {
-            skip: true,
-        },
-    },
+    // parameters: {
+    //     loki: {
+    //         skip: true,
+    //     },
+    // },
 } as ComponentMeta<typeof ScrollToolbar>;
 
 const Template: ComponentStory<typeof ScrollToolbar> = (args) => <ScrollToolbar {...args} />;

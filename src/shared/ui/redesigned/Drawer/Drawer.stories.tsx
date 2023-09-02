@@ -8,11 +8,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    parameters: {
-        loki: {
-            skip: true,
-        },
-    },
+    // parameters: {
+    //     loki: {
+    //         skip: true,
+    //     },
+    // },
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;

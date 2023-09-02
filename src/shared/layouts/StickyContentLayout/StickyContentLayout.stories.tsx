@@ -10,11 +10,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    parameters: {
-        loki: {
-            skip: true,
-        },
-    },
+    // parameters: {
+    //     loki: {
+    //         skip: true,
+    //     },
+    // },
 } as ComponentMeta<typeof StickyContentLayout>;
 
 const Template: ComponentStory<typeof StickyContentLayout> = (args) => (

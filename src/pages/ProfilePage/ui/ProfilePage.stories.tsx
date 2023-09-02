@@ -8,11 +8,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    parameters: {
-        loki: {
-            skip: true,
-        },
-    },
+    // parameters: {
+    //     loki: {
+    //         skip: true,
+    //     },
+    // },
     // decorators: [withMock],
 } as ComponentMeta<typeof ProfilePage>;
 
