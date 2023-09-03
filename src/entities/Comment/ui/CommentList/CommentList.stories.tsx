@@ -11,11 +11,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    // parameters: {
-    //     loki: {
-    //         skip: true,
-    //     },
-    // },
+    parameters: {
+        loki: {
+            skip: true,
+        },
+    },
 } as ComponentMeta<typeof CommentList>;
 
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
