@@ -63,3 +63,11 @@ Dark.args = {
     readonly: false,
 };
 Dark.decorators = [ThemeDecorator(ETheme.DARK)];
+
+export const DarkWithError = Template.bind({});
+DarkWithError.args = { error: 'true' };
+DarkWithError.decorators = [ThemeDecorator(ETheme.DARK)];
+
+export const DarkLoading = Template.bind({});
+DarkLoading.args = { isLoading: true };
+DarkLoading.decorators = [ThemeDecorator(ETheme.DARK)];
